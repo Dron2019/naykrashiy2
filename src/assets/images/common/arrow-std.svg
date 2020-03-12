@@ -1,0 +1,9 @@
+<svg width="100%" height="100%" viewBox="0 0 72 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g class="arrow-border">
+        <path d="M6.95916 31.0095L22.7238 65.536L61.0573 60.771L67.399 23.7868L34.1423 5.60687L6.95916 31.0095Z" />
+    </g>
+    <g class="arrow">
+        <path d="M28 37L31 34L31 37L31 40L28 37Z" />
+        <path d="M50.5 37L28 37M28 37L31 34L31 40L28 37Z" />
+    </g>
+</svg>

@@ -1,0 +1,218 @@
+extends ../layout/main
+block meta
+	title= 'ЖК «Найкращий-2'
+	meta(name='description', content='')
+block head
+		link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+
+	script(src='./assets/scripts/functions-and-lang.js')
+	script(src='./assets/scripts/index.js')
+	script(src='./assets/scripts/map.js')
+block content
+	//- .degub-grid
+	//- 	div
+	//- 		div
+	//- 			div
+	//- 			div
+	//- 			div
+	//- 			div
+	//- 			div
+	//- 			div
+	//- 			div
+	//- 			div
+	//- 			div
+	//- 			div
+	//- 			div
+	//- 			div
+	.first-screen-layout(data-screen="1")
+		.bottom-static-block(data-screen="1")
+			.bottom-static-block__screen2.text.text_white Приводи закохатись в ЖК «Найкращий-2»
+			.bottom-static-block__screen3.text.text_white 
+				.screen3-arrow-container
+					.previous
+						include ../../assets/images/common/arrow-sidelong.svg
+					.next 
+						include ../../assets/images/common/arrow-sidelong.svg
+					.count-block
+						span.current 03 
+						span.separator 
+							include ../../assets/images/common/white-line.svg
+						span.all 05
+		.screen1.screen-js(data-active="true")
+			.screen1__content 
+				.logo-block 
+					include ../../assets/images/logo.svg
+				.screen1__subtitle  ЖК «Найкращий-2»
+				.screen1__title Затишний квартал для щасливого життя
+				.screen1__scroll Використовуйте скролл
+				.screen1__adress 
+					a(target='_blank' href="") Київська обл. смт. Гостомель, вул. Варшавська і провулок Варшавський
+		.screen2.screen-js(data-active="false")
+			.screen2__content 
+				.screen2__title.title.title_white Екологічний супутник столиці
+				.screen2__text.text.text_white 
+					p Найкращий-2» створений з думкою про затишок, безпеку і європейський комфорт. Світлий та елегантний, він поєднав у собі романтику заміського життя, та налагоджений побут розвиненого кварталу. 
+					p Тут будівлі не закривають небо, все необхідне — за крок від дому, а замість шуму автівок лунає дитячий сміх.
+		.screen3.screen-js(data-active="false")
+			.screen3__content
+				.screen3__slider
+					.screen3__slide
+						.screen3__text-block
+							.screen3__title.title.title_white Зручне розташування в зеленому районі
+							.screen3__text.text.text_white 
+								p Свіже повітря, зелені парки, простір для прогулянок з дітьми та тваринами – і все це за 10 хвилин від галасливої столиці! Ми дбайливо облаштували для вас те, що створила природа,  зробивши екологічне середовище зручним та естетичним. Не треба довго планувати відпочинок, щоб насолодитися лісом, порибалити або поплавати у річці – все це чекає вас навкруги комплексу!    
+						.screen3__image 
+							+img('screen3/slider/1.png')
+					.screen3__slide
+						.screen3__text-block
+							.screen3__title.title.title_white Розвинена інфраструктура
+							.screen3__text.text.text_white 
+								p Добре жити там, де не треба думати про буденні речі. В ЖК «Найкращий-2» все створено для щоденного комфорту. Понад 1200 м2 заплановано під комерцію, де згодом будуть розміщені магазини, кав'ярні, салони та розвиваючі комплекси. Поруч з ЖК розташований супермаркет АТБ, а на під'їзді до комплексу - ТРЦ "Лавіна" та "Епіцентр". 
+						.screen3__image 
+							+img('screen3/slider/2.png')
+					.screen3__slide
+						.screen3__text-block
+							.screen3__title.title.title_white Турбота про дітей
+							.screen3__text.text.text_white 
+								p Вашим дітям буде добре зростати в ЖК «Найкращий-2». Ми прибрали з дворів машини, і спланували простір для безпечної активності. По всій території кварталу будуть розташовані спортивні зони, дитячі майданчики, просторі доріжки для прогулянок з колясками та тінисті зони відпочинку. 
+								p Дружнє та яскраве дитинство — чудовий фундамент для успішного майбутнього!
+						.screen3__image 
+							+img('screen3/slider/3.png')
+					.screen3__slide
+						.screen3__text-block
+							.screen3__title.title.title_white Надійні технології будівництва
+							.screen3__text.text.text_white 
+								p Стильні будинки до 5 поверхів та лаконічна європейська архітектура - це приваблива обкладинка, яка оздоблює міцну основу. Для будівництва ЖК «Найкращий-2» ми використовували екологічну цеглу, щільну мінеральну вату та якісні енергозберігаючі вікна. Судинами  будинків стали безпечні і тихі ліфти Schindler, а теплим серцем кожної оселі - індивідуальні газові котли. 
+						.screen3__image 
+							+img('screen3/slider/4.png')
+						
+					.screen3__slide
+						.screen3__text-block
+							.screen3__title.title.title_white Безпека в рідному комплексі
+							.screen3__text.text.text_white 
+								p Компактне середовище ЖК «Найкращий-2» сприяє встановленню дружніх, добросусідських відносин, де кожен готовий допомогти чи подарувати посмішку. Закрита територія під охороною надійно захищає від сторонніх, а вуличне освітлення дарує комфорт під час вечірніх прогулянок.  
+								p Дружнє та яскраве дитинство — чудовий фундамент для успішного майбутнього!
+						.screen3__image 
+							+img('screen3/slider/5.png')
+		.screen4.screen-js.screen4-slider(data-active="false")
+			.screen4__info-block
+				a.infra-link.text() Дивитися інфраструктуру
+				.count-block.text.text_white
+					span.current 03 
+					span.separator 
+						include ../../assets/images/common/white-line.svg
+					span.all 05
+				.arrow-block-std 
+					.arrow-prev-std.arrow
+						include ../../assets/images/common/arrow-std.svg
+					.arrow-next-std.arrow
+						include ../../assets/images/common/arrow-next-std.svg
+			.screen4__slide
+				+img('screen4/gallery.png')
+			.screen4__slide
+				+img('screen4/gallery.png')
+			.screen4__slide
+				+img('screen4/gallery.png')
+			.screen4__slide
+				+img('screen4/gallery.png')
+			.screen4__slide
+				+img('screen4/gallery.png')
+			.screen4__slide
+				+img('screen4/gallery.png')
+			.screen4__slide
+				+img('screen4/gallery.png')
+		.screen5.screen-js(data-active="false")
+			+img('screen5/main.png').screen5__image
+			.screen5__title.title.title_white Продумана інфраструктура
+		.screen6.screen-js(data-active="false")
+			.screen6__content
+				.screen6__title.title.title_white Продумана інфраструктура
+				.screen6__text-block.text.text_white
+					p Житловий комплекс знаходиться поруч з великою транспортною розв'язкою, зупинкою громадського транспорту та в 5 хвилинах на авто чи маршрутці до станцій метро Оболонь, Мінська, Героїв Сталінграда.
+					p В кількох кварталах від будинку проходять різні маршрути громадського транспорту, що дозволяють без проблем дістатися будь-якої точки Києва.
+				.screen6__image
+					+img('screen6/img.png')
+		.screen7.screen-js(data-active="false")
+			#map
+			.screen7__legend-title  Об'єкти інфраструктури
+				ul.screen7__legend.legend-items-js
+					li(data-name="main")
+						.screen7__legend-icon 
+							svg
+								<use xlink:href="#icon-main"></use>
+						.screen7__legend-text Комплекс
+						.screen7__legend-eye
+							svg
+								<use xlink:href="#icon-legend-eye"></use>
+					li(data-name="shop")
+						.screen7__legend-icon 
+							svg
+								<use xlink:href="#icon-shop"></use>
+						.screen7__legend-text Магазины
+						.screen7__legend-eye
+							svg
+								<use xlink:href="#icon-legend-eye"></use>
+					li(data-name="park")
+						.screen7__legend-icon 
+							svg
+								<use xlink:href="#icon-park"></use>
+						.screen7__legend-text Парк
+						.screen7__legend-eye
+							svg
+								<use xlink:href="#icon-legend-eye"></use>
+					li(data-name="pharmacy")
+						.screen7__legend-icon 
+							svg
+								<use xlink:href="#icon-pharmacy"></use>
+						.screen7__legend-text Аптека
+						.screen7__legend-eye
+							svg
+								<use xlink:href="#icon-legend-eye"></use>
+					li(data-name="sport")
+						.screen7__legend-icon 
+							svg
+								<use xlink:href="#icon-sport"></use>
+						.screen7__legend-text Спорт
+						.screen7__legend-eye
+							svg
+								<use xlink:href="#icon-legend-eye"></use>
+					li(data-name="meal")
+						.screen7__legend-icon 
+							svg
+								<use xlink:href="#icon-meal"></use>
+						.screen7__legend-text Кафе и рестораны
+						.screen7__legend-eye
+							svg
+								<use xlink:href="#icon-legend-eye"></use>
+					li(data-name="entertaiment")
+						.screen7__legend-icon 
+							svg
+								<use xlink:href="#icon-entertaiment"></use>
+						.screen7__legend-text Развлечения
+						.screen7__legend-eye
+							svg
+								<use xlink:href="#icon-legend-eye"></use>
+					li(data-name="school")
+						.screen7__legend-icon 
+							svg
+								<use xlink:href="#icon-school"></use>
+						.screen7__legend-text Обучение
+						.screen7__legend-eye
+							svg
+								<use xlink:href="#icon-legend-eye"></use>
+					li(data-name="kindergarden")
+						.screen7__legend-icon 
+							svg
+								<use xlink:href="#icon-kindergarden"></use>
+						.screen7__legend-text Дети
+						.screen7__legend-eye
+							svg
+								<use xlink:href="#icon-legend-eye"></use>
+		.screen8.screen-js(data-active="false")
+			include ../../assets/images/build-plan/build-plan.svg
+block footer
+block header
+	header.header
+		include ../includes/header.pug
+

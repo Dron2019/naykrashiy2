@@ -1,0 +1,14 @@
+@import './assets/vars'; // переменные
+@import './assets/smart-grid'; // mixins smartgrid.js
+// libraries
+@import './libs';
+// assets
+@import './assets/mixins'; // миксины
+@import './assets/fonts'; // шрифты
+@import './assets/base'; // общие стили
+@import './assets/animation'; // анимации
+@import './assets/animation-1'; // анимации новые
+@import './assets/class'; // main style
+@import './assets/interface'; // main style
+// sass dima
+@import './index.scss';

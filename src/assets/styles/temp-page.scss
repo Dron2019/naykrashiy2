@@ -1,0 +1,238 @@
+@mixin debug($background, $outline) {
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+    pointer-events: none;
+    // display: none;
+    >div {
+        height: inherit;
+        @include wrapper();
+        >div {
+            height: inherit;
+            @include row-flex();
+            >div {
+                @include col();
+                @include size(1);
+                @include size-sm(1);
+                @include size-mob(1);
+                height: inherit;
+                outline: $outline;
+                background: $background;
+            }
+        }
+    }
+}
+
+.degub-grid {
+    @include debug(rgba(0, 0, 0, 0.3), 1px solid #ff0);
+}
+
+.page__inner {
+    @include to(480px) {
+        align-items: center;
+    }
+}
+
+.layout {
+    // @include wrapper();
+    padding-left: 30px;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    @include size-mob(12);
+    @include to(480px) {
+        height: auto;
+        width: 100vw;
+        padding-left: 10px;
+        margin: 0 -20px;
+    }
+}
+
+.first-screen-left {
+    @include size(3);
+    @include size-sm(4);
+    @include size-mob(12);
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    @include to(480px) {
+        margin: 0 auto;
+        order: 2;
+    }
+}
+
+.first-screen-right {
+    position: relative;
+    // background: url(../images/temp-page/bg.png) center no-repeat;
+    background-size: cover;
+    @include size(9.1);
+    @include size-sm(8.4);
+    margin-left: 30px;
+    margin-right: -30px;
+    padding-right: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    @include to(768px) {
+        margin-left: 20px;
+        margin-right: -20px;
+        padding-right: 20px;
+    }
+    @include to(480px) {
+        // background: url(../images/temp-page/bg.png) top no-repeat;
+        height: 100vh;
+        width: calc(100% + 20px);
+        margin-left: -10px;
+        margin-right: -10px;
+        padding-left: 10px;
+        order: 1;
+    }
+}
+
+.logo {
+    width: 100%;
+    margin-right: auto;
+    height: auto;
+    @include to(480px) {
+        display: none;
+    }
+}
+
+.logo-mob {
+    width: 100%;
+    height: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    @include from(480px) {
+        display: none;
+    }
+}
+
+.first-screen_form {
+    width: 100%;
+    margin-top: 70px;
+    .form-legend {
+        font-weight: bold;
+        font-size: 24px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: $mc-blue;
+        margin-bottom: 14px;
+    }
+    .form-sub-legend {
+        line-height: 2em;
+        display: inline-block;
+        margin-bottom: 30px;
+        font-weight: bold;
+    }
+    .button {
+        color: $mc-white;
+        background: $mc-red;
+        width: 100%;
+        font-size: 14px;
+        height: 50px;
+    }
+    .common-label {
+        display: none;
+    }
+    .common-input {
+        width: 100%;
+        background: $mc-yellow;
+        height: 50px;
+        padding: 0 20px;
+        transition: .5s;
+        border: 2px solid $mc-yellow;
+        margin-bottom: 30px;
+    }
+    .common-input.unfilled {
+        border: 2px solid $mc-red;
+    }
+    .error-span {
+        display: none;
+    }
+}
+
+.developers-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 35%;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: 40px;
+    @include to(768px) {
+        width: 100%;
+        padding-left: 20px;
+    }
+    @include to(480px) {
+        img {
+            width: 33%;
+        }
+    }
+}
+
+.perfect-logo {
+    width: 142px;
+    height: 70px;
+}
+
+.kyivproject-logo {
+    width: 180px;
+    height: 60px;
+}
+
+.saga-logo {
+    width: 83px;
+    height: 83px;
+}
+
+.right-top-pattern {
+    width: 168px;
+    margin-left: auto;
+    margin-right: -30px;
+    @include to(768px) {
+        width: 84px;
+        margin-right: -20px;
+    }
+    @include to(480px) {
+        margin-right: -10px;
+    }
+}
+
+.left-bottom-pattern {
+    width: 168px;
+    margin-top: auto;
+    margin-left: -30px;
+    @include to(768px) {
+        width: 84px;
+        margin-left: -20px;
+    }
+    @include to(480px) {
+        margin-top: 20px;
+        margin-left: -10px;
+    }
+}
+
+.triangle-pattern {
+    width: 84px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#SDStudio_VIDEO_BACKGROUND {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    video {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

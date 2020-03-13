@@ -191,6 +191,11 @@
     background-size: cover;
 }
 
+.first-screen-layout[data-screen="9"] {
+    background: url(../images/screen9/bg.png) top left no-repeat;
+    background-size: cover;
+}
+
 .bottom-static-block {
     @include size(5.5);
     height: 50px;
@@ -261,7 +266,8 @@
 
 .bottom-static-block[data-screen="6"],
 .bottom-static-block[data-screen="7"],
-.bottom-static-block[data-screen="8"] {
+.bottom-static-block[data-screen="8"],
+.bottom-static-block[data-screen="9"] {
     visibility: hidden;
     opacity: 0;
 }
@@ -306,6 +312,18 @@
     transform: translateY(-700%);
 }
 
+.screen9 {
+    transform: translateY(-800%);
+}
+
+.screen10 {
+    transform: translateY(-900%);
+}
+
+.screen11 {
+    transform: translateY(-1000%);
+}
+
 .screen1 {
     @include wrapper();
     color: $mc-white;
@@ -320,8 +338,9 @@
         justify-content: space-between;
     }
     &__subtitle {
-        font-size: $fz-standart;
-        line-height: 1.55em;
+        // font-size: $fz-standart;
+        // line-height: 1.55em;
+        @include line-height-in-em($fz-standart, 28px);
         color: $mc-white;
         margin-top: auto;
     }
@@ -669,6 +688,76 @@
 .screen8 {
     width: 100vw;
     height: 100vh;
+}
+
+.screen9 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__content {
+        @include wrapper();
+        width: 100%;
+    }
+    &__plans-slider-wrapper {
+        @include size(9.1);
+        @include shift-left(1);
+        @include shift-padding-left(1);
+        padding-right: 50px;
+        padding-top: 60px;
+        padding-bottom: 60px;
+        background: $mc-white;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__title {
+        color: $mc-gray;
+    }
+    &__text {
+        margin-top: 10px;
+    }
+    &__static-text,
+    &__slider {
+        width: 50%;
+        max-width: 400px;
+    }
+    &__slide img {
+        margin-top: 10px;
+    }
+    .count-block.text {
+        color: $mc-gray;
+    }
+    g.arrow-border {
+        stroke: $mc-green;
+    }
+    .flat-title {
+        color: #DED9D9;
+        display: block;
+        margin-left: auto;
+        text-align: right;
+    }
+    &__static-text {
+        display: flex;
+        flex-direction: column;
+        padding-right: 40px;
+    }
+    &__nav-block {
+        display: flex;
+        margin-top: auto;
+        justify-content: space-between;
+    }
+    .order-call {
+        margin-top: 40px;
+    }
+}
+
+.order-call {
+    color: $mc-yellow;
+    &:before {
+        content: url(../images/common/tel-icon-yellow.svg);
+        margin-right: 6px;
+    }
 }
 
 

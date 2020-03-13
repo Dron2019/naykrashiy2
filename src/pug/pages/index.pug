@@ -10,21 +10,21 @@ block scripts
 	script(src='./assets/scripts/index.js')
 	script(src='./assets/scripts/map.js')
 block content
-	//- .degub-grid
-	//- 	div
-	//- 		div
-	//- 			div
-	//- 			div
-	//- 			div
-	//- 			div
-	//- 			div
-	//- 			div
-	//- 			div
-	//- 			div
-	//- 			div
-	//- 			div
-	//- 			div
-	//- 			div
+	.degub-grid
+		//- div
+		//- 	div
+		//- 		div
+		//- 		div
+		//- 		div
+		//- 		div
+		//- 		div
+		//- 		div
+		//- 		div
+		//- 		div
+		//- 		div
+		//- 		div
+		//- 		div
+		//- 		div
 	.first-screen-layout(data-screen="1")
 		.bottom-static-block(data-screen="1")
 			.bottom-static-block__screen2.text.text_white Приводи закохатись в ЖК «Найкращий-2»
@@ -211,6 +211,38 @@ block content
 								<use xlink:href="#icon-legend-eye"></use>
 		.screen8.screen-js(data-active="false")
 			include ../../assets/images/build-plan/build-plan.svg
+		.screen9.screen-js(data-active="false")
+			.screen9__content
+				.screen9__plans-slider-wrapper
+					.screen9__static-text
+						.screen9__title.title Планування
+						.screen9__text.text Більше 7 варіантів планувань форматів хайфлет і терасні квартири. Детальніше про планування можна узать у відділі продажів.
+						a(href="#").order-call.order-call-js Замовити дзвінок
+						.screen9__nav-block
+							.arrow-block-std 
+								.arrow-prev-std.arrow
+									include ../../assets/images/common/arrow-std.svg
+								.arrow-next-std.arrow
+									include ../../assets/images/common/arrow-next-std.svg
+							.count-block.text
+								span.current 03 
+								span.separator 
+									include ../../assets/images/common/yellow-line.svg
+								span.all 05
+					.screen9__slider.screen9__slider-js
+						.screen9__slide
+							span.flat-title.text Квартира 2А
+							+img('screen9/flat-plan.png')
+						.screen9__slide
+							span.flat-title.text Квартира 2А
+							+img('screen9/flat-plan.png')
+						.screen9__slide
+							span.flat-title.text Квартира 2А
+							+img('screen9/flat-plan.png')
+						.screen9__slide
+							span.flat-title.text Квартира 2А
+							+img('screen9/flat-plan.png')
+
 block footer
 block header
 	header.header

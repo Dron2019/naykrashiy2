@@ -150,9 +150,7 @@ function getTouchDirection(element) {
 
 
 /*настройка фильтра карты */
-
 let $legendItems = document.querySelectorAll('.legend-items-js>li');
-
 $legendItems.forEach((item, index) => {
         item.onclick = () => {
             item.classList.toggle('selected');
@@ -162,3 +160,19 @@ $legendItems.forEach((item, index) => {
 
     })
     /*настройка фильтра карты END*/
+
+/**Слайдер с планировками */
+$('.screen9__slider-js').on('init', function(event, slick) {
+    $('.screen9 .all').html('0' + $('.screen9__slide').length);
+    $('.screen9 .current').html('01');
+});
+$('.screen9__slider-js').slick({
+    slide: '.screen9__slide',
+    nextArrow: $('.screen9 .arrow-next-std'),
+    prevArrow: $('.screen9 .arrow-prev-std'),
+    fade: true,
+});
+$('.screen9__slider-js').on('beforeChange', (event, slick, currentSlide, nextSlide) => {
+    $('.screen9 .current').html('0' + (nextSlide + 1));
+});
+/**Слайдер с планировками END */

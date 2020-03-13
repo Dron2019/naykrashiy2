@@ -10,6 +10,13 @@
     }
 }
 
+@function strip-unit($number) {
+    @if type-of($number)=='number' and not unitless($number) {
+        @return $number / ($number * 0+1);
+    }
+    @return $number;
+}
+
 // Function for converting a px based font-size to rem.
 @function rem($size) {
     $remSize: $size / 14px;
@@ -19,4 +26,10 @@
 @mixin fields($size) {
     padding-left: $size;
     padding-right: $size;
+}
+
+@mixin line-height-in-em($fz,
+$lh) {
+    font-size: $fz;
+    line-height: #{strip-unit($lh) * 100 / strip-unit($fz) / 100}em;
 }

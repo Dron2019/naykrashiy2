@@ -24,8 +24,12 @@ $layout.addEventListener('wheel', function(e) {
     // if (stopDetector == true) return false;
     // console.log(e.path[4].name);
     // console.log(e.path.includes('div#map'));
+    if ($layout.dataset.screen == 10) {
+        console.log(e.target.getBoundingClientRect());
 
-
+        return false;
+    }
+    e.preventDefault();
     e.deltaY > 0 ?
         changeCounter(screenNumber, '+') :
         changeCounter(screenNumber, '-');
@@ -37,7 +41,7 @@ $layout.addEventListener('wheel', function(e) {
     $staticBottomBlock.dataset.screen = screenNumber;
     console.log(screensCount);
 
-    e.preventDefault();
+
 });
 getTouchDirection($layout);
 $layout.addEventListener('touchend', (e) => {
@@ -176,3 +180,37 @@ $('.screen9__slider-js').on('beforeChange', (event, slick, currentSlide, nextSli
     $('.screen9 .current').html('0' + (nextSlide + 1));
 });
 /**Слайдер с планировками END */
+
+
+
+/**Слайдер документов */
+$('.document-slider-js').slick({
+        slidesToShow: 3,
+        nextArrow: $('.screen10 .arrow-next-std'),
+        prevArrow: $('.screen10 .arrow-prev-std'),
+        slide: '.document-item'
+    })
+    /**Слайдер документов END */
+let digit = document.querySelector('.statistic-item__digit'),
+    digit1 = document.querySelector('.statistic-item__digit'),
+    digitLastNumber = +digit.innerText;
+digit.addEventListener('click', () => {
+    // increaseAnimation();
+});
+
+
+function increaseAnimation(digit) {
+    digit == undefined ? digit = 0 : null;
+    digit1.innerHTML = digit;
+    digit++;
+    console.log(digit);
+
+    if (digit <= digitLastNumber) {
+        setTimeout(() => {
+            increaseAnimation(digit);
+        }, 50);
+    } else {
+        return;
+    }
+
+}

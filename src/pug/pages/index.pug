@@ -10,21 +10,21 @@ block scripts
 	script(src='./assets/scripts/index.js')
 	script(src='./assets/scripts/map.js')
 block content
-	.degub-grid
-		//- div
-		//- 	div
-		//- 		div
-		//- 		div
-		//- 		div
-		//- 		div
-		//- 		div
-		//- 		div
-		//- 		div
-		//- 		div
-		//- 		div
-		//- 		div
-		//- 		div
-		//- 		div
+	//- .degub-grid
+	//- 	div
+	//- 		div
+	//- 			div
+	//- 			div
+	//- 			div
+	//- 			div
+	//- 			div
+	//- 			div
+	//- 			div
+	//- 			div
+	//- 			div
+	//- 			div
+	//- 			div
+	//- 			div
 	.first-screen-layout(data-screen="1")
 		.bottom-static-block(data-screen="1")
 			.bottom-static-block__screen2.text.text_white Приводи закохатись в ЖК «Найкращий-2»
@@ -242,6 +242,76 @@ block content
 						.screen9__slide
 							span.flat-title.text Квартира 2А
 							+img('screen9/flat-plan.png')
+		.screen10.screen-js(data-active="false")
+			.screen10__content
+				.screen10__logo
+					include ../../assets/images/common/comfort-life-logo.svg
+				.screen10__developer-description
+					.screen10__title.title.title_green Забудовник
+					.screen10__subtitle.text.text_gray Для того, щоб життя було комфортним і спокійним, необхідно мати власний будинок - надійний фортеця. C 2010 року ми створюємо будинки, які виправдовують очікування, відповідаючи вашим уявленням про комфорт і безпеку.
+				.screen10__statistic-wrapper
+					.statistic-item
+						.statistic-item__digit 12
+						.statistic-item__description ЖК
+					.statistic-item
+						.statistic-item__digit 48
+						.statistic-item__description Сучасних будинків побудували
+					.statistic-item
+						.statistic-item__digit 38
+						.statistic-item__description Сучасних будинків будуємо
+					a(target='_blank' href='http://comfort-life.com.ua/ru/').devloper-link 
+						span НА САЙТ ЗАБУДОВНИКА
+						include ../../assets/images/common/arrow-std.svg
+				.documents-wrapper
+					.title.title_gray Документи
+					.documents-wrapper__text.text 
+						p У нас є всі документи на будівництво, ознайомитися з ними ви можете в цьому розділі. 
+						p Або під'їхати у відділі продажів: Київська обл. смт. Гостомель, вул. Варшавська і провулок Варшавський
+					.document-slider.document-slider-js
+						.gradient
+						.document-item
+							.documents-wrapper__icon
+								include ../../assets/images/common/document-file-icon.svg
+							.documents-wrapper__date 14.05.2019
+							.documents-wrapper__name.text_gray Разрешение на строительство
+							a(target='_blank').documents-wrapper__download 
+								span pdf
+								include ../../assets/images/common/download-icon.svg
+						.document-item 
+							include ../../assets/images/common/document-file-icon.svg
+							.documents-wrapper__date 14.05.2019
+							.documents-wrapper__name.text_gray Разрешение на строительство
+							a(target='_blank').documents-wrapper__download 
+								span pdf
+								include ../../assets/images/common/download-icon.svg
+						.document-item 
+							include ../../assets/images/common/document-file-icon.svg
+							.documents-wrapper__date 14.05.2019
+							.documents-wrapper__name.text_gray Разрешение на строительство
+							a(target='_blank').documents-wrapper__download 
+								span pdf
+								include ../../assets/images/common/download-icon.svg
+						.document-item 
+							include ../../assets/images/common/document-file-icon.svg
+							.documents-wrapper__date 14.05.2019
+							.documents-wrapper__name.text_gray Разрешение на строительство
+							a(target='_blank').documents-wrapper__download 
+								span pdf
+								include ../../assets/images/common/download-icon.svg
+						.document-item 
+							include ../../assets/images/common/document-file-icon.svg
+							.documents-wrapper__date 14.05.2019
+							.documents-wrapper__name.text_gray Разрешение на строительство
+							a(target='_blank').documents-wrapper__download 
+								span pdf
+								include ../../assets/images/common/download-icon.svg
+					.arrow-block-std 
+						.arrow-prev-std.arrow
+							include ../../assets/images/common/arrow-std.svg
+						.arrow-next-std.arrow
+							include ../../assets/images/common/arrow-next-std.svg
+					
+
 
 block footer
 block header

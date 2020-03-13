@@ -44,6 +44,9 @@
     &_green {
         color: $mc-green;
     }
+    &_gray {
+        color: $mc-gray;
+    }
 }
 
 .text {
@@ -54,6 +57,9 @@
     }
     &_green {
         color: $mc-green;
+    }
+    &_gray {
+        color: $mc-gray;
     }
 }
 
@@ -154,7 +160,7 @@
 .first-screen-layout {
     width: 100vw;
     height: calc(100vh);
-    // overflow: hidden;
+    overflow: hidden;
     margin-left: -$offset-desktop;
     position: relative;
     transition: .1s;
@@ -267,7 +273,9 @@
 .bottom-static-block[data-screen="6"],
 .bottom-static-block[data-screen="7"],
 .bottom-static-block[data-screen="8"],
-.bottom-static-block[data-screen="9"] {
+.bottom-static-block[data-screen="9"],
+.bottom-static-block[data-screen="10"] {
+    transition: 0;
     visibility: hidden;
     opacity: 0;
 }
@@ -757,6 +765,156 @@
     &:before {
         content: url(../images/common/tel-icon-yellow.svg);
         margin-right: 6px;
+    }
+}
+
+.screen10 {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(0deg, #F8B400 0%, rgba(248, 180, 0, 0.5) 100%), url(../images/screen10/bg.png) top no-repeat;
+    background-size: cover;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    &__content {
+        @include wrapper();
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__logo {
+        @include size(4);
+        @include col();
+        @include shift-padding-right(1.5);
+    }
+    &__developer-description {
+        @include size(8);
+        @include col-padding();
+        @include shift-padding-right(1.5);
+    }
+    &__statistic-wrapper {
+        @include size(8);
+        @include col();
+        @include shift-padding-right(1.5);
+        @include shift-left(4);
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 70px;
+    }
+    .statistic-item,
+    .devloper-link {
+        @include size(6);
+    }
+    .devloper-link,
+    .statistic-item:nth-child(3) {
+        margin-top: 25px;
+    }
+    .comfort-life-logo-fill {
+        fill: $mc-green;
+    }
+    .devloper-link {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: $mc-gray;
+        align-items: flex-end;
+    }
+    .devloper-link svg {
+        width: 70px;
+        height: 70px;
+        fill: $mc-green;
+    }
+    .devloper-link g.arrow {
+        fill: $mc-white;
+        stroke: $mc-white;
+        transform: rotate(180deg) translateX(-7%);
+        transform-origin: center;
+    }
+    .devloper-link g.arrow-border {
+        stroke: $mc-green;
+    }
+    .arrow-block-std {
+        margin-left: auto;
+        margin-right: 25px;
+    }
+    g.arrow-border {
+        stroke: $mc-green;
+    }
+    .document-slider {
+        position: relative;
+    }
+    .document-slider .gradient {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 39%);
+        z-index: 100;
+        pointer-events: none;
+    }
+}
+
+.statistic-item {
+    &__digit {
+        @include line-height-in-em(60px, 56px);
+        color: $mc-green;
+        font-weight: bold;
+    }
+    &__description {
+        font-size: $fz-standart;
+        color: $mc-gray;
+        max-width: 70%;
+        margin-top: 5px;
+    }
+}
+
+.documents-wrapper {
+    background: $mc-white;
+    padding-top: 50px;
+    padding-bottom: 25px;
+    @include size(10.2);
+    @include shift-padding-left(0.9);
+    padding-right: 30px;
+    margin-top: 170px;
+    &__text {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        column-count: 2;
+    }
+    .document-item {
+        width: calc(33% - 25px);
+        // box-shadow: 0px 20px 35px rgba(76, 76, 78, 0.2);
+        box-shadow: 10px 0px 22px rgba(76, 76, 78, 0.2);
+        padding: 35px 20px 20px 30px;
+        margin-right: 50px;
+        margin-top: 25px;
+        margin-bottom: 50px;
+    }
+    &__download {
+        @include line-height-in-em(16px, 28px);
+        color: $mc-yellow;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 25px;
+    }
+    &__download svg {
+        height: 21px;
+    }
+    &__name {
+        line-height: 28px;
+        margin-top: 50px;
+        width: 60%;
+    }
+    &__icon {
+        width: 40%;
+    }
+    &__icon svg {
+        width: 100%;
+    }
+    &__date {
+        font-size: 16px;
     }
 }
 

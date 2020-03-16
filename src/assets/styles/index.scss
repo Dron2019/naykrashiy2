@@ -1254,6 +1254,15 @@ g.arrow {
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+    transition: var(--standart-transition);
+}
+
+.popup-container.visible {
+    opacity: 1;
+    pointer-events: initial;
 }
 
 .form {

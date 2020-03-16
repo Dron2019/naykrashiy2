@@ -284,8 +284,13 @@ document.querySelectorAll('[type="checkbox"]').forEach(checkBox => {
 
 
 
+document.querySelector('.popup-form-js').onclick = e => {
+    document.querySelector('.popup-container').classList.add('visible');
+}
+document.querySelector('.popup-container').onclick = e => {
 
+    e.target.classList.remove('visible');
 
-
+}
 
 /**POPUP FORM END */

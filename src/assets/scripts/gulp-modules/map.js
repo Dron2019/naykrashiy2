@@ -121,8 +121,47 @@ function initMap() {
         }],
 
     });
+    var map2 = new google.maps.Map(document.getElementById('map2'), {
+        zoom: 15,
+        center: center,
+        scrollwheel: false,
+        navigationControl: false,
+        mapTypeControl: false,
+        scaleControl: false,
+        draggable: true,
+        language: 'en',
+        styles: [{
+            "featureType": "all",
+            "stylers": [{
+                "saturation": 0
+            }, {
+                "hue": "#e7ecf0"
+            }]
+        }, {
+            "featureType": "road",
+            "stylers": [{
+                "saturation": -70
+            }]
+        }, {
+            "featureType": "transit",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        }, {
+            "featureType": "poi",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        }, {
+            "featureType": "water",
+            "stylers": [{
+                "visibility": "simplified"
+            }, {
+                "saturation": -60
+            }]
+        }],
 
-
+    });
 
 
 
@@ -238,8 +277,25 @@ function initMap() {
         // console.log(category);
         // console.log(gmarkers1);
     });
+    for (let i = 0; i < 2; i++) {
+        var marker = markersData[i];
+        var category = marker.category;
+        var mapMarker = new google.maps.Marker({
+            map: map2,
+            category: category,
+            icon: marker.icon,
+            position: new google.maps.LatLng(marker.position.lat, marker.position.lng),
+        });
+        var infowindow = new google.maps.InfoWindow();
+        google.maps.event.addListener(mapMarker, 'click', function() {
+            infowindow.setContent(marker.content);
+            infowindow.open(map, mapMarker);
+        });
 
+
+    }
 };
+
 
 
 // Google map end

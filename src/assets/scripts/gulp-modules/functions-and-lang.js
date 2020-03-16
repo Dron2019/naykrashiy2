@@ -14,16 +14,16 @@ function langDetect(){
 }
 const langObject = {
     langForUrl: {ru: 'ru', ua:'',en:'en'}, /*Для учета языковой версии в строке адресса */
-    name: {ru: 'Ваше имя:*', ua:'Ваше ім`я:',en:'Your name:*'},
-    telephone: {ru: 'Ваш телефон:*', ua:'Ваш телефон:*',en:'Your telephone:*'},
+    name: {ru: 'имя:*', ua:'ім`я:',en:'name:*'},
+    telephone: {ru: 'телефон:*', ua:'телефон:*',en:'telephone:*'},
     callNow: {ru: 'Перезвоните сейчас', ua:'Передзвоніть зараз',en:'Call now'},
     otherTime: {ru: 'Указать удобное время', ua:'Вказати зручний час',en:'Specify a convenient time'},
     message: {ru: 'Сообщение', ua:'Повідомлення',en:'Message'},
     email: {ru: 'E-mail', ua:'E-mail',en:'E-mail'},
     send: {ru: 'Отправить', ua:'Надіслати',en:'Send'},
-    orderCall: {ru: 'Интересует проект', ua:'Цікавить проект?',en:'Interested in project?'},
+    orderCall: {ru: 'Заказать звонок', ua:'Замовити дзінок',en:'Callback'},
     succesSend: {ru: 'Ваше сообщение отправлено', ua:'Ваше повідомлення відправлено',en:'Your message was sent'},
-    formSubLegend: {ru: 'Оставьте заявку, и мы вас обязательно сообщим о старте продаж!', ua:'Залиште заявку, і ми Вас обов`язково повідомимо про старт продажів!',en:'Leave a request and we will inform you about the start of sales!'},
+    formSubLegend: {ru: 'наш специалист проконсультует вас по всем вопросам', ua:'наш спеціаліст проконсультує вас з усіх питань',en:'Leave a request and we will inform you about the start of sales!'},
     requireField: {ru: 'обязательно для заполнения', ua:'обов`язкове для заповнення ',en:'is required'},
     totalSquare: {ru: 'Общая площадь м<sup>2</sup>:', ua:'Загальна площа м<sub>2</sub>:',en:'Total square m<sub>2</sub>:'},
     livingSquare: {ru: 'Жилая площадь м<sup>2</sup>:', ua:'Житлова площа м<sub>2</sub>:',en:'Living square m<sub>2</sub>:'},

@@ -24,12 +24,21 @@ $layout.addEventListener('wheel', function(e) {
     // if (stopDetector == true) return false;
     // console.log(e.path[4].name);
     // console.log(e.path.includes('div#map'));
-    if ($layout.dataset.screen == 10) {
-        console.log(e.target.getBoundingClientRect());
+    // if ($layout.dataset.screen == 10) {
+    //     console.log(e.target.getBoundingClientRect());
 
-        return false;
+    //     return false;
+    // }
+    if ($layout.dataset.screen != 11) {
+        document.querySelector('.footer-block').classList.remove('visible');
+    } else {
+        document.querySelector('.footer-block').classList.add('visible');
     }
-    e.preventDefault();
+    if ($layout.dataset.screen == 11) {
+        return false;
+    } else {
+        e.preventDefault();
+    }
     e.deltaY > 0 ?
         changeCounter(screenNumber, '+') :
         changeCounter(screenNumber, '-');
@@ -214,3 +223,69 @@ function increaseAnimation(digit) {
     }
 
 }
+
+/**POPUP FORM */
+let commonForm = new FormCreater('.form-js', {
+    fields: [{
+        name: 'name',
+        label: langObject.name[lang],
+        type: 'text',
+        requried: true
+    }, {
+        name: 'telephone',
+        label: langObject.telephone[lang],
+        type: 'tel',
+        customClass: 'inputtelmask',
+        requried: true
+    }, {
+        name: 'time',
+        label: langObject.callNow[lang],
+        type: 'checkbox'
+    }, {
+        name: 'time',
+        label: langObject.otherTime[lang],
+        type: 'checkbox',
+        selectItems: ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00']
+    }, {
+        name: 'typ',
+        label: false,
+        type: 'hidden',
+        hidden: true,
+        value: 1,
+    }, {
+        name: 'metka',
+        label: false,
+        type: 'hidden',
+        hidden: true,
+        value: 'Замовити дзвінок - Boston Creative House'
+    }, {
+        name: 'inn',
+        label: false,
+        type: 'hidden',
+        hidden: true,
+        value: 'Boston'
+    }, ],
+    color: '',
+    url: applicationUrl,
+    sendButton: {
+        innerText: langObject.send[lang],
+        customClass: 'button',
+    },
+    legend: langObject.orderCall[lang],
+    subLegend: langObject.formSubLegend[lang],
+});
+commonForm.init();
+
+document.querySelectorAll('[type="checkbox"]').forEach(checkBox => {
+    let customCheckBox = document.createElement('label');
+    customCheckBox.classList.add('custom-check-box');
+    checkBox.insertAdjacentElement('afterEnd', customCheckBox);
+});
+
+
+
+
+
+
+
+/**POPUP FORM END */

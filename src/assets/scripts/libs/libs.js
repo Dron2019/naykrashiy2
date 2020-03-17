@@ -5,5 +5,5 @@
 @@include('../libs/magnific-popup/dist/jquery.magnific-popup.min.js');
 @@include('../libs/masked-input/masked-input.min.js');
 @@include('../libs/hammer/hammer.js');
-
+@@include('../libs/pilling-page/jquery.pagepiling.js');
 /* beautify preserve:end */

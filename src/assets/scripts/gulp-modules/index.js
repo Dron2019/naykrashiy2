@@ -13,41 +13,6 @@ direction = 'none';
 
 
 
-var hammertime = new Hammer($layout);
-hammertime.get('swipe').set({
-    direction: Hammer.DIRECTION_ALL
-});
-hammertime.on('swipe', function(ev) {
-    var direction = '';
-    switch (ev.direction) {
-        case Hammer.DIRECTION_LEFT:
-            direction = 'left';
-            break;
-        case Hammer.DIRECTION_RIGHT:
-            direction = 'right';
-            break;
-        case Hammer.DIRECTION_UP:
-            changeCounter(screenNumber, '+');
-            screenList.forEach(element => {
-                element.dataset.active = false;
-            });
-            screenList[screenNumber - 1].dataset.active = true;
-            $layout.dataset.screen = screenNumber;
-            $staticBottomBlock.dataset.screen = screenNumber;
-            break;
-        case Hammer.DIRECTION_DOWN:
-            changeCounter(screenNumber, '-');
-            screenList.forEach(element => {
-                element.dataset.active = false;
-            });
-            screenList[screenNumber - 1].dataset.active = true;
-            $layout.dataset.screen = screenNumber;
-            $staticBottomBlock.dataset.screen = screenNumber;
-            break;
-    };
-
-
-});
 $layout.addEventListener('wheel', function(e) {
     let stopDetector = false;
     // e.path.forEach(path => {
@@ -86,26 +51,26 @@ $layout.addEventListener('wheel', function(e) {
 
 
 });
-// getTouchDirection($layout);
-// $layout.addEventListener('touchend', (e) => {
-//     switch (direction) {
-//         case 'up':
-//             changeCounter(screenNumber, '+');
-//             break;
-//         case 'down':
-//             changeCounter(screenNumber, '-');
-//             break;
-//         default:
-//             break;
-//     }
-//     screenList.forEach(element => {
-//         element.dataset.active = false;
-//     });
-//     screenList[screenNumber - 1].dataset.active = true;
-//     $layout.dataset.screen = screenNumber;
-//     $staticBottomBlock.dataset.screen = screenNumber;
-//     console.log(screensCount);
-// })
+getTouchDirection($layout);
+$layout.addEventListener('touchend', (e) => {
+    switch (direction) {
+        case 'up':
+            changeCounter(screenNumber, '+');
+            break;
+        case 'down':
+            changeCounter(screenNumber, '-');
+            break;
+        default:
+            break;
+    }
+    screenList.forEach(element => {
+        element.dataset.active = false;
+    });
+    screenList[screenNumber - 1].dataset.active = true;
+    $layout.dataset.screen = screenNumber;
+    $staticBottomBlock.dataset.screen = screenNumber;
+    console.log(screensCount);
+})
 
 function changeCounter(number, direction) {
 

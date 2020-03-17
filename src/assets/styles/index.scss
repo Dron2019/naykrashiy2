@@ -164,11 +164,7 @@
     margin-left: -$offset-desktop;
     position: relative;
     transition: .5s;
-}
-
-.first-screen-layout:not([data-screen='1']) {
-    z-index: 1000000;
-    background: $mc-white;
+    z-index: 0;
 }
 
 .first-screen-layout[data-screen="1"] {
@@ -306,7 +302,7 @@
 }
 
 [data-active="true"] {
-    transform: translate(0);
+    // transform: translate(0);
     opacity: 1;
     z-index: 5;
     animation: scroll-effect 1s 1 linear;
@@ -530,7 +526,7 @@
         max-width: 1200px;
         width: 100%;
         padding: 0 190px 0 $offset-desktop;
-        z-index: 10;
+        // z-index: 10;
     }
     .infra-link {
         color: $mc-yellow;
@@ -591,7 +587,7 @@
         margin-left: auto;
         position: relative;
         top: 1.55em;
-        z-index: 5;
+        // z-index: 5;
     }
     &__content {
         @include wrapper();

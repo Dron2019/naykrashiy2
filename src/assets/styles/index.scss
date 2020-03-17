@@ -163,8 +163,12 @@
     overflow: hidden;
     margin-left: -$offset-desktop;
     position: relative;
-    transition: .1s;
-    // z-index: -1;
+    transition: .5s;
+}
+
+.first-screen-layout:not([data-screen='1']) {
+    z-index: 1000000;
+    background: $mc-white;
 }
 
 .first-screen-layout[data-screen="1"] {
@@ -182,13 +186,23 @@
     background-size: cover;
 }
 
+.first-screen-layout[data-screen="4"] {
+    background: url(../images/screen3/bg.png) top left no-repeat;
+    background-size: cover;
+}
+
+.first-screen-layout[data-screen="5"] {
+    background: url(../assets/images/screen5/main.png) top left no-repeat;
+    background-size: cover;
+}
+
 .first-screen-layout[data-screen="6"] {
     background: linear-gradient(0deg, rgba(26, 25, 25, 0.08) 0%, rgba(0, 0, 0, 0.65) 0%), url(../images/screen5/main.png) top left no-repeat;
     background-size: cover;
 }
 
 .first-screen-layout[data-screen="7"] {
-    background: url(../images/screen7.png) top left no-repeat;
+    background: linear-gradient(0deg, rgba(26, 25, 25, 0.08) 0%, rgba(0, 0, 0, 0.65) 0%), url(../images/screen5/main.png) top left no-repeat;
     background-size: cover;
 }
 
@@ -199,6 +213,16 @@
 
 .first-screen-layout[data-screen="9"] {
     background: url(../images/screen9/bg.png) top left no-repeat;
+    background-size: cover;
+}
+
+.first-screen-layout[data-screen="10"] {
+    background: url(../images/screen9/bg.png) top left no-repeat;
+    background-size: cover;
+}
+
+.first-screen-layout[data-screen="11"] {
+    background: $mc-white;
     background-size: cover;
 }
 
@@ -276,7 +300,7 @@
 .bottom-static-block[data-screen="9"],
 .bottom-static-block[data-screen="10"],
 .bottom-static-block[data-screen="11"] {
-    transition: 0;
+    transition: 0s;
     visibility: hidden;
     opacity: 0;
 }
@@ -285,12 +309,26 @@
     transform: translate(0);
     opacity: 1;
     z-index: 5;
+    animation: scroll-effect 1s 1 linear;
+}
+
+@keyframes scroll-effect {
+    from {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes scroll-effect-out {
+    to {
+        transform: translateY(-100%);
+    }
 }
 
 [data-active="false"] {
     transform: translate(0, -100%);
     pointer-events: none;
     opacity: 0;
+    animation: scroll-effect-out 1s 1 linear;
 }
 
 .screen2 {
@@ -516,7 +554,6 @@
 .screen5 {
     height: 100vh;
     width: 100vw;
-    background-color: cadetblue;
     position: relative;
     transition: all var(--standart-transition);
     z-index: -1;
@@ -1123,11 +1160,12 @@
     fill: $mc-gray;
     transform: translate(8%, 9%);
     opacity: 0;
-    transition: 0;
+    display: none;
 }
 
 .section-group:hover .section-subtitle-text {
     opacity: 1;
+    display: block;
 }
 
 .section-group:hover .section-subtitle {
@@ -1258,6 +1296,14 @@ g.arrow {
     pointer-events: none;
     z-index: 1000;
     transition: var(--standart-transition);
+    .close-form {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        right: 70px;
+        top: 142px;
+        cursor: pointer;
+    }
 }
 
 .popup-container.visible {
@@ -1266,7 +1312,13 @@ g.arrow {
 }
 
 .form {
-    clip-path: polygon(35% 0, 100% 25%, 81% 96%, 18% 100%, 0 41%);
+    transition: var(--standart-transition);
+    clip-path: polygon(75% 0, 100% 18%, 96% 94%, 18% 100%, 0% 38%);
+    &-js.clip-effect {
+        -webkit-clip-path: polygon(34% 0, 100% 19%, 97% 94%, 18% 100%, 0% 38%);
+        clip-path: polygon(34% 0, 100% 19%, 97% 94%, 18% 100%, 0% 38%);
+    }
+    position: relative;
     width: 680px;
     height: 685px;
     background: $mc-white;
@@ -1274,6 +1326,12 @@ g.arrow {
     padding-top: 195px;
     padding-right: calc(75px + 56px);
     padding-bottom: 65px;
+    .form-legend {
+        font-size: 26px;
+        line-height: 56px;
+        color: $mc-gray;
+        font-weight: bold;
+    }
     .checkbox {
         position: relative;
     }
@@ -1306,12 +1364,19 @@ g.arrow {
     input[type='checkbox'] {
         opacity: 0;
     }
+    .input-group:nth-child(5) {
+        margin-top: 30px;
+    }
+    .input-group:nth-child(6) {
+        margin-top: 10px;
+    }
     input[type='checkbox']:checked~.custom-check-box::before {
         opacity: 1;
     }
     .common-select {
         transition: var(--standart-transition);
         opacity: 0;
+        margin-left: 15%;
     }
     input[type='checkbox']:checked~.common-select {
         opacity: 1;
@@ -1330,16 +1395,70 @@ g.arrow {
     .input-group.tel,
     .input-group.text {
         position: relative;
+        margin-top: 1.7em;
+        padding-left: 33px;
+        padding-bottom: 7px;
     }
-    .input-group.tel:after,
-    .input-group.text:after {
+    .input-group.text:before {
+        content: url(../images/common/name-placeholder-icon.svg);
+        position: absolute;
+        left: 0;
+    }
+    .input-group.tel:before {
+        content: url(../images/common/tel-icon-yellow.svg);
+        position: absolute;
+        left: 0;
+    }
+    .decor-line {
         position: absolute;
         content: '';
         height: 1px;
         width: 100%;
         left: 0;
         bottom: 0;
+        background: $mc-gray;
+        transition: var(--standart-transition);
+    }
+    .text-input:focus~.decor-line,
+    .tel-input:focus~.decor-line {
+        border: none;
         background: red;
+        animation: to-full-height var(--standart-transition) 1 ease-in;
+    }
+    // .input-group.tel:after,
+    // .input-group.text:after {
+    //     position: absolute;
+    //     content: '';
+    //     height: 1px;
+    //     width: 100%;
+    //     left: 0;
+    //     bottom: 0;
+    //     background: $mc-gray;
+    // }
+    .button {
+        @include line-height-in-em($fz-standart, 28px);
+        color: $mc-green;
+        margin-left: auto;
+        margin-top: 23px;
+    }
+    .button:after {
+        content: url(../images/common/send-button-icon.svg);
+        width: 53px;
+        height: 53px;
+    }
+    .error-span {
+        position: absolute;
+        top: -30px;
+        color: $mc-green;
+    }
+}
+
+@keyframes to-full-height {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
     }
 }
 

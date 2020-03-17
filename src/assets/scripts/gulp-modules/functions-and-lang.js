@@ -14,8 +14,8 @@ function langDetect(){
 }
 const langObject = {
     langForUrl: {ru: 'ru', ua:'',en:'en'}, /*Для учета языковой версии в строке адресса */
-    name: {ru: 'имя:*', ua:'ім`я:',en:'name:*'},
-    telephone: {ru: 'телефон:*', ua:'телефон:*',en:'telephone:*'},
+    name: {ru: 'Имя:*', ua:'Ім`я*:',en:'name:*'},
+    telephone: {ru: 'Телефон:*', ua:'Телефон:*',en:'telephone:*'},
     callNow: {ru: 'Перезвоните сейчас', ua:'Передзвоніть зараз',en:'Call now'},
     otherTime: {ru: 'Указать удобное время', ua:'Вказати зручний час',en:'Specify a convenient time'},
     message: {ru: 'Сообщение', ua:'Повідомлення',en:'Message'},
@@ -34,7 +34,7 @@ const langObject = {
     bottomFormLegend: {ru: 'Дізнатися більше <br> Дізнатися першим', ua:'Дізнатися більше <br> Дізнатися першим',en:'Дізнатися більше <br> Дізнатися першим'},
 }
 /**Адресс обработчика для все форм */
-const applicationUrl = './static/val.php';
+const applicationUrl = './static/val.php1';
 // console.log(langObject);
 /* Конвертация времени перехода в JS */
 let transitionJs = getComputedStyle(document.documentElement).getPropertyValue('--standart-transition').replace('s', '');

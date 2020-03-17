@@ -13,7 +13,41 @@ direction = 'none';
 
 
 
+var hammertime = new Hammer($layout);
+hammertime.get('swipe').set({
+    direction: Hammer.DIRECTION_ALL
+});
+hammertime.on('swipe', function(ev) {
+    var direction = '';
+    switch (ev.direction) {
+        case Hammer.DIRECTION_LEFT:
+            direction = 'left';
+            break;
+        case Hammer.DIRECTION_RIGHT:
+            direction = 'right';
+            break;
+        case Hammer.DIRECTION_UP:
+            changeCounter(screenNumber, '+');
+            screenList.forEach(element => {
+                element.dataset.active = false;
+            });
+            screenList[screenNumber - 1].dataset.active = true;
+            $layout.dataset.screen = screenNumber;
+            $staticBottomBlock.dataset.screen = screenNumber;
+            break;
+        case Hammer.DIRECTION_DOWN:
+            changeCounter(screenNumber, '-');
+            screenList.forEach(element => {
+                element.dataset.active = false;
+            });
+            screenList[screenNumber - 1].dataset.active = true;
+            $layout.dataset.screen = screenNumber;
+            $staticBottomBlock.dataset.screen = screenNumber;
+            break;
+    };
 
+
+});
 $layout.addEventListener('wheel', function(e) {
     let stopDetector = false;
     // e.path.forEach(path => {
@@ -52,26 +86,26 @@ $layout.addEventListener('wheel', function(e) {
 
 
 });
-getTouchDirection($layout);
-$layout.addEventListener('touchend', (e) => {
-    switch (direction) {
-        case 'up':
-            changeCounter(screenNumber, '+');
-            break;
-        case 'down':
-            changeCounter(screenNumber, '-');
-            break;
-        default:
-            break;
-    }
-    screenList.forEach(element => {
-        element.dataset.active = false;
-    });
-    screenList[screenNumber - 1].dataset.active = true;
-    $layout.dataset.screen = screenNumber;
-    $staticBottomBlock.dataset.screen = screenNumber;
-    console.log(screensCount);
-})
+// getTouchDirection($layout);
+// $layout.addEventListener('touchend', (e) => {
+//     switch (direction) {
+//         case 'up':
+//             changeCounter(screenNumber, '+');
+//             break;
+//         case 'down':
+//             changeCounter(screenNumber, '-');
+//             break;
+//         default:
+//             break;
+//     }
+//     screenList.forEach(element => {
+//         element.dataset.active = false;
+//     });
+//     screenList[screenNumber - 1].dataset.active = true;
+//     $layout.dataset.screen = screenNumber;
+//     $staticBottomBlock.dataset.screen = screenNumber;
+//     console.log(screensCount);
+// })
 
 function changeCounter(number, direction) {
 
@@ -240,7 +274,8 @@ let commonForm = new FormCreater('.form-js', {
     }, {
         name: 'time',
         label: langObject.callNow[lang],
-        type: 'checkbox'
+        type: 'checkbox',
+        customClass: 'checkbox-first',
     }, {
         name: 'time',
         label: langObject.otherTime[lang],
@@ -282,15 +317,27 @@ document.querySelectorAll('[type="checkbox"]').forEach(checkBox => {
     checkBox.insertAdjacentElement('afterEnd', customCheckBox);
 });
 
-
-
+document.querySelectorAll('.input-group input[type="text"],.input-group input[type="tel"]')
+    .forEach(el => {
+        let decorLine = document.createElement('div');
+        decorLine.classList.add('decor-line');
+        el.insertAdjacentElement('afterEnd', decorLine);
+    })
+let closeIcon = `<svg width="42" class="close-form" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M31.3619 11.1173L10.8826 31.5966" stroke="#004445"/>
+                <path d="M10.8827 11.1173L31.362 31.5966" stroke="#004445"/>                </svg>`;
+document.querySelector('.popup-container .form-js').insertAdjacentHTML('beforeEnd', closeIcon);
 document.querySelector('.popup-form-js').onclick = e => {
     document.querySelector('.popup-container').classList.add('visible');
-}
+    document.querySelector('.popup-container .form-js').classList.add('clip-effect');
+};
+
 document.querySelector('.popup-container').onclick = e => {
-
-    e.target.classList.remove('visible');
-
+    if (e.target.classList.contains('close-form') ||
+        e.target.classList.contains('popup-container')) {
+        document.querySelector('.popup-container').classList.remove('visible');
+        document.querySelector('.popup-container .form-js').classList.remove('clip-effect');
+    }
 }
 
 /**POPUP FORM END */

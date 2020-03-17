@@ -25,7 +25,7 @@ block content
 	//- 			div
 	//- 			div
 	//- 			div
-	.first-screen-layout(data-screen="1")
+	.example-classname.first-screen-layout(data-screen="1")
 		.bottom-static-block(data-screen="1")
 			.bottom-static-block__screen2.text.text_white Приводи закохатись в ЖК «Найкращий-2»
 			.bottom-static-block__screen3.text.text_white 
@@ -39,7 +39,7 @@ block content
 						span.separator 
 							include ../../assets/images/common/white-line.svg
 						span.all 05
-		.screen1.screen-js(data-active="true")
+		.section.screen1.screen-js(data-active="true" data-menu_title="main")
 			.screen1__content 
 				.logo-block 
 					include ../../assets/images/logo.svg
@@ -48,13 +48,13 @@ block content
 				.screen1__scroll Використовуйте скролл
 				.screen1__adress 
 					a(target='_blank' href="") Київська обл. смт. Гостомель, вул. Варшавська і провулок Варшавський
-		.screen2.screen-js(data-active="false")
+		.section.screen2.screen-js(data-active="false" data-menu_title="conception")
 			.screen2__content 
 				.screen2__title.title.title_white Екологічний супутник столиці
 				.screen2__text.text.text_white 
 					p Найкращий-2» створений з думкою про затишок, безпеку і європейський комфорт. Світлий та елегантний, він поєднав у собі романтику заміського життя, та налагоджений побут розвиненого кварталу. 
 					p Тут будівлі не закривають небо, все необхідне — за крок від дому, а замість шуму автівок лунає дитячий сміх.
-		.screen3.screen-js(data-active="false")
+		.section.screen3.screen-js(data-active="false" data-menu_title="advantages")
 			.screen3__content
 				.screen3__slider
 					.screen3__slide
@@ -95,7 +95,7 @@ block content
 								p Дружнє та яскраве дитинство — чудовий фундамент для успішного майбутнього!
 						.screen3__image 
 							+img('screen3/slider/5.png')
-		.screen4.screen-js.screen4-slider(data-active="false")
+		.section.screen4.screen-js.screen4-slider(data-active="false" data-menu_title="gallery")
 			.screen4__info-block
 				a.infra-link.text() Дивитися інфраструктуру
 				.count-block.text.text_white
@@ -122,10 +122,10 @@ block content
 				+img('screen4/gallery.png')
 			.screen4__slide
 				+img('screen4/gallery.png')
-		.screen5.screen-js(data-active="false")
+		.section.screen5.screen-js(data-active="false" data-menu_title="infra") 
 			+img('screen5/main.png').screen5__image
 			.screen5__title.title.title_white Продумана інфраструктура
-		.screen6.screen-js(data-active="false")
+		.section.screen6.screen-js(data-active="false" data-menu_title="infra") 
 			.screen6__content
 				.screen6__title.title.title_white Продумана інфраструктура
 				.screen6__text-block.text.text_white
@@ -133,7 +133,7 @@ block content
 					p В кількох кварталах від будинку проходять різні маршрути громадського транспорту, що дозволяють без проблем дістатися будь-якої точки Києва.
 				.screen6__image
 					+img('screen6/img.png')
-		.screen7.screen-js(data-active="false")
+		.section.screen7.screen-js(data-active="false" data-menu_title="infra")
 			#map
 			.screen7__legend-title  Об'єкти інфраструктури
 				ul.screen7__legend.legend-items-js
@@ -209,9 +209,9 @@ block content
 						.screen7__legend-eye
 							svg
 								<use xlink:href="#icon-legend-eye"></use>
-		.screen8.screen-js(data-active="false")
+		.section.screen8.screen-js(data-active="false" data-menu_title="genplan") 
 			include ../../assets/images/build-plan/build-plan.svg
-		.screen9.screen-js(data-active="false")
+		.section.screen9.screen-js(data-active="false" data-menu_title="plans") 
 			.screen9__content
 				.screen9__plans-slider-wrapper
 					.screen9__static-text
@@ -242,7 +242,7 @@ block content
 						.screen9__slide
 							span.flat-title.text Квартира 2А
 							+img('screen9/flat-plan.png')
-		.screen10.screen-js(data-active="false")
+		.section.screen10.screen-js(data-active="false" data-menu_title="builder")
 			.screen10__content
 				.screen10__logo
 					include ../../assets/images/common/comfort-life-logo.svg
@@ -314,7 +314,7 @@ block content
 							include ../../assets/images/common/arrow-std.svg
 						.arrow-next-std.arrow
 							include ../../assets/images/common/arrow-next-std.svg
-		.screen11.screen-js(data-active="false")
+		.section.screen11.screen-js(data-active="false" data-menu_title="contacts")
 			.screen11__content 
 				.screen11__contact-block
 					.title.title_green  Контакти
@@ -346,8 +346,52 @@ block content
 					p © 2020 Найкращий квартал 2. Всі права захищені. 
 					a(href='https://smarto.agency/' rel="nofollow" target="_blank").footer__link.develop-link    Розработка сайта
 						img(src='./assets/images/smarto.svg' alt="" title="")
-		.popup-container
-			form.form-js.form
+	.popup-container
+		form.form-js.form
+	menu.aside-menu
+			.aside-menu__item.menu-item-js(data-name="main")
+				.aside-menu__item-text Головна
+				.aside-menu__item-dot
+			.aside-menu__item.menu-item-js(data-name="conception")
+				.aside-menu__item-text Концепція
+				.aside-menu__item-dot
+			.aside-menu__item.menu-item-js(data-name="advantages")
+				.aside-menu__item-text Переваги
+				.aside-menu__item-dot
+			.aside-menu__item.menu-item-js(data-name="gallery")
+				.aside-menu__item-text Галерея
+				.aside-menu__item-dot
+			.aside-menu__item.menu-item-js(data-name="infra")
+				.aside-menu__item-text інфраструктура
+				.aside-menu__item-dot
+			.aside-menu__item.menu-item-js(data-name="genplan")
+				.aside-menu__item-text Генплан
+				.aside-menu__item-dot
+			.aside-menu__item.menu-item-js(data-name="plans")
+				.aside-menu__item-text Планування
+				.aside-menu__item-dot
+			.aside-menu__item.menu-item-js(data-name="builder")
+				.aside-menu__item-text Забудовник
+				.aside-menu__item-dot
+			.aside-menu__item.menu-item-js(data-name="docs")
+				.aside-menu__item-text Документи
+				.aside-menu__item-dot
+			.aside-menu__item.menu-item-js(data-name="contacts")
+				.aside-menu__item-text Контакти
+				.aside-menu__item-dot
+			.aside-menu__arrow-prev.aside-menu__arrow.menu-arrow-js 
+				<svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M5.12798menu-item-js 1L1.71193 4.37051L5.12798 4.37051L8.54404 4.37051L5.12798 1Z" fill="#FDFBF9"/>
+					<path d="M5.12799 15.3474L5.12798 1M5.12798 1L1.71193 4.37051L8.54404 4.37051L5.12798 1Z" stroke="#FDFBF9" stroke-width="0.683211"/>
+				</svg>
+			.aside-menu__arrow-next.aside-menu__arrow.menu-arrow-js
+				<svg width="10" height="15" viewBox="0 0 10 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M5.12797 14.3474L8.54402 10.9769L5.12797 10.9769L1.71191 10.9769L5.12797 14.3474Z" fill="#F8B400"/>
+					<path d="M5.12797 -2.16955e-05L5.12797 14.3474M5.12797 14.3474L8.54402 10.9769L1.71191 10.9769L5.12797 14.3474Z" stroke="#F8B400" stroke-width="0.683211"/>
+				</svg>
+
+
+
 
 block footer
 block header

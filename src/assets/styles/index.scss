@@ -159,12 +159,12 @@
 
 .first-screen-layout {
     width: 100vw;
-    height: calc(100vh);
-    overflow: hidden;
+    // height: calc(100vh);
     margin-left: -$offset-desktop;
     position: relative;
-    transition: .5s;
+    // transition: background-position 1s;
     z-index: 0;
+    background-size: 100vw 100vh !important;
 }
 
 .first-screen-layout[data-screen="1"] {
@@ -225,7 +225,7 @@
 .bottom-static-block {
     @include size(5.5);
     height: 50px;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     z-index: 10;
     left: calc(50vw - 250px);
@@ -250,6 +250,15 @@
     &__screen3 {
         transform: translateY(-1000%);
     }
+}
+
+.screen10__content {
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.screen10__content::-webkit-scrollbar {
+    display: none;
 }
 
 .bottom-static-block[data-screen="1"] {
@@ -303,9 +312,9 @@
 
 [data-active="true"] {
     // transform: translate(0);
-    opacity: 1;
-    z-index: 5;
-    animation: scroll-effect 1s 1 linear;
+    // opacity: 1;
+    // z-index: 5;
+    // animation: scroll-effect 1s 1 linear;
 }
 
 @keyframes scroll-effect {
@@ -321,52 +330,42 @@
 }
 
 [data-active="false"] {
-    transform: translate(0, -100%);
-    pointer-events: none;
-    opacity: 0;
-    animation: scroll-effect-out 1s 1 linear;
+    // transform: translate(0, 0%);
+    // pointer-events: none;
+    // opacity: 0;
+    // animation: scroll-effect-out 1s 1 linear;
 }
 
-.screen2 {
-    transform: translateY(-100%);
-}
-
-.screen3 {
-    transform: translateY(-200%);
-}
-
-.screen4 {
-    transform: translateY(-300%);
-}
-
-.screen5 {
-    transform: translateY(-400%);
-}
-
-.screen6 {
-    transform: translateY(-500%);
-}
-
-.screen7 {
-    transform: translateY(-600%);
-}
-
-.screen8 {
-    transform: translateY(-700%);
-}
-
-.screen9 {
-    transform: translateY(-800%);
-}
-
-.screen10 {
-    transform: translateY(-900%);
-}
-
-.screen11 {
-    transform: translateY(-1000%);
-}
-
+// .screen2 {
+//     transform: translateY(-100%);
+// }
+// .screen3 {
+//     transform: translateY(-200%);
+// }
+// .screen4 {
+//     transform: translateY(-300%);
+// }
+// .screen5 {
+//     transform: translateY(-400%);
+// }
+// .screen6 {
+//     transform: translateY(-500%);
+// }
+// .screen7 {
+//     transform: translateY(-600%);
+// }
+// .screen8 {
+//     transform: translateY(-700%);
+// }
+// .screen9 {
+//     transform: translateY(-800%);
+// }
+// .screen10 {
+//     transform: translateY(-900%);
+// }
+// .screen11 {
+//     transform: translateY(-1000%);
+// }
 .screen1 {
     @include wrapper();
     color: $mc-white;
@@ -526,7 +525,7 @@
         max-width: 1200px;
         width: 100%;
         padding: 0 190px 0 $offset-desktop;
-        // z-index: 10;
+        z-index: 10;
     }
     .infra-link {
         color: $mc-yellow;
@@ -577,9 +576,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    &[data-active='true'] &__text-block {
-        animation: screen6-clip 1s 1 linear;
-    }
+    // &[data-active='true'] &__text-block {
+    //     animation: screen6-clip 1s 1 linear;
+    // }
     &__title {
         @include size(12);
         @include shift-padding-left(6);
@@ -958,8 +957,8 @@
 
 .screen11 {
     width: 100vw;
-    height: 100vh;
-    overflow-y: scroll;
+    // height: 100vh;
+    // overflow-y: scroll;
     display: flex;
     align-items: center;
     flex-wrap: wrap;

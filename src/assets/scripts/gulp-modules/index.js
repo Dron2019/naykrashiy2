@@ -12,83 +12,90 @@ direction = 'none';
 
 
 
+// $(document).ready(function() {
+//     $('#pagepiling').pagepiling({
+//         sectionSelector: '.section',
+//         css3: true,
+//         menu: null,
+//         direction: 'vertical',
+//         verticalCentered: true,
+//     });
+// });
+// let stopDetector = false;
+// e.path.forEach(path => {
+//     if (path.id == 'map') {
+//         stopDetector = true;
+//     }
+// });
+// if (stopDetector == true) return false;
+// console.log(e.path[4].name);
+// console.log(e.path.includes('div#map'));
+// if ($layout.dataset.screen == 10) {
+//     console.log(e.target.getBoundingClientRect());
 
-$layout.addEventListener('wheel', function(e) {
-    let stopDetector = false;
-    // e.path.forEach(path => {
-    //     if (path.id == 'map') {
-    //         stopDetector = true;
-    //     }
-    // });
-    // if (stopDetector == true) return false;
-    // console.log(e.path[4].name);
-    // console.log(e.path.includes('div#map'));
-    // if ($layout.dataset.screen == 10) {
-    //     console.log(e.target.getBoundingClientRect());
-
-    //     return false;
-    // }
-    if ($layout.dataset.screen != 11) {
-        document.querySelector('.footer-block').classList.remove('visible');
-    } else {
-        document.querySelector('.footer-block').classList.add('visible');
-    }
-    if ($layout.dataset.screen == 11) {
-        return false;
-    } else {
-        e.preventDefault();
-    }
-    e.deltaY > 0 ?
-        changeCounter(screenNumber, '+') :
-        changeCounter(screenNumber, '-');
-    screenList.forEach(element => {
-        element.dataset.active = false;
-    });
-    screenList[screenNumber - 1].dataset.active = true;
-    $layout.dataset.screen = screenNumber;
-    $staticBottomBlock.dataset.screen = screenNumber;
-    console.log(screensCount);
+//     return false;
+// }
+// if ($layout.dataset.screen != 11) {
+//     document.querySelector('.footer-block').classList.remove('visible');
+// } else {
+//     document.querySelector('.footer-block').classList.add('visible');
+// }
+// if ($layout.dataset.screen == 11) {
+//     return false;
+// } else {
+//     e.preventDefault();
+// }
+// e.deltaY > 0 ?
+//     changeCounter(screenNumber, '+') :
+//     changeCounter(screenNumber, '-');
+// screenList.forEach(element => {
+//     element.dataset.active = false;
+// });
+// screenList[screenNumber - 1].dataset.active = true;
+// $layout.dataset.screen = screenNumber;
+// $staticBottomBlock.dataset.screen = screenNumber;
+// console.log(screensCount);
 
 
-});
-getTouchDirection($layout);
-$layout.addEventListener('touchend', (e) => {
-    switch (direction) {
-        case 'up':
-            changeCounter(screenNumber, '+');
-            break;
-        case 'down':
-            changeCounter(screenNumber, '-');
-            break;
-        default:
-            break;
-    }
-    screenList.forEach(element => {
-        element.dataset.active = false;
-    });
-    screenList[screenNumber - 1].dataset.active = true;
-    $layout.dataset.screen = screenNumber;
-    $staticBottomBlock.dataset.screen = screenNumber;
-    console.log(screensCount);
-})
+// });
+// getTouchDirection($layout);
+// $layout.addEventListener('touchend', (e) => {
+//     switch (direction) {
+//         case 'up':
+//             changeCounter(screenNumber, '+');
+//             break;
+//         case 'down':
+//             changeCounter(screenNumber, '-');
+//             break;
+//         default:
+//             break;
+//     }
+//     screenList.forEach(element => {
+//         element.dataset.active = false;
+//     });
+//     screenList[screenNumber - 1].dataset.active = true;
+//     $layout.dataset.screen = screenNumber;
+//     $staticBottomBlock.dataset.screen = screenNumber;
+//     console.log(screensCount);
+// })
 
-function changeCounter(number, direction) {
+// function changeCounter(number, direction) {
 
-    switch (direction) {
-        case '+':
-            number == screensCount ?
-                null :
-                screenNumber++;
-            break;
-        case '-':
-            number == 1 ?
-                null :
-                screenNumber--;
-            break;
-        default:
-            break;
-    }
-}
+//     switch (direction) {
+//         case '+':
+//             number == screensCount ?
+//                 null :
+//                 screenNumber++;
+//             break;
+//         case '-':
+//             number == 1 ?
+//                 null :
+//                 screenNumber--;
+//             break;
+//         default:
+//             break;
+//     }
+// }
 
 /* slider screen 3*/
 $('.screen3__slider').on('init', function(event, slick) {
@@ -306,3 +313,71 @@ document.querySelector('.popup-container').onclick = e => {
 }
 
 /**POPUP FORM END */
+let $menuItemList = document.querySelectorAll('.aside-menu__item');
+$.scrollify({
+    section: ".section",
+    scrollSpeed: 1500,
+    offset: 0,
+    easing: "easeOutExpo",
+    setHeights: true,
+    updateHash: true,
+    touchScroll: true,
+    standardScrollElements: '.screen10__content',
+    scrollbars: true,
+    before: function(e, r) {
+        // e == 8 ? $.scrollify.disable() : null;
+        menuItemSwitch(e, r);
+        console.log(e, r);
+        $layout.dataset.screen = e + 1;
+        $staticBottomBlock.dataset.screen = e + 1;
+        $layout.style.backgroundPositionY = `${e*100}vh`;
+        $layout.style.backgroundSize = `100vw 100vh`;
+    },
+    overflowScroll: false
+});
+
+let menuArrow = document.querySelectorAll('.menu-arrow-js'),
+    menuItem = document.querySelectorAll('.menu-item-js');
+menuItem.forEach((element, index) => {
+    element.addEventListener('click', () => {
+        let dataName = element.dataset.name
+        console.log(element.dataset.name);
+
+        clearClass($menuItemList, 'current');
+        element.classList.add('current');
+        $.scrollify.move(`#${index+1}`);
+    })
+});
+menuArrow.forEach(element => {
+    element.addEventListener('click', () => {
+        console.log(element);
+        if (element.classList.contains('aside-menu__arrow-prev')) {
+            $.scrollify.previous();
+        } else if (element.classList.contains('aside-menu__arrow-next')) {
+            $.scrollify.next();
+        }
+    })
+});
+document.querySelector('.screen10__content').addEventListener('scroll', e => {
+    e.stopPropagation();
+    console.log(e);
+
+});
+
+
+
+function clearClass(list, className) {
+    list.forEach(item => {
+        item.classList.remove(className);
+    })
+}
+
+
+function menuItemSwitch(index, sectionArray) {
+    let curDataset = sectionArray[index][0].dataset.menu_title;
+    console.log(curDataset);
+    clearClass($menuItemList, 'current');
+    document.querySelector(`[data-name='${curDataset}']`).classList.add('current');
+    // console.log(sectionArray[index][0].dataset.menuTitle);
+
+}

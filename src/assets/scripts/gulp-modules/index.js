@@ -313,6 +313,25 @@ document.querySelector('.popup-container').onclick = e => {
 }
 
 /**POPUP FORM END */
+
+
+/**MENU and SECTION SCROLL */
+let colorObject = {
+        yellow_green: {
+            active_color: "green",
+            innactive_color: 'yellow'
+        },
+        white_yellow: {
+            active_color: "yellow",
+            innactive_color: 'white'
+        },
+        white_green: {
+            active_color: "green",
+            innactive_color: 'white'
+        },
+
+    }
+    /**MENU and SECTION SCROLL END */
 let $menuItemList = document.querySelectorAll('.aside-menu__item');
 $.scrollify({
     section: ".section",

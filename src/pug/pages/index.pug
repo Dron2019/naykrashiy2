@@ -39,7 +39,7 @@ block content
 						span.separator 
 							include ../../assets/images/common/white-line.svg
 						span.all 05
-		.section.screen1.screen-js(data-active="true" data-menu_title="main")
+		.section.screen1.screen-js(data-section-name="main" data-active="true" data-menu_title="main")
 			.screen1__content 
 				.logo-block 
 					include ../../assets/images/logo.svg
@@ -48,13 +48,13 @@ block content
 				.screen1__scroll Використовуйте скролл
 				.screen1__adress 
 					a(target='_blank' href="") Київська обл. смт. Гостомель, вул. Варшавська і провулок Варшавський
-		.section.screen2.screen-js(data-active="false" data-menu_title="conception")
+		.section.screen2.screen-js(data-section-name="conception" data-active="false" data-menu_title="conception")
 			.screen2__content 
 				.screen2__title.title.title_white Екологічний супутник столиці
 				.screen2__text.text.text_white 
 					p Найкращий-2» створений з думкою про затишок, безпеку і європейський комфорт. Світлий та елегантний, він поєднав у собі романтику заміського життя, та налагоджений побут розвиненого кварталу. 
 					p Тут будівлі не закривають небо, все необхідне — за крок від дому, а замість шуму автівок лунає дитячий сміх.
-		.section.screen3.screen-js(data-active="false" data-menu_title="advantages")
+		.section.screen3.screen-js( data-section-name="advantages" data-active="false" data-menu_title="advantages")
 			.screen3__content
 				.screen3__slider
 					.screen3__slide
@@ -95,7 +95,7 @@ block content
 								p Дружнє та яскраве дитинство — чудовий фундамент для успішного майбутнього!
 						.screen3__image 
 							+img('screen3/slider/5.png')
-		.section.screen4.screen-js.screen4-slider(data-active="false" data-menu_title="gallery")
+		.section.screen4.screen-js.screen4-slider(data-section-name="gallery" data-active="false" data-menu_title="gallery")
 			.screen4__info-block
 				a.infra-link.text() Дивитися інфраструктуру
 				.count-block.text.text_white
@@ -122,10 +122,10 @@ block content
 				+img('screen4/gallery.png')
 			.screen4__slide
 				+img('screen4/gallery.png')
-		.section.screen5.screen-js(data-active="false" data-menu_title="infra") 
+		.section.screen5.screen-js( data-section-name="infra" data-active="false" data-menu_title="infra") 
 			+img('screen5/main.png').screen5__image
 			.screen5__title.title.title_white Продумана інфраструктура
-		.section.screen6.screen-js(data-active="false" data-menu_title="infra") 
+		.section.screen6.screen-js(data-section-name="infra" data-active="false" data-menu_title="infra") 
 			.screen6__content
 				.screen6__title.title.title_white Продумана інфраструктура
 				.screen6__text-block.text.text_white
@@ -133,7 +133,7 @@ block content
 					p В кількох кварталах від будинку проходять різні маршрути громадського транспорту, що дозволяють без проблем дістатися будь-якої точки Києва.
 				.screen6__image
 					+img('screen6/img.png')
-		.section.screen7.screen-js(data-active="false" data-menu_title="infra")
+		.section.screen7.screen-js(data-section-name="infra" data-active="false" data-menu_title="infra")
 			#map
 			.screen7__legend-title  Об'єкти інфраструктури
 				ul.screen7__legend.legend-items-js
@@ -209,9 +209,9 @@ block content
 						.screen7__legend-eye
 							svg
 								<use xlink:href="#icon-legend-eye"></use>
-		.section.screen8.screen-js(data-active="false" data-menu_title="genplan") 
+		.section.screen8.screen-js(data-section-name="genplan" data-active="false" data-menu_title="genplan") 
 			include ../../assets/images/build-plan/build-plan.svg
-		.section.screen9.screen-js(data-active="false" data-menu_title="plans") 
+		.section.screen9.screen-js(data-section-name="plans" data-active="false" data-menu_title="plans") 
 			.screen9__content
 				.screen9__plans-slider-wrapper
 					.screen9__static-text
@@ -242,7 +242,7 @@ block content
 						.screen9__slide
 							span.flat-title.text Квартира 2А
 							+img('screen9/flat-plan.png')
-		.section.screen10.screen-js(data-active="false" data-menu_title="builder")
+		.section.screen10.screen-js( data-section-name="builder" data-active="false" data-menu_title="builder")
 			.screen10__content
 				.screen10__logo
 					include ../../assets/images/common/comfort-life-logo.svg
@@ -314,7 +314,7 @@ block content
 							include ../../assets/images/common/arrow-std.svg
 						.arrow-next-std.arrow
 							include ../../assets/images/common/arrow-next-std.svg
-		.section.screen11.screen-js(data-active="false" data-menu_title="contacts")
+		.section.screen11.screen-js(data-section-name="contacts" data-active="false" data-menu_title="contacts")
 			.screen11__content 
 				.screen11__contact-block
 					.title.title_green  Контакти
@@ -349,7 +349,7 @@ block content
 	.popup-container
 		form.form-js.form
 	menu.aside-menu
-			.aside-menu__item.menu-item-js(data-name="main")
+			.aside-menu__item.menu-item-js(data-name="main" )
 				.aside-menu__item-text Головна
 				.aside-menu__item-dot
 			.aside-menu__item.menu-item-js(data-name="conception")
@@ -373,9 +373,9 @@ block content
 			.aside-menu__item.menu-item-js(data-name="builder")
 				.aside-menu__item-text Забудовник
 				.aside-menu__item-dot
-			.aside-menu__item.menu-item-js(data-name="docs")
-				.aside-menu__item-text Документи
-				.aside-menu__item-dot
+			//- .aside-menu__item.menu-item-js(data-name="docs")
+			//- 	.aside-menu__item-text Документи
+			//- 	.aside-menu__item-dot
 			.aside-menu__item.menu-item-js(data-name="contacts")
 				.aside-menu__item-text Контакти
 				.aside-menu__item-dot

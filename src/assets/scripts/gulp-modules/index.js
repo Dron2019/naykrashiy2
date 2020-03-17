@@ -316,7 +316,7 @@ document.querySelector('.popup-container').onclick = e => {
 let $menuItemList = document.querySelectorAll('.aside-menu__item');
 $.scrollify({
     section: ".section",
-    scrollSpeed: 1500,
+    scrollSpeed: 2000,
     offset: 0,
     easing: "easeOutExpo",
     setHeights: true,
@@ -331,7 +331,10 @@ $.scrollify({
         $layout.dataset.screen = e + 1;
         $staticBottomBlock.dataset.screen = e + 1;
         $layout.style.backgroundPositionY = `${e*100}vh`;
-        $layout.style.backgroundSize = `100vw 100vh`;
+        $layout.style.backgroundSize = `100vw 110vh`;
+    },
+    after: function(e, r) {
+
     },
     overflowScroll: false
 });
@@ -341,11 +344,8 @@ let menuArrow = document.querySelectorAll('.menu-arrow-js'),
 menuItem.forEach((element, index) => {
     element.addEventListener('click', () => {
         let dataName = element.dataset.name
-        console.log(element.dataset.name);
-
-        clearClass($menuItemList, 'current');
         element.classList.add('current');
-        $.scrollify.move(`#${index+1}`);
+        $.scrollify.move(`#${dataName}`);
     })
 });
 menuArrow.forEach(element => {

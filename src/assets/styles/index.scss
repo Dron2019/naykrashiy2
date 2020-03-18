@@ -85,11 +85,11 @@ body {
     height: 120px;
     background: $mc-yellow;
     padding-bottom: 35px;
-    clip-path: polygon(0 0, 100% 0, 100% 68%, 70% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 68%, 57% 100%);
     padding-left: 22%;
     padding-right: 60px;
     padding-top: 21px;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 68%, 70% 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 68%, 57% 100%);
     display: flex;
     flex-wrap: wrap;
     &__tel {
@@ -122,15 +122,32 @@ body {
     &__tel-title:before {
         content: url(../images/common/tel-icon.svg);
         margin-right: 6px;
+        display: none;
+    }
+    @include to(1100px) {
+        @include size(8);
+        padding-left: 18%;
+        padding-right: 30px;
+    }
+    @include to(768px) {
+        padding-top: 15px;
+        padding-right: $fields-sm;
+        &__tel {
+            font-size: 28px;
+            line-height: 56px;
+        }
+        &__tel-title {
+            transform: translateY(-10px);
+        }
     }
 }
 
 .lang-block {
-    width: 46px;
+    width: 38px;
     color: $mc-green;
     cursor: pointer;
     transition: var(--standart-transition);
-    max-height: 45px;
+    max-height: 38px;
     overflow: hidden;
     position: relative;
     padding-right: 9px;
@@ -139,6 +156,12 @@ body {
     font-size: 12px;
     background: url(../images/common/lang-block-bg.svg) top no-repeat;
     background-size: contain;
+    padding-left: 10px;
+    padding-top: 9px;
+    transform: translateY(-10px);
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
     & a {
         display: block;
     }
@@ -168,6 +191,9 @@ body {
         visibility: visible;
         opacity: 1;
     }
+    @include to(768px) {
+        transform: translateY(0px);
+    }
 }
 
 .first-screen-layout {
@@ -177,63 +203,79 @@ body {
     position: relative;
     // transition: background-position 1s;
     z-index: 0;
+    background-size: 100vw 110vh;
 }
 
 .first-screen-layout[data-screen="1"] {
     background: linear-gradient(90deg, #1A1919 0%, rgba(26, 25, 25, 0) 40%), url(../images/screen1/bg.png) top left no-repeat;
-    background-size: cover;
     background-size: 100vw 100vh;
     background-position-y: 0;
+    @include to(768px) {
+        background: linear-gradient(90deg, #1A1919 0%, rgba(26, 25, 25, 0) 40%), url(../images/screen1/bg-tablet.png) top left no-repeat;
+    }
 }
 
 .first-screen-layout[data-screen="2"] {
-    background: url(../images/screen2/bg.png) center no-repeat;
-    background-size: cover;
+    background: url(../images/screen2/bg.png) left no-repeat;
+    background-size: 162vh auto;
+    @include to(768px) {
+        background: url(../images/screen2/bg-tablet.png) left no-repeat;
+        background-size: 100vh auto;
+    }
 }
 
 .first-screen-layout[data-screen="3"] {
     background: url(../images/screen3/bg.png) top left no-repeat;
-    background-size: cover;
+    background-size: 160vh auto;
+    @include to(768px) {
+        background: url(../images/screen3/bg.png) top left no-repeat;
+        background-size: 160vh auto;
+    }
 }
 
 .first-screen-layout[data-screen="4"] {
     background: url(../images/screen3/bg.png) top left no-repeat;
-    background-size: cover;
 }
 
 .first-screen-layout[data-screen="5"] {
     background: url(../assets/images/screen5/main.png) top left no-repeat;
-    background-size: cover;
 }
 
 .first-screen-layout[data-screen="6"] {
     background: linear-gradient(0deg, rgba(26, 25, 25, 0.08) 0%, rgba(0, 0, 0, 0.65) 0%), url(../images/screen5/main.png) top left no-repeat;
-    background-size: cover;
+    background-size: 200vh auto;
+    @include to(768px) {
+        background: linear-gradient(0deg, rgba(26, 25, 25, 0.08) 0%, rgba(0, 0, 0, 0.65) 0%), url(../images/screen6/bg-tablet.png) top left no-repeat;
+        background-size: 100vh auto;
+    }
 }
 
 .first-screen-layout[data-screen="7"] {
     background: linear-gradient(0deg, rgba(26, 25, 25, 0.08) 0%, rgba(0, 0, 0, 0.65) 0%), url(../images/screen5/main.png) top left no-repeat;
-    background-size: cover;
 }
 
 .first-screen-layout[data-screen="8"] {
     background: url(../images/screen8/bg-blur.png) top left no-repeat;
-    background-size: cover;
+    @include to(768px) {
+        background-size: 261vh auto;
+    }
 }
 
 .first-screen-layout[data-screen="9"] {
-    background: url(../images/screen9/bg.png) top left no-repeat;
-    background-size: cover;
+    background: url(../images/screen9/bg.png) bottom no-repeat;
+    background-size: 100vw 160vh;
+    @include to(768px) {
+        background: url(../images/screen9/bg-tablet.png) bottom left no-repeat;
+        background-size: 100vh auto;
+    }
 }
 
 .first-screen-layout[data-screen="10"] {
     background: url(../images/screen9/bg.png) top left no-repeat;
-    background-size: cover;
 }
 
 .first-screen-layout[data-screen="11"] {
     background: $mc-white;
-    background-size: cover;
 }
 
 .bottom-static-block {
@@ -264,6 +306,9 @@ body {
     &__screen3 {
         transform: translateY(-1000%);
     }
+    @include to(768px) {
+        left: 250px;
+    }
 }
 
 .screen10__content::-webkit-scrollbar {
@@ -278,11 +323,17 @@ body {
 .bottom-static-block[data-screen="2"] {
     height: 117px;
     @include size(6.5);
+    @include size-sm(7.5);
     padding: 2% 10% 2% 10%;
     -webkit-clip-path: polygon(20% 0%, 90% 10%, 100% 100%, 0% 100%);
     clip-path: polygon(20% 0%, 90% 10%, 100% 100%, 0% 100%);
     .bottom-static-block__screen2 {
         transform: translateY(0);
+    }
+    @include to(768px) {
+        left: 20px;
+        height: 100px;
+        padding: 3% 10% 2% 15%;
     }
 }
 
@@ -295,6 +346,13 @@ body {
     .bottom-static-block__screen3 {
         transform: translateY(0);
     }
+    @include to(768px) {
+        height: 90px;
+        left: 0;
+        .bottom-static-block__screen3 {
+            transform: translateY(-30px);
+        }
+    }
 }
 
 .bottom-static-block[data-screen="4"] {
@@ -306,6 +364,9 @@ body {
     @include size(7.5);
     -webkit-clip-path: polygon(67% 0, 0% 100%, 100% 100%);
     clip-path: polygon(67% 0, 0% 100%, 100% 100%);
+    @include to(768px) {
+        left: 0;
+    }
 }
 
 .bottom-static-block[data-screen="6"],
@@ -345,42 +406,13 @@ body {
     // animation: scroll-effect-out 1s 1 linear;
 }
 
-// .screen2 {
-//     transform: translateY(-100%);
-// }
-// .screen3 {
-//     transform: translateY(-200%);
-// }
-// .screen4 {
-//     transform: translateY(-300%);
-// }
-// .screen5 {
-//     transform: translateY(-400%);
-// }
-// .screen6 {
-//     transform: translateY(-500%);
-// }
-// .screen7 {
-//     transform: translateY(-600%);
-// }
-// .screen8 {
-//     transform: translateY(-700%);
-// }
-// .screen9 {
-//     transform: translateY(-800%);
-// }
-// .screen10 {
-//     transform: translateY(-900%);
-// }
-// .screen11 {
-//     transform: translateY(-1000%);
-// }
 .screen1 {
     @include wrapper();
     color: $mc-white;
     transition: var(--standart-transition);
     &__content {
         @include size(5);
+        @include size-sm(8);
         padding-top: 25px;
         padding-bottom: 36px;
         height: 100vh;
@@ -396,7 +428,7 @@ body {
         margin-top: auto;
     }
     &__title {
-        font-size: $fz-large;
+        font-size: 50px;
         font-weight: bold;
         line-height: 1.2em;
         margin-bottom: auto;
@@ -435,6 +467,11 @@ body {
         height: 25px;
         top: calc(50% - 12.5px);
     }
+    @include to(768px) {
+        &__title {
+            margin-bottom: 80px;
+        }
+    }
 }
 
 .screen2 {
@@ -456,6 +493,12 @@ body {
     }
     &__text {
         margin-top: 15px;
+    }
+    @include to(768px) {
+        width: calc(100vw / 12 * 8 - 10px);
+        padding-left: 60px;
+        -webkit-clip-path: polygon(0 16%, 100% 16%, 100% 82%, 0 82%);
+        clip-path: polygon(0 16%, 100% 16%, 100% 82%, 0 82%);
     }
 }
 
@@ -502,6 +545,22 @@ body {
     }
     .all {
         color: $mc-green;
+    }
+    @include to(768px) {
+        padding-left: $fields-sm;
+        &__slide {
+            flex-direction: column;
+        }
+        &__text-block {
+            width: calc(100% / 12 * 9);
+            height: 50vh;
+        }
+        &__image {
+            height: 50vh;
+            margin-top: auto;
+            width: calc(100% / 12 * 11);
+            margin-left: calc(100% / 12);
+        }
     }
 }
 
@@ -550,8 +609,34 @@ body {
         margin-left: auto;
         margin-right: 47px;
     }
+    .count-block .all,
+    .count-block .current {
+        color: $mc-white;
+    }
     .slick-track {
         height: 100vh;
+    }
+    @include to(1200px) {
+        &__info-block {
+            width: 100%;
+            left: 0;
+            right: 0;
+        }
+    }
+    @include to(768px) {
+        &__info-block {
+            flex-wrap: wrap;
+        }
+        .infra-link {
+            width: 100%;
+            order: 2;
+        }
+        &__info-block {
+            padding: 0 $fields-sm 0 $fields-sm;
+        }
+        .arrow-block-std {
+            margin-right: calc(100% / 12);
+        }
     }
 }
 
@@ -576,6 +661,12 @@ body {
         height: 100%;
         object-fit: cover;
         z-index: -1;
+    }
+    @include to(768px) {
+        &__title {
+            margin-right: 24%;
+            padding-top: 83vh;
+        }
     }
 }
 
@@ -605,6 +696,7 @@ body {
     }
     &__image {
         @include size(4.4);
+        @include size-sm(7.5);
         object-fit: cover;
         display: flex;
         align-items: flex-end;
@@ -620,6 +712,7 @@ body {
         padding-top: 115px;
         padding-bottom: 105px;
         @include size(6.45);
+        @include size-sm(9.5);
         @include shift-left(0.9);
         @include shift-padding-left(1.5);
         @include shift-padding-right(1);
@@ -628,6 +721,20 @@ body {
     }
     .screen6__text-block p:nth-child(2) {
         margin-top: 1.55em;
+    }
+    @include to(768px) {
+        &__content {
+            padding-top: 0;
+        }
+        &__text-block {
+            @include shift-left(-0.9);
+            @include shift-padding-left(2.4);
+        }
+        &__image {
+            margin-left: auto;
+            margin-top: -10%;
+            @include shift-right(0.5);
+        }
     }
 }
 
@@ -724,6 +831,11 @@ body {
     &__legend>li.selected &__legend-eye svg {
         fill: $mc-gray;
     }
+    @include to(768px) {
+        &__legend-title {
+            width: calc(100% / 12 * 5 + #{$fields*2});
+        }
+    }
 }
 
 @keyframes max-height1 {
@@ -800,6 +912,19 @@ body {
     .order-call {
         margin-top: 40px;
     }
+    @include to(768px) {
+        &__plans-slider-wrapper {
+            margin-left: 0;
+        }
+        &__static-text {
+            width: 100%;
+            padding-right: 0;
+        }
+        &__slider,
+        &__nav-block {
+            width: 80%;
+        }
+    }
 }
 
 .order-call {
@@ -833,6 +958,7 @@ body {
     }
     &__developer-description {
         @include size(8);
+        @include size-sm(12);
         @include col-padding();
         @include shift-padding-right(1.5);
     }
@@ -896,6 +1022,22 @@ body {
         background: linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 39%);
         z-index: 100;
         pointer-events: none;
+    }
+    @include to(768px) {
+        &__logo {
+            @include shift-padding-left(0.8);
+        }
+        &__developer-description {
+            @include shift-padding-right(3);
+            margin-top: 65px;
+            @include shift-padding-left(0.9);
+        }
+        &__statistic-wrapper {
+            @include size(12);
+            @include shift-padding-left(0.7);
+            @include shift-left(0);
+            @include shift-padding-right(3);
+        }
     }
 }
 
@@ -961,6 +1103,19 @@ body {
     &__date {
         font-size: 16px;
         margin-left: 30px;
+    }
+    @include to(768px) {
+        @include size(9.3);
+        .document-item {
+            width: calc(50% - 25px);
+            margin-right: 20px;
+        }
+        &__text {
+            column-count: 1;
+        }
+        &__text p:nth-child(2n) {
+            margin-top: 1.6em;
+        }
     }
 }
 
@@ -1046,6 +1201,37 @@ body {
     &__google-map-link g.arrow {
         stroke: $mc-green;
     }
+    @include to(768px) {
+        &__contact-block {
+            display: flex;
+            flex-wrap: wrap;
+            padding-bottom: 40px;
+        }
+        .title {
+            width: 100%;
+        }
+        &__contact-block {
+            @include size(12);
+            padding-left: 0;
+        }
+        .contact-tablet-group {
+            width: 50%;
+        }
+        div.contact-tablet-group:nth-of-type(n+4) {
+            margin-top: 30px;
+        }
+        .sales-tel-title {
+            margin-top: 0;
+        }
+        .scheldule-title {
+            margin: 0;
+            margin-bottom: 6px;
+        }
+        &__map-block {
+            width: 100%;
+            height: 50vh;
+        }
+    }
 }
 
 .bottom-screen-scroll-layout {
@@ -1072,6 +1258,7 @@ body {
         width: 120px;
         height: 82px;
         fill: $mc-white;
+        stroke: $mc-white;
     }
     &__non-static {
         width: 100%;
@@ -1083,10 +1270,15 @@ body {
     }
     &__non-static-link {
         @include shift(1.2);
+        position: relative;
+        padding-left: 15px;
     }
     &__non-static-link:before {
         content: url(../images/common/tel-icon-yellow.svg);
         margin-right: 5px;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
     &__non-static-link,
     &__non-static-link>a {
@@ -1122,6 +1314,29 @@ body {
         align-items: center;
         justify-content: space-between;
         color: $mc-white;
+    }
+    @include to(768px) {
+        height: 265px;
+        padding-top: 93px;
+        margin-top: -100px;
+        &__non-static {
+            width: calc(100% - 40px);
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        &__static {
+            padding-left: $fields-sm;
+            padding-right: $fields-sm;
+        }
+        &__non-static-link {
+            @include shift-left(1);
+            @include shift-right(0.5);
+        }
+        &__non-static>svg {
+            width: 170px;
+        }
     }
 }
 
@@ -1237,6 +1452,7 @@ body {
 .all {
     fill: $mc-green;
     stroke: $mc-green;
+    color: $mc-green;
 }
 
 .previous,

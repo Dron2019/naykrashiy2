@@ -66,4 +66,10 @@
         stroke: var(--menu-active-color);
         fill: var(--menu-active-color);
     }
+    @include to(1024px) {
+        top: 20vh;
+    }
+    @include to(768px) {
+        right: $fields-sm;
+    }
 }

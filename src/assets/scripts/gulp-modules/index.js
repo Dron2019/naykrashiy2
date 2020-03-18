@@ -194,6 +194,12 @@ $('.screen9__slider-js').slick({
 $('.screen9__slider-js').on('beforeChange', (event, slick, currentSlide, nextSlide) => {
     $('.screen9 .current').html('0' + (nextSlide + 1));
 });
+//Перенос стрелок под слайдер в планшетной версии
+if (window.screen.width < 769) {
+    let navBlock = document.querySelectorAll('.screen9__nav-block')[0],
+        plansContainer = document.querySelectorAll('.screen9__plans-slider-wrapper')[0];
+    plansContainer.append(navBlock);
+}
 /**Слайдер с планировками END */
 
 
@@ -203,7 +209,14 @@ $('.document-slider-js').slick({
         slidesToShow: 3,
         nextArrow: $('.screen10 .arrow-next-std'),
         prevArrow: $('.screen10 .arrow-prev-std'),
-        slide: '.document-item'
+        slide: '.document-item',
+        responsive: [{
+            breakpoint: 769,
+            settings: {
+                slidesToShow: 2,
+
+            }
+        }, ]
     })
     /**Слайдер документов END */
 let digit = document.querySelector('.statistic-item__digit'),
@@ -383,7 +396,7 @@ $.scrollify({
         $layout.dataset.screen = e + 1;
         $staticBottomBlock.dataset.screen = e + 1;
         $layout.style.backgroundPositionY = `${e*100}vh`;
-        $layout.style.backgroundSize = `100vw 110vh`;
+
         changeMenuColor(r[e][0].dataset.menu_theme);
         moveEffects(e);
     },
@@ -479,7 +492,39 @@ document.querySelector('.bottom-screen-scroll-layout').addEventListener('wheel',
     })
     //     /**MENU and SECTION SCROLL END */
 
+document.querySelector('.bottom-screen-scroll-layout').addEventListener('touchend', e => {
+    console.log(e);
+    let footer = document.querySelectorAll('.footer-block')[0];
+    let footerCord = $('.footer-block').offset().top - $(window).scrollTop() - window.screen.availHeight;
+    let documentCords = $('.documents-wrapper').offset().top - $(window).scrollTop() - window.screen.availHeight;
+    let builderCords = $('.screen10__developer-description').offset().top - $(window).scrollTop() - window.screen.availHeight;
+    console.log(builderCords);
 
+    if (builderCords < 0 && documentCords < 0) {
+        clearClass($menuItemList, 'current');
+        document.querySelector('[data-name="builder"]').classList.add('current');
+    }
+    if (documentCords < 0 && builderCords < 0) {
+        clearClass($menuItemList, 'current');
+        document.querySelector('[data-name="docs"]').classList.add('current');
+    }
+    if (footerCord < 0) {
+        footer.classList.add('visible');
+        clearClass($menuItemList, 'current');
+        document.querySelector('[data-name="contacts"]').classList.add('current');
+    } else {
+        footer.classList.remove('visible');
+        document.querySelector('[data-name="contacts"]').classList.remove('current');
+    }
+
+
+
+
+    console.dir(document.querySelectorAll('.footer-block')[0]);
+    console.log(document.querySelectorAll('.footer-block')[0].clientY);
+
+
+})
 
 /**internal links setup */
 

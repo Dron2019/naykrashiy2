@@ -299,10 +299,13 @@ let closeIcon = `<svg width="42" class="close-form" height="42" viewBox="0 0 42 
                 <path d="M31.3619 11.1173L10.8826 31.5966" stroke="#004445"/>
                 <path d="M10.8827 11.1173L31.362 31.5966" stroke="#004445"/>                </svg>`;
 document.querySelector('.popup-container .form-js').insertAdjacentHTML('beforeEnd', closeIcon);
-document.querySelector('.popup-form-js').onclick = e => {
-    document.querySelector('.popup-container').classList.add('visible');
-    document.querySelector('.popup-container .form-js').classList.add('clip-effect');
-};
+document.querySelectorAll('.popup-form-js').forEach(el => {
+
+    el.onclick = e => {
+        document.querySelector('.popup-container').classList.add('visible');
+        document.querySelector('.popup-container .form-js').classList.add('clip-effect');
+    };
+})
 
 document.querySelector('.popup-container').onclick = e => {
     if (e.target.classList.contains('close-form') ||
@@ -317,21 +320,51 @@ document.querySelector('.popup-container').onclick = e => {
 
 /**MENU and SECTION SCROLL */
 let colorObject = {
-        yellow_green: {
-            active_color: "green",
-            innactive_color: 'yellow'
-        },
-        white_yellow: {
-            active_color: "yellow",
-            innactive_color: 'white'
-        },
-        white_green: {
-            active_color: "green",
-            innactive_color: 'white'
-        },
+    yellow_green: {
+        active_color: "#004445",
+        innactive_color: '#FDFBF9'
+    },
+    white_yellow: {
+        active_color: "#F8B400",
+        innactive_color: '#FDFBF9'
+    },
+    white_green: {
+        active_color: "#004445",
+        innactive_color: '#FDFBF9'
+    },
 
+}
+let menuArrow = document.querySelectorAll('.menu-arrow-js'),
+    menuItem = document.querySelectorAll('.menu-item-js');
+
+function changeMenuColor(theme) {
+    switch (theme) {
+        case 'yellow_green':
+            document.documentElement.style
+                .setProperty('--menu-active-color', colorObject.yellow_green.active_color);
+            document.documentElement.style
+                .setProperty('--menu-innactive-color', colorObject.yellow_green.innactive_color);
+            break;
+        case 'white_yellow':
+            document.documentElement.style
+                .setProperty('--menu-active-color', colorObject.white_yellow.active_color);
+            document.documentElement.style
+                .setProperty('--menu-innactive-color', colorObject.white_yellow.innactive_color);
+            break;
+        case 'white_green':
+            document.documentElement.style
+                .setProperty('--menu-active-color', colorObject.white_green.active_color);
+            document.documentElement.style
+                .setProperty('--menu-innactive-color', colorObject.white_green.innactive_color);
+            break;
+
+        default:
+            break;
     }
-    /**MENU and SECTION SCROLL END */
+
+};
+changeMenuColor('yellow_green');
+menuItem[0].classList.add('current');
 let $menuItemList = document.querySelectorAll('.aside-menu__item');
 $.scrollify({
     section: ".section",
@@ -341,7 +374,7 @@ $.scrollify({
     setHeights: true,
     updateHash: true,
     touchScroll: true,
-    standardScrollElements: '.screen10__content',
+    standardScrollElements: '.scroll-layout',
     scrollbars: true,
     before: function(e, r) {
         // e == 8 ? $.scrollify.disable() : null;
@@ -351,6 +384,8 @@ $.scrollify({
         $staticBottomBlock.dataset.screen = e + 1;
         $layout.style.backgroundPositionY = `${e*100}vh`;
         $layout.style.backgroundSize = `100vw 110vh`;
+        changeMenuColor(r[e][0].dataset.menu_theme);
+        moveEffects(e);
     },
     after: function(e, r) {
 
@@ -358,8 +393,7 @@ $.scrollify({
     overflowScroll: false
 });
 
-let menuArrow = document.querySelectorAll('.menu-arrow-js'),
-    menuItem = document.querySelectorAll('.menu-item-js');
+
 menuItem.forEach((element, index) => {
     element.addEventListener('click', () => {
         let dataName = element.dataset.name
@@ -377,11 +411,6 @@ menuArrow.forEach(element => {
         }
     })
 });
-document.querySelector('.screen10__content').addEventListener('scroll', e => {
-    e.stopPropagation();
-    console.log(e);
-
-});
 
 
 
@@ -391,7 +420,6 @@ function clearClass(list, className) {
     })
 }
 
-
 function menuItemSwitch(index, sectionArray) {
     let curDataset = sectionArray[index][0].dataset.menu_title;
     console.log(curDataset);
@@ -400,3 +428,68 @@ function menuItemSwitch(index, sectionArray) {
     // console.log(sectionArray[index][0].dataset.menuTitle);
 
 }
+
+function moveEffects(screenNumber) {
+    switch (screenNumber) {
+        case 10:
+            console.log(screenList);
+            screenList[screenNumber].querySelector('.footer-block').classList.add('visible');
+            break;
+        case 5:
+            screenList[screenNumber].querySelector('.screen6__text-block').classList.add('visible');
+            break;
+        default:
+            break;
+    }
+};
+
+
+document.querySelector('.bottom-screen-scroll-layout').addEventListener('wheel', e => {
+        console.log(e);
+        let footer = document.querySelectorAll('.footer-block')[0];
+        let footerCord = $('.footer-block').offset().top - $(window).scrollTop() - window.screen.availHeight;
+        let documentCords = $('.documents-wrapper').offset().top - $(window).scrollTop() - window.screen.availHeight;
+        let builderCords = $('.screen10__developer-description').offset().top - $(window).scrollTop() - window.screen.availHeight;
+        console.log(builderCords);
+
+        if (builderCords < 0 && documentCords < 0) {
+            clearClass($menuItemList, 'current');
+            document.querySelector('[data-name="builder"]').classList.add('current');
+        }
+        if (documentCords < 0 && builderCords < 0) {
+            clearClass($menuItemList, 'current');
+            document.querySelector('[data-name="docs"]').classList.add('current');
+        }
+        if (footerCord < 0) {
+            footer.classList.add('visible');
+            clearClass($menuItemList, 'current');
+            document.querySelector('[data-name="contacts"]').classList.add('current');
+        } else {
+            footer.classList.remove('visible');
+            document.querySelector('[data-name="contacts"]').classList.remove('current');
+        }
+
+
+
+
+        console.dir(document.querySelectorAll('.footer-block')[0]);
+        console.log(document.querySelectorAll('.footer-block')[0].clientY);
+
+
+    })
+    //     /**MENU and SECTION SCROLL END */
+
+
+
+/**internal links setup */
+
+let linksList = document.querySelectorAll('.link-js');
+
+linksList.forEach(link => {
+        link.onclick = e => {
+            e.preventDefault();
+            $.scrollify.move('#' + e.target.closest('.link-js').dataset.href);
+            console.log(e.target.closest('.link-js').dataset.href);
+        }
+    })
+    /**internal links setup END */

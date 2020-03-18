@@ -1,3 +1,8 @@
+:root {
+    --menu-active-color: #F8B400;
+    --menu-innactive-color: #FDFBF9;
+}
+
 .aside-menu {
     width: 200px;
     position: fixed;
@@ -10,6 +15,7 @@
         line-height: 2em;
         text-transform: uppercase;
         margin-top: 10px;
+        text-decoration: none;
     }
     &__item-dot {
         width: 30px;
@@ -21,7 +27,7 @@
     &__item-dot:after {
         content: '';
         position: absolute;
-        background: $mc-white;
+        background: var(--menu-innactive-color);
         width: 4px;
         height: 4px;
         top: calc(50% - 2px);
@@ -29,20 +35,23 @@
         border-radius: 50%;
     }
     &__item.current {
-        color: $mc-yellow;
+        color: var(--menu-active-color);
     }
     &__item-text {
+        text-decoration: none;
         opacity: 0;
         transition: var(--standart-transition);
     }
-    &__item.current &__item-text {
+    &__item.current &__item-text,
+    &__item:hover &__item-text {
+        color: var(--menu-active-color);
         opacity: 1;
     }
     &__item.current &__item-dot {
-        border: 1px solid $mc-yellow;
+        border: 1px solid var(--menu-active-color);
     }
     &__item.current &__item-dot:after {
-        background: $mc-yellow;
+        background: var(--menu-active-color);
     }
     &__arrow {
         cursor: pointer;
@@ -52,5 +61,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    &__arrow-next svg {
+        stroke: var(--menu-active-color);
+        fill: var(--menu-active-color);
     }
 }

@@ -27,7 +27,8 @@ block content
 	//- 			div
 	.example-classname.first-screen-layout(data-screen="1")
 		.bottom-static-block(data-screen="1")
-			.bottom-static-block__screen2.text.text_white Приводи закохатись в ЖК «Найкращий-2»
+			.bottom-static-block__screen2.text.text_white 
+				a.link-js(data-href="advantages") Приводи закохатись в ЖК «Найкращий-2»
 			.bottom-static-block__screen3.text.text_white 
 				.screen3-arrow-container
 					.previous
@@ -39,7 +40,7 @@ block content
 						span.separator 
 							include ../../assets/images/common/white-line.svg
 						span.all 05
-		.section.screen1.screen-js(data-section-name="main" data-active="true" data-menu_title="main")
+		.section.screen1.screen-js(data-menu_theme="yellow_green" data-section-name="main" data-active="true" data-menu_title="main")
 			.screen1__content 
 				.logo-block 
 					include ../../assets/images/logo.svg
@@ -48,13 +49,13 @@ block content
 				.screen1__scroll Використовуйте скролл
 				.screen1__adress 
 					a(target='_blank' href="") Київська обл. смт. Гостомель, вул. Варшавська і провулок Варшавський
-		.section.screen2.screen-js(data-section-name="conception" data-active="false" data-menu_title="conception")
+		.section.screen2.screen-js(data-menu_theme="white_yellow" data-section-name="conception" data-active="false" data-menu_title="conception")
 			.screen2__content 
 				.screen2__title.title.title_white Екологічний супутник столиці
 				.screen2__text.text.text_white 
 					p Найкращий-2» створений з думкою про затишок, безпеку і європейський комфорт. Світлий та елегантний, він поєднав у собі романтику заміського життя, та налагоджений побут розвиненого кварталу. 
 					p Тут будівлі не закривають небо, все необхідне — за крок від дому, а замість шуму автівок лунає дитячий сміх.
-		.section.screen3.screen-js( data-section-name="advantages" data-active="false" data-menu_title="advantages")
+		.section.screen3.screen-js(data-menu_theme="white_yellow"  data-section-name="advantages" data-active="false" data-menu_title="advantages")
 			.screen3__content
 				.screen3__slider
 					.screen3__slide
@@ -95,9 +96,9 @@ block content
 								p Дружнє та яскраве дитинство — чудовий фундамент для успішного майбутнього!
 						.screen3__image 
 							+img('screen3/slider/5.png')
-		.section.screen4.screen-js.screen4-slider(data-section-name="gallery" data-active="false" data-menu_title="gallery")
+		.section.screen4.screen-js.screen4-slider(data-menu_theme="white_yellow" data-section-name="gallery" data-active="false" data-menu_title="gallery")
 			.screen4__info-block
-				a.infra-link.text() Дивитися інфраструктуру
+				a.infra-link.text.link-js(data-href="infra") Дивитися інфраструктуру
 				.count-block.text.text_white
 					span.current 03 
 					span.separator 
@@ -122,10 +123,10 @@ block content
 				+img('screen4/gallery.png')
 			.screen4__slide
 				+img('screen4/gallery.png')
-		.section.screen5.screen-js( data-section-name="infra" data-active="false" data-menu_title="infra") 
+		.section.screen5.screen-js( data-menu_theme="white_yellow" data-section-name="infra" data-active="false" data-menu_title="infra") 
 			+img('screen5/main.png').screen5__image
 			.screen5__title.title.title_white Продумана інфраструктура
-		.section.screen6.screen-js(data-section-name="infra" data-active="false" data-menu_title="infra") 
+		.section.screen6.screen-js(data-menu_theme="white_yellow" data-section-name="infra" data-active="false" data-menu_title="infra") 
 			.screen6__content
 				.screen6__title.title.title_white Продумана інфраструктура
 				.screen6__text-block.text.text_white
@@ -133,7 +134,7 @@ block content
 					p В кількох кварталах від будинку проходять різні маршрути громадського транспорту, що дозволяють без проблем дістатися будь-якої точки Києва.
 				.screen6__image
 					+img('screen6/img.png')
-		.section.screen7.screen-js(data-section-name="infra" data-active="false" data-menu_title="infra")
+		.section.screen7.screen-js(data-menu_theme="white_green" data-section-name="infra" data-active="false" data-menu_title="infra")
 			#map
 			.screen7__legend-title  Об'єкти інфраструктури
 				ul.screen7__legend.legend-items-js
@@ -209,15 +210,15 @@ block content
 						.screen7__legend-eye
 							svg
 								<use xlink:href="#icon-legend-eye"></use>
-		.section.screen8.screen-js(data-section-name="genplan" data-active="false" data-menu_title="genplan") 
+		.section.screen8.screen-js(data-menu_theme="white_yellow" data-section-name="genplan" data-active="false" data-menu_title="genplan") 
 			include ../../assets/images/build-plan/build-plan.svg
-		.section.screen9.screen-js(data-section-name="plans" data-active="false" data-menu_title="plans") 
+		.section.screen9.screen-js(data-menu_theme="white_yellow" data-section-name="plans" data-active="false" data-menu_title="plans") 
 			.screen9__content
 				.screen9__plans-slider-wrapper
 					.screen9__static-text
 						.screen9__title.title Планування
 						.screen9__text.text Більше 7 варіантів планувань форматів хайфлет і терасні квартири. Детальніше про планування можна узать у відділі продажів.
-						a(href="#").order-call.order-call-js Замовити дзвінок
+						a(href="#").order-call.popup-form-js Замовити дзвінок
 						.screen9__nav-block
 							.arrow-block-std 
 								.arrow-prev-std.arrow
@@ -235,117 +236,119 @@ block content
 							+img('screen9/flat-plan.png')
 						.screen9__slide
 							span.flat-title.text Квартира 2А
-							+img('screen9/flat-plan.png')
+							+img('screen9/flat-plan.png') 
 						.screen9__slide
 							span.flat-title.text Квартира 2А
 							+img('screen9/flat-plan.png')
 						.screen9__slide
 							span.flat-title.text Квартира 2А
 							+img('screen9/flat-plan.png')
-		.section.screen10.screen-js( data-section-name="builder" data-active="false" data-menu_title="builder")
-			.screen10__content
-				.screen10__logo
-					include ../../assets/images/common/comfort-life-logo.svg
-				.screen10__developer-description
-					.screen10__title.title.title_green Забудовник
-					.screen10__subtitle.text.text_gray Для того, щоб життя було комфортним і спокійним, необхідно мати власний будинок - надійний фортеця. C 2010 року ми створюємо будинки, які виправдовують очікування, відповідаючи вашим уявленням про комфорт і безпеку.
-				.screen10__statistic-wrapper
-					.statistic-item
-						.statistic-item__digit 12
-						.statistic-item__description ЖК
-					.statistic-item
-						.statistic-item__digit 48
-						.statistic-item__description Сучасних будинків побудували
-					.statistic-item
-						.statistic-item__digit 38
-						.statistic-item__description Сучасних будинків будуємо
-					a(target='_blank' href='http://comfort-life.com.ua/ru/').devloper-link 
-						span НА САЙТ ЗАБУДОВНИКА
-						include ../../assets/images/common/arrow-std.svg
-				.documents-wrapper
-					.title.title_gray Документи
-					.documents-wrapper__text.text 
-						p У нас є всі документи на будівництво, ознайомитися з ними ви можете в цьому розділі. 
-						p Або під'їхати у відділі продажів: Київська обл. смт. Гостомель, вул. Варшавська і провулок Варшавський
-					.document-slider.document-slider-js
-						.gradient
-						.document-item
-							.documents-wrapper__icon
-								include ../../assets/images/common/document-file-icon.svg
-								.documents-wrapper__date 14.05.2019
-							.documents-wrapper__name.text_gray Разрешение на строительство
-							a(target='_blank').documents-wrapper__download 
-								span pdf
-								include ../../assets/images/common/download-icon.svg
-						.document-item
-							.documents-wrapper__icon
-								include ../../assets/images/common/document-file-icon.svg
-								.documents-wrapper__date 14.05.2019
-							.documents-wrapper__name.text_gray Разрешение на строительство
-							a(target='_blank').documents-wrapper__download 
-								span pdf
-								include ../../assets/images/common/download-icon.svg
-						.document-item
-							.documents-wrapper__icon
-								include ../../assets/images/common/document-file-icon.svg
-								.documents-wrapper__date 14.05.2019
-							.documents-wrapper__name.text_gray Разрешение на строительство
-							a(target='_blank').documents-wrapper__download 
-								span pdf
-								include ../../assets/images/common/download-icon.svg
-						.document-item
-							.documents-wrapper__icon
-								include ../../assets/images/common/document-file-icon.svg
-								.documents-wrapper__date 14.05.2019
-							.documents-wrapper__name.text_gray Разрешение на строительство
-							a(target='_blank').documents-wrapper__download 
-								span pdf
-								include ../../assets/images/common/download-icon.svg
-						.document-item
-							.documents-wrapper__icon
-								include ../../assets/images/common/document-file-icon.svg
-								.documents-wrapper__date 14.05.2019
-							.documents-wrapper__name.text_gray Разрешение на строительство
-							a(target='_blank').documents-wrapper__download 
-								span pdf
-								include ../../assets/images/common/download-icon.svg
-					.arrow-block-std 
-						.arrow-prev-std.arrow
+		.section.screen10.screen-js( data-menu_theme="white_green" data-section-name="builder" data-active="false" data-menu_title="builder")
+			.bottom-screen-scroll-layout.scroll-layout
+				.screen10__content
+					.screen10__logo#builder
+						include ../../assets/images/common/comfort-life-logo.svg
+					.screen10__developer-description
+						.screen10__title.title.title_green Забудовник
+						.screen10__subtitle.text.text_gray Для того, щоб життя було комфортним і спокійним, необхідно мати власний будинок - надійний фортеця. C 2010 року ми створюємо будинки, які виправдовують очікування, відповідаючи вашим уявленням про комфорт і безпеку.
+					.screen10__statistic-wrapper
+						.statistic-item
+							.statistic-item__digit 12
+							.statistic-item__description ЖК
+						.statistic-item
+							.statistic-item__digit 48
+							.statistic-item__description Сучасних будинків побудували
+						.statistic-item
+							.statistic-item__digit 38
+							.statistic-item__description Сучасних будинків будуємо
+						a(target='_blank' href='http://comfort-life.com.ua/ru/').devloper-link 
+							span НА САЙТ ЗАБУДОВНИКА
 							include ../../assets/images/common/arrow-std.svg
-						.arrow-next-std.arrow
-							include ../../assets/images/common/arrow-next-std.svg
-		.section.screen11.screen-js(data-section-name="contacts" data-active="false" data-menu_title="contacts")
-			.screen11__content 
-				.screen11__contact-block
-					.title.title_green  Контакти
-					.screen11__subtitle.contact-padding.screen11__title  Адреса об'єкту
-					.text.contact-padding  Київська обл. смт. Гостомель, вул. Варшавська і провулок Варшавський
-					.screen11__subtitle.contact-padding.screen11__title.screen11__title-green-marker  Відділ продажів
-					.text.contact-padding  Київська обл. смт. Гостомель, вул. Варшавська і провулок Варшавський
-					.text.contact-padding.sales-tel-title  Телефон відділу продажів:
-					a.screen11__subtitle(href="tel:0445555625").contact-padding  (044) 555 56 25
-					.text.text_gray.contact-padding.scheldule-title  Графік роботи відділу продажів
-					.text.contact-padding  Пн-пт: 09.00 - 19.00 
-					.text.contact-padding  Сб-вс: 10.00 - 18.00
-					a.screen11__google-map-link.text.text_green.contact-padding  ВІДКРИТИ ГУГЛ КАРТИ
+					.documents-wrapper#docs
+						.title.title_gray Документи
+						.documents-wrapper__text.text 
+							p У нас є всі документи на будівництво, ознайомитися з ними ви можете в цьому розділі. 
+							p Або під'їхати у відділі продажів: Київська обл. смт. Гостомель, вул. Варшавська і провулок Варшавський
+						.document-slider.document-slider-js
+							.gradient
+							.document-item
+								.documents-wrapper__icon
+									include ../../assets/images/common/document-file-icon.svg
+									.documents-wrapper__date 14.05.2019
+								.documents-wrapper__name.text_gray Разрешение на строительство
+								a(target='_blank').documents-wrapper__download 
+									span pdf
+									include ../../assets/images/common/download-icon.svg
+							.document-item
+								.documents-wrapper__icon
+									include ../../assets/images/common/document-file-icon.svg
+									.documents-wrapper__date 14.05.2019
+								.documents-wrapper__name.text_gray Разрешение на строительство
+								a(target='_blank').documents-wrapper__download 
+									span pdf
+									include ../../assets/images/common/download-icon.svg
+							.document-item
+								.documents-wrapper__icon
+									include ../../assets/images/common/document-file-icon.svg
+									.documents-wrapper__date 14.05.2019
+								.documents-wrapper__name.text_gray Разрешение на строительство
+								a(target='_blank').documents-wrapper__download 
+									span pdf
+									include ../../assets/images/common/download-icon.svg
+							.document-item
+								.documents-wrapper__icon
+									include ../../assets/images/common/document-file-icon.svg
+									.documents-wrapper__date 14.05.2019
+								.documents-wrapper__name.text_gray Разрешение на строительство
+								a(target='_blank').documents-wrapper__download 
+									span pdf
+									include ../../assets/images/common/download-icon.svg
+							.document-item
+								.documents-wrapper__icon
+									include ../../assets/images/common/document-file-icon.svg
+									.documents-wrapper__date 14.05.2019
+								.documents-wrapper__name.text_gray Разрешение на строительство
+								a(target='_blank').documents-wrapper__download 
+									span pdf
+									include ../../assets/images/common/download-icon.svg
 						.arrow-block-std 
+							.arrow-prev-std.arrow
+								include ../../assets/images/common/arrow-std.svg
 							.arrow-next-std.arrow
 								include ../../assets/images/common/arrow-next-std.svg
-				.screen11__map-block#map2
-			.footer-block
-				.footer-block__non-static
-					include ../../assets/images/common/comfort-life-logo.svg
-					.footer-block__non-static-link Відділ продажів: 
-						a(href="tel:0445555625") (044) 555 56 25
-					a(target='_blank' href="https://facebook.com").social-link facebook
-					a(target='_blank' href="https://instagram.com").social-link instagram
-					.footer-block__lang-block.text.text_white
-						a Укр
-						a.active-lang Рус
-				.footer-block__static
-					p © 2020 Найкращий квартал 2. Всі права захищені. 
-					a(href='https://smarto.agency/' rel="nofollow" target="_blank").footer__link.develop-link    Розработка сайта
-						img(src='./assets/images/smarto.svg' alt="" title="")
+				.screen11.screen-js(data-menu_theme="yellow_green" data-section-name="contacts" data-active="false" data-menu_title="contacts")
+					.screen11__scroll-layout
+						.screen11__content 
+							.screen11__contact-block#contacts
+								.title.title_green  Контакти
+								.screen11__subtitle.contact-padding.screen11__title  Адреса об'єкту
+								.text.contact-padding  Київська обл. смт. Гостомель, вул. Варшавська і провулок Варшавський
+								.screen11__subtitle.contact-padding.screen11__title.screen11__title-green-marker  Відділ продажів
+								.text.contact-padding  Київська обл. смт. Гостомель, вул. Варшавська і провулок Варшавський
+								.text.contact-padding.sales-tel-title  Телефон відділу продажів:
+								a.screen11__subtitle(href="tel:0445555625").contact-padding  (044) 555 56 25
+								.text.text_gray.contact-padding.scheldule-title  Графік роботи відділу продажів
+								.text.contact-padding  Пн-пт: 09.00 - 19.00 
+								.text.contact-padding  Сб-вс: 10.00 - 18.00
+								a.screen11__google-map-link.text.text_green.contact-padding  ВІДКРИТИ ГУГЛ КАРТИ
+									.arrow-block-std 
+										.arrow-next-std.arrow
+											include ../../assets/images/common/arrow-next-std.svg
+							.screen11__map-block#map2
+						.footer-block
+							.footer-block__non-static
+								include ../../assets/images/common/comfort-life-logo.svg
+								.footer-block__non-static-link Відділ продажів: 
+									a(href="tel:0445555625") (044) 555 56 25
+								a(target='_blank' href="https://facebook.com").social-link facebook
+								a(target='_blank' href="https://instagram.com").social-link instagram
+								.footer-block__lang-block.text.text_white
+									a Укр
+									a.active-lang Рус
+							.footer-block__static
+								p © 2020 Найкращий квартал 2. Всі права захищені. 
+								a(href='https://smarto.agency/' rel="nofollow" target="_blank").footer__link.develop-link    Розработка сайта
+									img(src='./assets/images/smarto.svg' alt="" title="")
 	.popup-container
 		form.form-js.form
 	menu.aside-menu
@@ -370,13 +373,13 @@ block content
 			.aside-menu__item.menu-item-js(data-name="plans")
 				.aside-menu__item-text Планування
 				.aside-menu__item-dot
-			.aside-menu__item.menu-item-js(data-name="builder")
+			a(href="#builder" data-name="builder" onclick="clearClass($menuItemList, 'current');").aside-menu__item.menu-item-js
 				.aside-menu__item-text Забудовник
 				.aside-menu__item-dot
-			//- .aside-menu__item.menu-item-js(data-name="docs")
-			//- 	.aside-menu__item-text Документи
-			//- 	.aside-menu__item-dot
-			.aside-menu__item.menu-item-js(data-name="contacts")
+			a(href="#docs" data-name="docs" onclick="clearClass($menuItemList, 'current');").aside-menu__item.menu-item-js
+				.aside-menu__item-text Документи
+				.aside-menu__item-dot
+			a(href="#contacts" data-name="contacts" onclick="clearClass($menuItemList, 'current');").aside-menu__item.menu-item-js
 				.aside-menu__item-text Контакти
 				.aside-menu__item-dot
 			.aside-menu__arrow-prev.aside-menu__arrow.menu-arrow-js 
@@ -386,13 +389,9 @@ block content
 				</svg>
 			.aside-menu__arrow-next.aside-menu__arrow.menu-arrow-js
 				<svg width="10" height="15" viewBox="0 0 10 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M5.12797 14.3474L8.54402 10.9769L5.12797 10.9769L1.71191 10.9769L5.12797 14.3474Z" fill="#F8B400"/>
-					<path d="M5.12797 -2.16955e-05L5.12797 14.3474M5.12797 14.3474L8.54402 10.9769L1.71191 10.9769L5.12797 14.3474Z" stroke="#F8B400" stroke-width="0.683211"/>
+					<path d="M5.12797 14.3474L8.54402 10.9769L5.12797 10.9769L1.71191 10.9769L5.12797 14.3474Z" />
+					<path d="M5.12797 -2.16955e-05L5.12797 14.3474M5.12797 14.3474L8.54402 10.9769L1.71191 10.9769L5.12797 14.3474Z" stroke-width="0.683211"/>
 				</svg>
-
-
-
-
 block footer
 block header
 	header.header

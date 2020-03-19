@@ -12,107 +12,26 @@ direction = 'none';
 
 
 
-// $(document).ready(function() {
-//     $('#pagepiling').pagepiling({
-//         sectionSelector: '.section',
-//         css3: true,
-//         menu: null,
-//         direction: 'vertical',
-//         verticalCentered: true,
-//     });
-// });
-// let stopDetector = false;
-// e.path.forEach(path => {
-//     if (path.id == 'map') {
-//         stopDetector = true;
-//     }
-// });
-// if (stopDetector == true) return false;
-// console.log(e.path[4].name);
-// console.log(e.path.includes('div#map'));
-// if ($layout.dataset.screen == 10) {
-//     console.log(e.target.getBoundingClientRect());
-
-//     return false;
-// }
-// if ($layout.dataset.screen != 11) {
-//     document.querySelector('.footer-block').classList.remove('visible');
-// } else {
-//     document.querySelector('.footer-block').classList.add('visible');
-// }
-// if ($layout.dataset.screen == 11) {
-//     return false;
-// } else {
-//     e.preventDefault();
-// }
-// e.deltaY > 0 ?
-//     changeCounter(screenNumber, '+') :
-//     changeCounter(screenNumber, '-');
-// screenList.forEach(element => {
-//     element.dataset.active = false;
-// });
-// screenList[screenNumber - 1].dataset.active = true;
-// $layout.dataset.screen = screenNumber;
-// $staticBottomBlock.dataset.screen = screenNumber;
-// console.log(screensCount);
-
-
-// });
-// getTouchDirection($layout);
-// $layout.addEventListener('touchend', (e) => {
-//     switch (direction) {
-//         case 'up':
-//             changeCounter(screenNumber, '+');
-//             break;
-//         case 'down':
-//             changeCounter(screenNumber, '-');
-//             break;
-//         default:
-//             break;
-//     }
-//     screenList.forEach(element => {
-//         element.dataset.active = false;
-//     });
-//     screenList[screenNumber - 1].dataset.active = true;
-//     $layout.dataset.screen = screenNumber;
-//     $staticBottomBlock.dataset.screen = screenNumber;
-//     console.log(screensCount);
-// })
-
-// function changeCounter(number, direction) {
-
-//     switch (direction) {
-//         case '+':
-//             number == screensCount ?
-//                 null :
-//                 screenNumber++;
-//             break;
-//         case '-':
-//             number == 1 ?
-//                 null :
-//                 screenNumber--;
-//             break;
-//         default:
-//             break;
-//     }
-// }
-
 /* slider screen 3*/
-$('.screen3__slider').on('init', function(event, slick) {
-    $('.screen3-arrow-container .all').html('0' + $('.screen3__slide').length);
-    $('.screen3-arrow-container .current').html('01');
-});
-let screen3Slider = $('.screen3__slider').slick({
-    slide: '.screen3__slide',
-    infinity: false,
-    fade: true,
-    nextArrow: $('.screen3-arrow-container .next'),
-    prevArrow: $('.screen3-arrow-container .previous'),
+if (window.screen.width > 480) {
+    $('.screen3__slider').on('init', function(event, slick) {
+        $('.screen3-arrow-container .all').html('0' + $('.screen3__slide').length);
+        $('.screen3-arrow-container .current').html('01');
+    });
+    let screen3Slider = $('.screen3__slider').slick({
+        slide: '.screen3__slide',
+        infinity: false,
+        fade: true,
+        nextArrow: $('.screen3-arrow-container .next'),
+        prevArrow: $('.screen3-arrow-container .previous'),
 
-});
-screen3Slider.on('beforeChange', (event, slick, currentSlide, nextSlide) => {
-    $('.screen3-arrow-container .current').html('0' + (nextSlide + 1));
-});
+    });
+    screen3Slider.on('beforeChange', (event, slick, currentSlide, nextSlide) => {
+        $('.screen3-arrow-container .current').html('0' + (nextSlide + 1));
+    });
+
+
+}
 /* slider screen 3 END*/
 
 // $.mask.definitions['#'] = '[0-9]';
@@ -214,6 +133,14 @@ $('.document-slider-js').slick({
             breakpoint: 769,
             settings: {
                 slidesToShow: 2,
+
+            }
+        }, {
+            breakpoint: 481,
+            settings: {
+                slidesToShow: 1.03,
+                centerMode: true,
+                centerPadding: '15px'
 
             }
         }, ]
@@ -332,6 +259,7 @@ document.querySelector('.popup-container').onclick = e => {
 
 
 /**MENU and SECTION SCROLL */
+
 let colorObject = {
     yellow_green: {
         active_color: "#004445",
@@ -379,6 +307,7 @@ function changeMenuColor(theme) {
 changeMenuColor('yellow_green');
 menuItem[0].classList.add('current');
 let $menuItemList = document.querySelectorAll('.aside-menu__item');
+
 $.scrollify({
     section: ".section",
     scrollSpeed: 2000,
@@ -395,18 +324,16 @@ $.scrollify({
         console.log(e, r);
         $layout.dataset.screen = e + 1;
         $staticBottomBlock.dataset.screen = e + 1;
-        $layout.style.backgroundPositionY = `${e*100}vh`;
-
+        e == 8 ?
+            $layout.style.backgroundPositionY = `${e*100+8}vh` :
+            $layout.style.backgroundPositionY = `${e*100}vh`;
+        console.log(getElHeight(r[e][0]));
         changeMenuColor(r[e][0].dataset.menu_theme);
         moveEffects(e);
     },
-    after: function(e, r) {
-
-    },
+    after: function(e, r) {},
     overflowScroll: false
 });
-
-
 menuItem.forEach((element, index) => {
     element.addEventListener('click', () => {
         let dataName = element.dataset.name
@@ -425,6 +352,14 @@ menuArrow.forEach(element => {
     })
 });
 
+if (window.screen.width < 481) {
+    $.scrollify.destroy();
+
+}
+
+
+
+
 
 
 function clearClass(list, className) {
@@ -439,7 +374,6 @@ function menuItemSwitch(index, sectionArray) {
     clearClass($menuItemList, 'current');
     document.querySelector(`[data-name='${curDataset}']`).classList.add('current');
     // console.log(sectionArray[index][0].dataset.menuTitle);
-
 }
 
 function moveEffects(screenNumber) {
@@ -462,14 +396,15 @@ document.querySelector('.bottom-screen-scroll-layout').addEventListener('wheel',
         let footer = document.querySelectorAll('.footer-block')[0];
         let footerCord = $('.footer-block').offset().top - $(window).scrollTop() - window.screen.availHeight;
         let documentCords = $('.documents-wrapper').offset().top - $(window).scrollTop() - window.screen.availHeight;
-        let builderCords = $('.screen10__developer-description').offset().top - $(window).scrollTop() - window.screen.availHeight;
+        // let builderCords = $('.screen10__logo').offset().top - $(window).scrollTop() - window.screen.availHeight;
+        let builderCords = document.querySelectorAll('.screen10__logo')[0].getBoundingClientRect();
         console.log(builderCords);
 
         if (builderCords < 0 && documentCords < 0) {
             clearClass($menuItemList, 'current');
             document.querySelector('[data-name="builder"]').classList.add('current');
         }
-        if (documentCords < 0 && builderCords < 0) {
+        if (documentCords < 0 && builderCords.top < (-431)) {
             clearClass($menuItemList, 'current');
             document.querySelector('[data-name="docs"]').classList.add('current');
         }
@@ -524,7 +459,22 @@ document.querySelector('.bottom-screen-scroll-layout').addEventListener('touchen
     console.log(document.querySelectorAll('.footer-block')[0].clientY);
 
 
-})
+});
+
+
+/* footer links navigation */
+
+function linksWithoutScroliffy(dataName) {
+    console.log(document.querySelector(`[data-name='${dataName}']`));
+
+    $.scrollify.move(`builder`);
+    clearClass($menuItemList, 'current');
+    setTimeout(() => {
+        document.querySelector(`#${dataName}`).scrollIntoView();
+    }, 200);
+
+}
+/* footer links navigation end */
 
 /**internal links setup */
 
@@ -538,3 +488,48 @@ linksList.forEach(link => {
         }
     })
     /**internal links setup END */
+
+document.body.addEventListener('touchend', () => {
+    console.log('TOUCH');
+});
+
+
+/**Mob menu setup */
+let menuOpen = document.querySelector('.mobile-menu-button-js'),
+    menuClose = document.querySelector('.mobile-menu-close-js'),
+    mobMenu = document.querySelector('.mobile-menu-js');
+menuOpen.onclick = () => {
+    mobMenu.classList.add('visible');
+    putHideClass(mobMenu, 'opening', 1000);
+
+
+
+}
+menuClose.onclick = () => {
+    putHideClass(mobMenu, 'closing', 1000);
+    setTimeout(() => {
+        mobMenu.classList.remove('visible');
+    }, 1000);
+}
+mobMenu.querySelectorAll('a.mobile-menu__body-item').forEach(link => {
+        link.onclick = () => {
+            putHideClass(mobMenu, 'closing', 1000);
+            setTimeout(() => {
+                mobMenu.classList.remove('visible');
+            }, 1000);
+
+        }
+    })
+    /**Mob menu setup END */
+
+console.log(document.querySelector('.screen4 line'));
+
+
+
+
+if (window.screen.width < 481) {
+
+    document.querySelector('.screen4 line').setAttributeNS(null, 'stroke', '#F8B400');
+    document.querySelector('.screen9__plans-slider-wrapper')
+        .insertAdjacentElement('beforeEnd', document.querySelector('.screen9 .order-call'));
+}

@@ -51,6 +51,9 @@ body {
     &_gray {
         color: $mc-gray;
     }
+    @include to(480px) {
+        font-size: $fz-large-mobile;
+    }
 }
 
 .text {
@@ -65,6 +68,9 @@ body {
     &_gray {
         color: $mc-gray;
     }
+    @include to(480px) {
+        font-size: $fz-mob-standart;
+    }
 }
 
 .page__content {
@@ -73,6 +79,9 @@ body {
 
 .logo-block {
     width: 40%;
+    @include to(480px) {
+        width: 50%;
+    }
 }
 
 .header-block {
@@ -140,6 +149,23 @@ body {
             transform: translateY(-10px);
         }
     }
+    @include to(480px) {
+        width: 70%;
+        padding: 15px 15px 0 75px;
+        height: 70px;
+        display: block;
+        clip-path: polygon(0 0, 100% 0, 100% 78%, 57% 100%);
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 78%, 57% 100%);
+        &__tel {
+            font-size: 16px;
+            line-height: 1.6em;
+            width: 100%;
+        }
+        &__tel-title {
+            font-size: 10px;
+            transform: translateY(-5px);
+        }
+    }
 }
 
 .lang-block {
@@ -194,6 +220,9 @@ body {
     @include to(768px) {
         transform: translateY(0px);
     }
+    @include to(480px) {
+        display: none;
+    }
 }
 
 .first-screen-layout {
@@ -204,6 +233,16 @@ body {
     // transition: background-position 1s;
     z-index: 0;
     background-size: 100vw 110vh;
+    @include to(480px) {
+        height: 100vh;
+        pointer-events: initial;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        background: transparent;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
 }
 
 .first-screen-layout[data-screen="1"] {
@@ -256,6 +295,7 @@ body {
 
 .first-screen-layout[data-screen="8"] {
     background: url(../images/screen8/bg-blur.png) top left no-repeat;
+    background-size: 100vw 110vh;
     @include to(768px) {
         background-size: 261vh auto;
     }
@@ -263,7 +303,7 @@ body {
 
 .first-screen-layout[data-screen="9"] {
     background: url(../images/screen9/bg.png) bottom no-repeat;
-    background-size: 100vw 160vh;
+    background-size: 100vw 105vh;
     @include to(768px) {
         background: url(../images/screen9/bg-tablet.png) bottom left no-repeat;
         background-size: 100vh auto;
@@ -308,6 +348,13 @@ body {
     }
     @include to(768px) {
         left: 250px;
+    }
+    @include to(480px) {
+        // display: none;
+        @include size(9.5);
+        height: 25px;
+        position: absolute;
+        left: 19px;
     }
 }
 
@@ -355,11 +402,6 @@ body {
     }
 }
 
-.bottom-static-block[data-screen="4"] {
-    visibility: hidden;
-    opacity: 0;
-}
-
 .bottom-static-block[data-screen="5"] {
     @include size(7.5);
     -webkit-clip-path: polygon(67% 0, 0% 100%, 100% 100%);
@@ -369,6 +411,7 @@ body {
     }
 }
 
+.bottom-static-block[data-screen="4"],
 .bottom-static-block[data-screen="6"],
 .bottom-static-block[data-screen="7"],
 .bottom-static-block[data-screen="8"],
@@ -472,6 +515,28 @@ body {
             margin-bottom: 80px;
         }
     }
+    @include to(480px) {
+        background: linear-gradient(90deg, #1A1919 -26%, rgba(26, 25, 25, 0) 100%), url(../images/screen1/bg-mobile.png) center no-repeat;
+        background-size: cover;
+        &__content {
+            padding-top: 80px;
+            width: 100%;
+        }
+        &__title {
+            font-size: 26px;
+            margin-bottom: auto;
+        }
+        &__subtitle {
+            margin-top: 45px;
+        }
+        &__adress {
+            display: none;
+        }
+        &__scroll {
+            margin-bottom: auto;
+            margin-top: 45px;
+        }
+    }
 }
 
 .screen2 {
@@ -499,6 +564,21 @@ body {
         padding-left: 60px;
         -webkit-clip-path: polygon(0 16%, 100% 16%, 100% 82%, 0 82%);
         clip-path: polygon(0 16%, 100% 16%, 100% 82%, 0 82%);
+    }
+    @include to(480px) {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        padding-top: 30px;
+        -webkit-clip-path: unset;
+        clip-path: unset;
+        &__content {
+            @include fields(15px);
+            padding-bottom: 58px;
+        }
+        .mobile-section-title {
+            margin-bottom: 30px;
+        }
     }
 }
 
@@ -562,6 +642,40 @@ body {
             margin-left: calc(100% / 12);
         }
     }
+    @include to(480px) {
+        padding-left: 0;
+        padding-bottom: 0;
+        background-color: $mc-yellow;
+        &__content,
+        &__slide,
+        &__image,
+        &__text-block {
+            height: auto;
+        }
+        &__text-block,
+        &__image {
+            width: 100%;
+        }
+        &__text-block {
+            @include fields(15px);
+            padding-top: 30px;
+            padding-bottom: 44px;
+        }
+        &__image {
+            margin-left: -15px;
+            margin-right: -15px;
+            width: calc(100% + 30px);
+            box-shadow: none;
+        }
+        &__slide {
+            flex-direction: column-reverse;
+        }
+        .mobile-section-title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 27px;
+        }
+    }
 }
 
 .screen3-arrow-container {
@@ -572,8 +686,8 @@ body {
 .screen4 {
     height: 100vh;
     width: 100vw;
-    background-color: brown;
     position: relative;
+    background-color: $mc-white;
     transition: var(--standart-transition);
     &__slide {
         width: 100%;
@@ -624,18 +738,49 @@ body {
         }
     }
     @include to(768px) {
-        &__info-block {
-            flex-wrap: wrap;
-        }
         .infra-link {
             width: 100%;
             order: 2;
         }
         &__info-block {
+            flex-wrap: wrap;
             padding: 0 $fields-sm 0 $fields-sm;
         }
         .arrow-block-std {
             margin-right: calc(100% / 12);
+        }
+    }
+    @include to(480px) {
+        padding-bottom: 135px;
+        height: calc(100vh - 135px);
+        .infra-link {
+            display: none;
+        }
+        .arrow-border {
+            stroke: $mc-yellow;
+        }
+        .count-block {
+            margin-right: 0;
+            margin-left: 0;
+        }
+        .count-block .all,
+        .count-block .current {
+            color: $mc-green;
+        }
+        .count-block svg {
+            fill: $mc-yellow;
+        }
+        .arrow-block-std {
+            margin-right: 0;
+        }
+        &__info-block {
+            justify-content: space-between;
+        }
+        .mobile-section-title {
+            position: absolute;
+            top: 30px;
+            left: 15px;
+            z-index: 10;
         }
     }
 }
@@ -667,6 +812,9 @@ body {
             margin-right: 24%;
             padding-top: 83vh;
         }
+    }
+    @include to(480px) {
+        display: none;
     }
 }
 
@@ -734,6 +882,34 @@ body {
             margin-left: auto;
             margin-top: -10%;
             @include shift-right(0.5);
+        }
+    }
+    @include to(480px) {
+        background: url(../images/screen6/bg-mobile.png) center no-repeat;
+        background-size: cover;
+        &__content {
+            width: 100%;
+            padding-top: 30px;
+            padding-bottom: 60px;
+        }
+        &__text-block {
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
+            clip-path: unset;
+            -webkit-clip-path: unset;
+            width: 100%;
+        }
+        &__title {
+            position: static;
+            padding-left: 0;
+            margin-bottom: 15px;
+        }
+        &__image {
+            display: none;
+        }
+        .mobile-section-title {
+            margin-bottom: 35px;
         }
     }
 }
@@ -836,6 +1012,27 @@ body {
             width: calc(100% / 12 * 5 + #{$fields*2});
         }
     }
+    @include to(480px) {
+        height: 100vh !important;
+        position: relative;
+        &__legend-title {
+            width: 100%;
+            font-size: 18px;
+            line-height: 34px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        &__legend-title:after {
+            top: calc(2em - 17px);
+            right: 15px;
+        }
+        .mobile-section-title {
+            position: absolute;
+            top: 30px;
+            left: 15px;
+            z-index: 10;
+        }
+    }
 }
 
 @keyframes max-height1 {
@@ -849,7 +1046,50 @@ body {
 
 .screen8 {
     width: 100vw;
-    height: 100vh;
+    height: 100vh !important;
+    transform: scale(1) translateY(0);
+    @include to(480px) {
+        background: url(../images/screen8/bg-blur.png) center no-repeat;
+        background-size: cover;
+        position: relative;
+        overflow: hidden;
+        .link-group {
+            display: none;
+        }
+        &>svg {
+            transform: scale(1.25) translateY(-5%);
+            transform-origin: top center;
+        }
+        .compass {
+            display: none;
+        }
+        .mobile-section-title {
+            position: absolute;
+            z-index: 10;
+            left: 15px;
+            top: 15px;
+        }
+        .mobile-link {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            z-index: 10;
+            color: $mc-yellow;
+            display: flex;
+            align-items: center;
+        }
+        .mobile-link::before {
+            width: 14px;
+            height: 14px;
+            margin-right: 5px;
+            content: url(../images/common/key.svg);
+        }
+    }
+    @include from(480px) {
+        .mobile-link {
+            display: none;
+        }
+    }
 }
 
 .screen9 {
@@ -923,6 +1163,41 @@ body {
         &__slider,
         &__nav-block {
             width: 80%;
+        }
+    }
+    @include to(480px) {
+        background: url(../images/screen9/bg-tablet.png) bottom no-repeat;
+        background-size: cover;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        &__plans-slider-wrapper {
+            margin: 0;
+            padding: 20px 15px 25px 15px;
+            width: 100%;
+        }
+        &__title {
+            color: $mc-green;
+            font-size: 12px;
+            font-weight: normal;
+        }
+        &__nav-block,
+        &__slider {
+            width: 100%;
+        }
+        &__nav-block {
+            flex-direction: row-reverse;
+        }
+        &__slider {
+            padding: 0 15px;
+        }
+        &__text {
+            display: none;
+        }
+        .flat-title {
+            font-size: 12px;
+        }
+        g.arrow-border {
+            stroke: $mc-yellow;
         }
     }
 }
@@ -1039,6 +1314,31 @@ body {
             @include shift-padding-right(3);
         }
     }
+    @include to(480px) {
+        overflow-y: initial;
+        &__content {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+        &__developer-description {
+            margin-top: 20px;
+            padding: 0;
+        }
+        &__statistic-wrapper {
+            padding: 0;
+            margin: 0;
+            margin-top: 25px;
+            width: 100%;
+        }
+        .devloper-link {
+            width: 70%;
+            font-size: 16px;
+        }
+        .mobile-section-title {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    }
 }
 
 .statistic-item {
@@ -1052,6 +1352,15 @@ body {
         color: $mc-gray;
         max-width: 70%;
         margin-top: 5px;
+    }
+    @include to(480px) {
+        &__description {
+            max-width: 100%;
+            font-size: 16px;
+        }
+        &__digit {
+            font-size: 40px;
+        }
     }
 }
 
@@ -1115,6 +1424,32 @@ body {
         }
         &__text p:nth-child(2n) {
             margin-top: 1.6em;
+        }
+    }
+    @include to(480px) {
+        margin-top: 70px;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+        background: transparent;
+        .title {
+            color: $mc-green;
+        }
+        &__text {
+            color: $mc-green;
+        }
+        .arrow-block-std {
+            display: none;
+        }
+        .document-item {
+            background: $mc-white;
+            box-shadow: none;
+            width: 100%;
+            margin-right: 32px;
+        }
+        .gradient {
+            display: none;
         }
     }
 }
@@ -1232,6 +1567,36 @@ body {
             height: 50vh;
         }
     }
+    @include to(480px) {
+        &__contact-block {
+            padding-top: 30px;
+            width: 100%;
+        }
+        .contact-tablet-group {
+            width: 100%;
+        }
+        .contact-padding {
+            padding-left: 38px;
+        }
+        &__google-map-link {
+            justify-content: space-between;
+        }
+        .arrow-block-std {
+            margin-right: 0;
+            width: 75px;
+        }
+        &__title {
+            margin-top: 0;
+        }
+        .title {
+            margin-bottom: 20px;
+        }
+        &__map-block {
+            height: 65vh;
+            width: calc(100% + 30px);
+            margin: 0 -15px;
+        }
+    }
 }
 
 .bottom-screen-scroll-layout {
@@ -1240,6 +1605,10 @@ body {
     overflow-y: scroll;
     &::-webkit-scrollbar {
         display: none;
+    }
+    @include to(480px) {
+        height: auto;
+        overflow: initial;
     }
 }
 
@@ -1338,6 +1707,42 @@ body {
             width: 170px;
         }
     }
+    @include to(480px) {
+        padding-top: 76px;
+        font-size: 12px;
+        height: 212px;
+        position: relative;
+        &__non-static {
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            padding-left: 57px;
+            width: calc(100% - 30px);
+        }
+        &__static {
+            font-size: 10px;
+            line-height: 16px;
+        }
+        &__non-static>svg {
+            width: 57px;
+            position: absolute;
+            left: 15px;
+            top: 57px;
+        }
+        &__non-static-link {
+            margin-left: 0;
+            margin-right: 0;
+            width: 100%;
+        }
+        .social-link {
+            margin-right: 15px;
+        }
+        &__lang-block {
+            font-size: 12px;
+        }
+        .mob-padding-link {
+            margin-left: 17px;
+        }
+    }
 }
 
 .develop-link {
@@ -1345,6 +1750,11 @@ body {
     display: flex;
     align-items: center;
     color: $mc-white;
+    @include to(480px) {
+        & span {
+            display: none;
+        }
+    }
 }
 
 .develop-link img {
@@ -1430,6 +1840,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    @include to(480px) {
+        font-size: 12px;
+    }
 }
 
 .previous {
@@ -1542,6 +1955,12 @@ g.arrow {
         top: 142px;
         cursor: pointer;
     }
+    @include to(480px) {
+        .close-form {
+            right: 16px;
+            top: 16px;
+        }
+    }
 }
 
 .popup-container.visible {
@@ -1551,6 +1970,7 @@ g.arrow {
 
 .form {
     transition: var(--standart-transition);
+    -webkit-clip-path: polygon(75% 0, 100% 18%, 96% 94%, 18% 100%, 0% 38%);
     clip-path: polygon(75% 0, 100% 18%, 96% 94%, 18% 100%, 0% 38%);
     &-js.clip-effect {
         -webkit-clip-path: polygon(34% 0, 100% 19%, 97% 94%, 18% 100%, 0% 38%);
@@ -1689,6 +2109,26 @@ g.arrow {
         top: -30px;
         color: $mc-green;
     }
+    @include to(480px) {
+        width: 100%;
+        height: auto;
+        clip-path: unset;
+        -webkit-clip-path: unset;
+        padding: 40px 25px;
+        &.clip-effect {
+            clip-path: unset;
+            -webkit-clip-path: unset;
+        }
+        .error-span {
+            white-space: nowrap;
+            font-size: 14px;
+        }
+        .common-select {
+            margin-left: 10px;
+            font-size: 12px;
+            border-color: $mc-yellow;
+        }
+    }
 }
 
 @keyframes to-full-height {
@@ -1702,3 +2142,27 @@ g.arrow {
 
 
 /*Popup and form END*/
+
+
+/*mobile section title*/
+
+.mobile-section-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    &.yellow {
+        color: $mc-yellow;
+    }
+    &.green {
+        color: $mc-green;
+    }
+}
+
+@include from(481px) {
+    .mobile-section-title,
+    .screen2__mobile-picture {
+        display: none;
+    }
+}
+
+
+/*mobile section title end*/

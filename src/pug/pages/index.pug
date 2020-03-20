@@ -25,6 +25,11 @@ block content
 	//- 			div
 	//- 			div
 	//- 			div
+	.preloader-js.preloader
+		+img('logo.svg')
+	<noscript> 
+		<style>.preloader{display:none}</style>
+	</noscript>
 	.example-classname.first-screen-layout(data-screen="1")
 		.bottom-static-block(data-screen="1")
 			.bottom-static-block__screen2.text.text_white 
@@ -40,7 +45,7 @@ block content
 						span.separator 
 							include ../../assets/images/common/white-line.svg
 						span.all 05
-		.section.screen1.screen-js(data-menu_theme="yellow_green" data-section-name="main" data-active="true" data-menu_title="main")
+		.section.screen1.screen-js(data-menu_theme="white_yellow" data-section-name="main" data-active="true" data-menu_title="main")
 			.screen1__content 
 				.screen1__developer-logo
 					include ../../assets/images/common/comfort-life-logo.svg
@@ -72,7 +77,8 @@ block content
 									span.all 05
 							.screen3__title.title.title_white Зручне розташування в зеленому районі
 							.screen3__text.text.text_white 
-								p Свіже повітря, зелені парки, простір для прогулянок з дітьми та тваринами – і все це за 10 хвилин від галасливої столиці! Ми дбайливо облаштували для вас те, що створила природа,  зробивши екологічне середовище зручним та естетичним. Не треба довго планувати відпочинок, щоб насолодитися лісом, порибалити або поплавати у річці – все це чекає вас навкруги комплексу!    
+								p Свіже повітря, зелені парки, простір для прогулянок з дітьми та тваринами – і все це за 10 хвилин від галасливої столиці! Ми дбайливо облаштували для вас те, що створила природа,  зробивши екологічне середовище зручним та естетичним.
+								p Не треба довго планувати відпочинок, щоб насолодитися лісом, порибалити або поплавати у річці – все це чекає вас навкруги комплексу!    
 						.screen3__image 
 							+img('screen3/slider/1.png')
 					.screen3__slide
@@ -86,7 +92,8 @@ block content
 									span.all 05
 							.screen3__title.title.title_white Розвинена інфраструктура
 							.screen3__text.text.text_white 
-								p Добре жити там, де не треба думати про буденні речі. В ЖК «Найкращий-2» все створено для щоденного комфорту. Понад 1200 м2 заплановано під комерцію, де згодом будуть розміщені магазини, кав'ярні, салони та розвиваючі комплекси. Поруч з ЖК розташований супермаркет АТБ, а на під'їзді до комплексу - ТРЦ "Лавіна" та "Епіцентр". 
+								p Добре жити там, де не треба думати про буденні речі. В ЖК «Найкращий-2» все створено для щоденного комфорту. Понад 1200 м2 заплановано під комерцію, де згодом будуть розміщені магазини, кав'ярні, салони та розвиваючі комплекси. 
+								p Поруч з ЖК розташований супермаркет АТБ, а на під'їзді до комплексу - ТРЦ "Лавіна" та "Епіцентр". 
 						.screen3__image 
 							+img('screen3/slider/2.png')
 					.screen3__slide
@@ -115,7 +122,8 @@ block content
 									span.all 05
 							.screen3__title.title.title_white Надійні технології будівництва
 							.screen3__text.text.text_white 
-								p Стильні будинки до 5 поверхів та лаконічна європейська архітектура - це приваблива обкладинка, яка оздоблює міцну основу. Для будівництва ЖК «Найкращий-2» ми використовували екологічну цеглу, щільну мінеральну вату та якісні енергозберігаючі вікна. Судинами  будинків стали безпечні і тихі ліфти Schindler, а теплим серцем кожної оселі - індивідуальні газові котли. 
+								p Стильні будинки до 5 поверхів та лаконічна європейська архітектура - це приваблива обкладинка, яка оздоблює міцну основу. Для будівництва ЖК «Найкращий-2» ми використовували екологічну цеглу, щільну мінеральну вату та якісні енергозберігаючі вікна. 
+								p Судинами  будинків стали безпечні і тихі ліфти Schindler, а теплим серцем кожної оселі - індивідуальні газові котли. 
 						.screen3__image 
 							+img('screen3/slider/4.png')
 						
@@ -149,21 +157,27 @@ block content
 					.arrow-next-std.arrow
 						include ../../assets/images/common/arrow-next-std.svg
 			.screen4__slide
-				+img('screen4/gallery.png')
+				+img('screen4/1.jpg')
 			.screen4__slide
-				+img('screen4/gallery.png')
+				+img('screen4/2.jpg')
 			.screen4__slide
-				+img('screen4/gallery.png')
+				+img('screen4/3.jpg')
 			.screen4__slide
-				+img('screen4/gallery.png')
+				+img('screen4/4.jpg')
 			.screen4__slide
-				+img('screen4/gallery.png')
+				+img('screen4/5.jpg')
 			.screen4__slide
-				+img('screen4/gallery.png')
+				+img('screen4/7.jpg')
 			.screen4__slide
-				+img('screen4/gallery.png')
+				+img('screen4/8.jpg')
+			.screen4__slide
+				+img('screen4/9.jpg')
+			.screen4__slide
+				+img('screen4/10.jpg')
+			.screen4__slide
+				+img('screen4/11.jpg')
 		.section.screen5.screen-js( data-menu_theme="white_yellow" data-section-name="infra" data-active="false" data-menu_title="infra") 
-			+img('screen5/main.png').screen5__image
+			+img('screen5/main.jpg').screen5__image
 			.screen5__title.title.title_white.wow.fadeInRight(data-wow-delay="0.5s") Продумана інфраструктура
 		.section.screen6.screen-js(data-menu_theme="white_yellow" data-section-name="infra" data-active="false" data-menu_title="infra") 
 			.screen6__content

@@ -6,4 +6,5 @@
 @@include('../libs/masked-input/masked-input.min.js');
 @@include('../libs/hammer/hammer.js');
 @@include('../libs/scrollify/jquery.scrollify.js');
+@@include('../libs/lazyload/lazyload.js');
 /* beautify preserve:end */

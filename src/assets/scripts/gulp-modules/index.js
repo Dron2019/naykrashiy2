@@ -10,7 +10,10 @@ let startCord = 0,
     endCord = 0;
 direction = 'none';
 
-
+var lazyLoadInstance = new LazyLoad({
+    elements_selector: ".lazy"
+        // ... more custom settings?
+});
 
 /* slider screen 3*/
 if (window.screen.width > 480) {
@@ -47,6 +50,9 @@ if (window.screen.width > 480) {
 /* slider screen 4*/
 $('.screen4-slider').on('init', function(event, slick) {
     $('.screen4-slider .all').html('0' + $('.screen4__slide').length);
+    if ($('.screen4__slide').length >= 10) {
+        $('.screen4-slider .all').html($('.screen4__slide').length);
+    }
     $('.screen4-slider .current').html('01');
 });
 let screen4Slider = $('.screen4-slider').slick({
@@ -58,7 +64,11 @@ let screen4Slider = $('.screen4-slider').slick({
 
 });
 screen4Slider.on('beforeChange', (event, slick, currentSlide, nextSlide) => {
+    if ((nextSlide + 1) >= 10) {
+        $('.screen4-slider .current').html((nextSlide + 1));
+    }
     $('.screen4-slider .current').html('0' + (nextSlide + 1));
+
 });
 /* slider screen 4END*/
 
@@ -252,13 +262,24 @@ let colorObject = {
         active_color: "#004445",
         innactive_color: '#FDFBF9'
     },
+    first_screen: {
+        active_color: "#7fff00",
+        innactive_color: '#7fff00'
+    },
 
 }
 let menuArrow = document.querySelectorAll('.menu-arrow-js'),
     menuItem = document.querySelectorAll('.menu-item-js');
 
 function changeMenuColor(theme) {
+    console.log(theme);
+
     switch (theme) {
+        case 'first_screen':
+            document.documentElement.style
+                .setProperty('--menu-active-color', colorObject.first_screen.active_color);
+            document.documentElement.style
+                .setProperty('--menu-innactive-color', colorObject.first_screen.innactive_color);
         case 'yellow_green':
             document.documentElement.style
                 .setProperty('--menu-active-color', colorObject.yellow_green.active_color);
@@ -283,10 +304,10 @@ function changeMenuColor(theme) {
     }
 
 };
-changeMenuColor('yellow_green');
+changeMenuColor('white_yellow');
 menuItem[0].classList.add('current');
 let $menuItemList = document.querySelectorAll('.aside-menu__item');
-
+window.currentScreen = 1;
 $.scrollify({
     section: ".section",
     scrollSpeed: 2000,
@@ -300,7 +321,9 @@ $.scrollify({
     before: function(e, r) {
         // e == 8 ? $.scrollify.disable() : null;
         menuItemSwitch(e, r);
-        // console.log(e, r);
+        console.log(e, r);
+        console.log(window.currentScreen);
+
         $layout.dataset.screen = e + 1;
         $staticBottomBlock.dataset.screen = e + 1;
         // e == 8 ?
@@ -310,6 +333,12 @@ $.scrollify({
         // console.log(getElHeight(r[e][0]));
         changeMenuColor(r[e][0].dataset.menu_theme);
         moveEffects(e);
+        if ((e - window.currentScreen) < 0) {
+            document.querySelector('.header-block').style.position = `fixed`;
+        } else {
+            document.querySelector('.header-block').style.position = `absolute`;
+        }
+        window.currentScreen = e;
     },
     after: function(e, r) {},
     overflowScroll: false
@@ -371,8 +400,20 @@ function moveEffects(screenNumber) {
 
             // screenList[screenNumber].querySelector('.footer-block').classList.add('visible');
             break;
+        case 4:
+            if ((screenNumber - window.currentScreen) < 0) {
+
+                putHideClass(document.querySelector('.screen5__image'), 'toBlurDarkReverse', 2200);
+            }
+
+            break;
         case 5:
-            putHideClass(screenList[screenNumber].querySelector('.screen6__text-block'), 'visible', 3000);
+            console.log(screenNumber - window.currentScreen);
+            if ((screenNumber - window.currentScreen) > 0) {
+                putHideClass(document.querySelector('.screen6'), 'no-background', 1000);
+                putHideClass(document.querySelector('.screen5__image'), 'toBlurDark', 1000);
+            }
+            putHideClass(screenList[screenNumber].querySelector('.screen6__text-block'), 'visible', 1000);
             // screenList[screenNumber].querySelector('.screen6__text-block').classList.add('visible');
             break;
         default:
@@ -529,3 +570,16 @@ if (window.screen.width < 481) {
     document.querySelector('.screen9__plans-slider-wrapper')
         .insertAdjacentElement('beforeEnd', document.querySelector('.screen9 .order-call'));
 }
+
+
+function preloader(preloaderSelector) {
+    element = document.querySelectorAll(preloaderSelector)[0];
+    element.style.cssText = `animation:fadeIn 1s 1 linear`;
+    element.style.animationDirection = `reverse`;
+    element.addEventListener('animationend', () => {
+        element.style.display = `none`;
+    });
+};
+setTimeout(() => {
+    preloader('.preloader-js');
+}, 2000);

@@ -66,34 +66,13 @@ screen4Slider.on('beforeChange', (event, slick, currentSlide, nextSlide) => {
 
 
 
-function getTouchDirection(element) {
-    // element == undefined ? element = document.body : null;
-    element.addEventListener('touchstart', (e) => {
-        e.preventDefault();
-        startCord = e.changedTouches[0].screenX;
-
-    });
-    element.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        endCord = e.changedTouches[0].screenX;
-        if (startCord > endCord) {
-            direction = 'down';
-        } else if (startCord < endCord) {
-            direction = 'up';
-        } else {
-            direction = '';
-        }
-    });
-};
-
-
 /*настройка фильтра карты */
 let $legendItems = document.querySelectorAll('.legend-items-js>li');
 $legendItems.forEach((item, index) => {
         item.onclick = () => {
-            item.classList.toggle('selected');
-        }
-        console.log(item.dataset);
+                item.classList.toggle('selected');
+            }
+            // console.log(item.dataset);
 
 
     })
@@ -146,25 +125,25 @@ $('.document-slider-js').slick({
         }, ]
     })
     /**Слайдер документов END */
-let digit = document.querySelector('.statistic-item__digit'),
-    digit1 = document.querySelector('.statistic-item__digit'),
-    digitLastNumber = +digit.innerText;
-digit.addEventListener('click', () => {
-    // increaseAnimation();
-});
 
 
-function increaseAnimation(digit) {
-    digit == undefined ? digit = 0 : null;
-    digit1.innerHTML = digit;
-    digit++;
-    console.log(digit);
 
-    if (digit <= digitLastNumber) {
+
+function increaseAnimation(element, digit) {
+
+    if (digit == undefined) {
+        this.digitLastNumber = +element.innerHTML;
+        this.digit = 0;
+    }
+    element.innerHTML = this.digit;
+    this.digit++;
+
+    if (this.digit <= this.digitLastNumber) {
         setTimeout(() => {
-            increaseAnimation(digit);
+            increaseAnimation.call(element, element, this.digit);
         }, 50);
     } else {
+        this.digit = undefined;
         return;
     }
 
@@ -259,7 +238,7 @@ document.querySelector('.popup-container').onclick = e => {
 
 
 /**MENU and SECTION SCROLL */
-
+/// Смена цвета меню в зависимости от экрана (data-menu_theme на секции) и переменные css
 let colorObject = {
     yellow_green: {
         active_color: "#004445",
@@ -321,13 +300,14 @@ $.scrollify({
     before: function(e, r) {
         // e == 8 ? $.scrollify.disable() : null;
         menuItemSwitch(e, r);
-        console.log(e, r);
+        // console.log(e, r);
         $layout.dataset.screen = e + 1;
         $staticBottomBlock.dataset.screen = e + 1;
-        e == 8 ?
-            $layout.style.backgroundPositionY = `${e*100+8}vh` :
-            $layout.style.backgroundPositionY = `${e*100}vh`;
-        console.log(getElHeight(r[e][0]));
+        // e == 8 ?
+        //     $layout.style.backgroundPositionY = `${e*100+8}vh` :
+        //     $layout.style.backgroundPositionY = `${e*100}vh`;
+        // $layout.style.backgroundPositionY = `100vh`;
+        // console.log(getElHeight(r[e][0]));
         changeMenuColor(r[e][0].dataset.menu_theme);
         moveEffects(e);
     },
@@ -343,7 +323,7 @@ menuItem.forEach((element, index) => {
 });
 menuArrow.forEach(element => {
     element.addEventListener('click', () => {
-        console.log(element);
+        // console.log(element);
         if (element.classList.contains('aside-menu__arrow-prev')) {
             $.scrollify.previous();
         } else if (element.classList.contains('aside-menu__arrow-next')) {
@@ -370,7 +350,7 @@ function clearClass(list, className) {
 
 function menuItemSwitch(index, sectionArray) {
     let curDataset = sectionArray[index][0].dataset.menu_title;
-    console.log(curDataset);
+    // console.log(curDataset);
     clearClass($menuItemList, 'current');
     document.querySelector(`[data-name='${curDataset}']`).classList.add('current');
     // console.log(sectionArray[index][0].dataset.menuTitle);
@@ -378,12 +358,22 @@ function menuItemSwitch(index, sectionArray) {
 
 function moveEffects(screenNumber) {
     switch (screenNumber) {
-        case 10:
-            console.log(screenList);
-            screenList[screenNumber].querySelector('.footer-block').classList.add('visible');
+        case 9:
+            // console.log('!!');
+            increaseAnimation.call(document.querySelectorAll('.statistic-item__digit')[0], document.querySelectorAll('.statistic-item__digit')[0]);
+            increaseAnimation.call(document.querySelectorAll('.statistic-item__digit')[1], document.querySelectorAll('.statistic-item__digit')[1]);
+            increaseAnimation.call(document.querySelectorAll('.statistic-item__digit')[2], document.querySelectorAll('.statistic-item__digit')[2]);
+            // increaseAnimation(document.querySelectorAll('.statistic-item__digit')[0]);
+            // setTimeout(() => {
+            //     increaseAnimation(document.querySelectorAll('.statistic-item__digit')[1]);
+            // }, 100);
+            // increaseAnimation(document.querySelectorAll('.statistic-item__digit')[2]);
+
+            // screenList[screenNumber].querySelector('.footer-block').classList.add('visible');
             break;
         case 5:
-            screenList[screenNumber].querySelector('.screen6__text-block').classList.add('visible');
+            putHideClass(screenList[screenNumber].querySelector('.screen6__text-block'), 'visible', 3000);
+            // screenList[screenNumber].querySelector('.screen6__text-block').classList.add('visible');
             break;
         default:
             break;
@@ -392,14 +382,17 @@ function moveEffects(screenNumber) {
 
 
 document.querySelector('.bottom-screen-scroll-layout').addEventListener('wheel', e => {
-        console.log(e);
+        // console.log(e);
         let footer = document.querySelectorAll('.footer-block')[0];
         let footerCord = $('.footer-block').offset().top - $(window).scrollTop() - window.screen.availHeight;
         let documentCords = $('.documents-wrapper').offset().top - $(window).scrollTop() - window.screen.availHeight;
         // let builderCords = $('.screen10__logo').offset().top - $(window).scrollTop() - window.screen.availHeight;
         let builderCords = document.querySelectorAll('.screen10__logo')[0].getBoundingClientRect();
-        console.log(builderCords);
-
+        let builderBlockTitle = document.querySelector('.screen10__title');
+        // console.log(builderCords);
+        if (e.deltaY < 0 && builderBlockTitle.getBoundingClientRect().top > 0) {
+            $.scrollify.previous();
+        }
         if (builderCords < 0 && documentCords < 0) {
             clearClass($menuItemList, 'current');
             document.querySelector('[data-name="builder"]').classList.add('current');
@@ -420,21 +413,18 @@ document.querySelector('.bottom-screen-scroll-layout').addEventListener('wheel',
 
 
 
-        console.dir(document.querySelectorAll('.footer-block')[0]);
-        console.log(document.querySelectorAll('.footer-block')[0].clientY);
+        // console.dir(document.querySelectorAll('.footer-block')[0]);
+        // console.log(document.querySelectorAll('.footer-block')[0].clientY);
 
 
     })
     //     /**MENU and SECTION SCROLL END */
 
 document.querySelector('.bottom-screen-scroll-layout').addEventListener('touchend', e => {
-    console.log(e);
     let footer = document.querySelectorAll('.footer-block')[0];
     let footerCord = $('.footer-block').offset().top - $(window).scrollTop() - window.screen.availHeight;
     let documentCords = $('.documents-wrapper').offset().top - $(window).scrollTop() - window.screen.availHeight;
     let builderCords = $('.screen10__developer-description').offset().top - $(window).scrollTop() - window.screen.availHeight;
-    console.log(builderCords);
-
     if (builderCords < 0 && documentCords < 0) {
         clearClass($menuItemList, 'current');
         document.querySelector('[data-name="builder"]').classList.add('current');
@@ -451,21 +441,30 @@ document.querySelector('.bottom-screen-scroll-layout').addEventListener('touchen
         footer.classList.remove('visible');
         document.querySelector('[data-name="contacts"]').classList.remove('current');
     }
-
-
-
-
-    console.dir(document.querySelectorAll('.footer-block')[0]);
-    console.log(document.querySelectorAll('.footer-block')[0].clientY);
-
-
 });
+let touchStartY = 0;
+let endStartY = 0;
 
+function touchBackScroll() {
+    let builderBlockTitle = document.querySelector('.screen10__logo');
+    if (touchStartY < endStartY && builderBlockTitle.getBoundingClientRect().top > 0) {
+        $.scrollify.previous();
+    }
+}
+document.querySelector('.bottom-screen-scroll-layout').addEventListener('touchstart', (evt) => {
+    // console.log(evt.changedTouches[0].screenY);
+    touchStartY = evt.changedTouches[0].screenY;
+});
+document.querySelector('.bottom-screen-scroll-layout').addEventListener('touchend', (evt) => {
+    // console.log(evt.changedTouches[0].screenY);
+    endStartY = evt.changedTouches[0].screenY;
+    touchBackScroll();
+});
 
 /* footer links navigation */
 
 function linksWithoutScroliffy(dataName) {
-    console.log(document.querySelector(`[data-name='${dataName}']`));
+    // console.log(document.querySelector(`[data-name='${dataName}']`));
 
     $.scrollify.move(`builder`);
     clearClass($menuItemList, 'current');
@@ -484,14 +483,12 @@ linksList.forEach(link => {
         link.onclick = e => {
             e.preventDefault();
             $.scrollify.move('#' + e.target.closest('.link-js').dataset.href);
-            console.log(e.target.closest('.link-js').dataset.href);
+            // console.log(e.target.closest('.link-js').dataset.href);
         }
     })
     /**internal links setup END */
 
-document.body.addEventListener('touchend', () => {
-    console.log('TOUCH');
-});
+
 
 
 /**Mob menu setup */
@@ -522,13 +519,12 @@ mobMenu.querySelectorAll('a.mobile-menu__body-item').forEach(link => {
     })
     /**Mob menu setup END */
 
-console.log(document.querySelector('.screen4 line'));
+// console.log(document.querySelector('.screen4 line'));
 
 
 
 
 if (window.screen.width < 481) {
-
     document.querySelector('.screen4 line').setAttributeNS(null, 'stroke', '#F8B400');
     document.querySelector('.screen9__plans-slider-wrapper')
         .insertAdjacentElement('beforeEnd', document.querySelector('.screen9 .order-call'));

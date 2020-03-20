@@ -178,6 +178,7 @@ function initMap() {
         buildLogoSize = new google.maps.Size(100, 100);
     var markersAdresses = {
         main: `${baseFolder}map-main.svg`,
+        sales: `${baseFolder}map-sales.svg`,
         pharmacy: `${baseFolder}map-pharmacy.svg`,
         meal: `${baseFolder}map-meal.svg`,
         sport: `${baseFolder}map-sport.svg`,
@@ -199,6 +200,12 @@ function initMap() {
             position: { lat: 50.556431,  lng: 30.277789 },
             type: 'main',
             icon: { url: markersAdresses.main,scaledSize: buildLogoSize,}
+        },
+        {
+            content: `Відділ продажу">`,
+            position: { lat: 50.557473,  lng: 30.280789 },
+            type: 'sales',
+            icon: { url: markersAdresses.sales,scaledSize: buildLogoSize,}
         },
         // {
         //     content: `Тестовий парк`,

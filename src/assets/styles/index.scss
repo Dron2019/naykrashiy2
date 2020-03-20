@@ -231,6 +231,7 @@ body {
     margin-left: -$offset-desktop;
     position: relative;
     // transition: background-position 1s;
+    background-position-y: 100vh;
     z-index: 0;
     background-size: 100vw 110vh;
     @include to(480px) {
@@ -246,17 +247,25 @@ body {
 }
 
 .first-screen-layout[data-screen="1"] {
-    background: linear-gradient(90deg, #1A1919 0%, rgba(26, 25, 25, 0) 40%), url(../images/screen1/bg.png) top left no-repeat;
-    background-size: 100vw 100vh;
-    background-position-y: 0;
+    // background: linear-gradient(90deg, #1A1919 0%, rgba(26, 25, 25, 0) 40%), url(../images/screen1/bg.png) top left no-repeat;
+    // background-size: 100vw 100vh;
+    // background-position-y: 0;
+    // @include to(768px) {
+    //     background: linear-gradient(90deg, #1A1919 0%, rgba(26, 25, 25, 0) 40%), url(../images/screen1/bg-tablet.png) top left no-repeat;
+    // }
+    background: url(../images/screen2/bg.png) left no-repeat;
+    background-size: 162vh auto;
+    background-position-y: 100vh;
     @include to(768px) {
-        background: linear-gradient(90deg, #1A1919 0%, rgba(26, 25, 25, 0) 40%), url(../images/screen1/bg-tablet.png) top left no-repeat;
+        background: url(../images/screen2/bg-tablet.png) left no-repeat;
+        background-size: 100vh auto;
     }
 }
 
 .first-screen-layout[data-screen="2"] {
     background: url(../images/screen2/bg.png) left no-repeat;
     background-size: 162vh auto;
+    background-position-y: 100vh;
     @include to(768px) {
         background: url(../images/screen2/bg-tablet.png) left no-repeat;
         background-size: 100vh auto;
@@ -264,11 +273,18 @@ body {
 }
 
 .first-screen-layout[data-screen="3"] {
-    background: url(../images/screen3/bg.png) top left no-repeat;
-    background-size: 160vh auto;
+    // background: url(../images/screen3/bg.png) top left no-repeat;
+    // background-size: 160vh auto;
+    // @include to(768px) {
+    //     background: url(../images/screen3/bg.png) top left no-repeat;
+    //     background-size: 160vh auto;
+    // }
+    background: url(../images/screen2/bg.png) left no-repeat;
+    background-size: 162vh auto;
+    background-position-y: 100vh;
     @include to(768px) {
-        background: url(../images/screen3/bg.png) top left no-repeat;
-        background-size: 160vh auto;
+        background: url(../images/screen2/bg-tablet.png) left no-repeat;
+        background-size: 100vh auto;
     }
 }
 
@@ -281,12 +297,12 @@ body {
 }
 
 .first-screen-layout[data-screen="6"] {
-    background: linear-gradient(0deg, rgba(26, 25, 25, 0.08) 0%, rgba(0, 0, 0, 0.65) 0%), url(../images/screen5/main.png) top left no-repeat;
-    background-size: 200vh auto;
-    @include to(768px) {
-        background: linear-gradient(0deg, rgba(26, 25, 25, 0.08) 0%, rgba(0, 0, 0, 0.65) 0%), url(../images/screen6/bg-tablet.png) top left no-repeat;
-        background-size: 100vh auto;
-    }
+    // background: linear-gradient(0deg, rgba(26, 25, 25, 0.08) 0%, rgba(0, 0, 0, 0.65) 0%), url(../images/screen5/main.png) top left no-repeat;
+    // background-size: 200vh auto;
+    // @include to(768px) {
+    //     background: linear-gradient(0deg, rgba(26, 25, 25, 0.08) 0%, rgba(0, 0, 0, 0.65) 0%), url(../images/screen6/bg-tablet.png) top left no-repeat;
+    //     background-size: 100vh auto;
+    // }
 }
 
 .first-screen-layout[data-screen="7"] {
@@ -294,11 +310,11 @@ body {
 }
 
 .first-screen-layout[data-screen="8"] {
-    background: url(../images/screen8/bg-blur.png) top left no-repeat;
-    background-size: 100vw 110vh;
-    @include to(768px) {
-        background-size: 261vh auto;
-    }
+    // background: url(../images/screen8/bg-blur.png) top left no-repeat;
+    // background-size: 100vw 110vh;
+    // @include to(768px) {
+    //     background-size: 261vh auto;
+    // }
 }
 
 .first-screen-layout[data-screen="9"] {
@@ -450,12 +466,21 @@ body {
 }
 
 .screen1 {
-    @include wrapper();
+    // @include wrapper();
     color: $mc-white;
     transition: var(--standart-transition);
+    background: linear-gradient(90deg, #1A1919 0%, rgba(26, 25, 25, 0) 40%), url(../images/screen1/bg.png) top left no-repeat;
+    background-size: 100vw 100vh;
+    background-position-y: 0;
+    @include to(768px) {
+        background: linear-gradient(90deg, #1A1919 0%, rgba(26, 25, 25, 0) 40%), url(../images/screen1/bg-tablet.png) top left no-repeat;
+    }
     &__content {
-        @include size(5);
-        @include size-sm(8);
+        @include wrapper();
+        @include size(12);
+        @include shift-padding-right(7);
+        @include size-sm(12);
+        position: relative;
         padding-top: 25px;
         padding-bottom: 36px;
         height: 100vh;
@@ -510,9 +535,28 @@ body {
         height: 25px;
         top: calc(50% - 12.5px);
     }
+    &__developer-logo {
+        position: absolute;
+        bottom: 38px;
+        right: 0px;
+        fill: #ffffff;
+        stroke: #ffffff;
+        width: 79px;
+        height: 55px;
+    }
+    &__developer-logo svg {
+        width: 79px;
+        height: 55px;
+    }
     @include to(768px) {
+        &__content {
+            @include shift-padding-right(4);
+        }
         &__title {
             margin-bottom: 80px;
+        }
+        &__developer-logo {
+            right: 20px;
         }
     }
     @include to(480px) {
@@ -534,7 +578,11 @@ body {
         }
         &__scroll {
             margin-bottom: auto;
-            margin-top: 45px;
+            // margin-top: 45px;
+            margin-top: 0;
+        }
+        &__developer-logo {
+            right: auto;
         }
     }
 }
@@ -592,6 +640,12 @@ body {
     padding-bottom: 75px;
     justify-content: center;
     transition: var(--standart-transition);
+    background: url(../images/screen3/bg.png) top left no-repeat;
+    background-size: cover;
+    @include to(768px) {
+        background: url(../images/screen3/bg.png) top left no-repeat;
+        background-size: 160vh auto;
+    }
     &__content {
         height: 100vh;
         width: 100%;
@@ -824,6 +878,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(0deg, rgba(26, 25, 25, 0.08) 0%, rgba(0, 0, 0, 0.65) 0%), url(../images/screen5/main.png) top left no-repeat;
+    background-size: cover;
+    @include to(768px) {
+        background: linear-gradient(0deg, rgba(26, 25, 25, 0.08) 0%, rgba(0, 0, 0, 0.65) 0%), url(../images/screen6/bg-tablet.png) top left no-repeat;
+        background-size: 100vh auto;
+    }
     &__text-block.visible {
         animation: screen6-clip 1s 1 linear;
     }
@@ -1048,6 +1108,11 @@ body {
     width: 100vw;
     height: 100vh !important;
     transform: scale(1) translateY(0);
+    background: url(../images/screen8/bg-blur.png) top left no-repeat;
+    background-size: cover;
+    @include to(768px) {
+        background-size: 261vh auto;
+    }
     @include to(480px) {
         background: url(../images/screen8/bg-blur.png) center no-repeat;
         background-size: cover;
@@ -1098,6 +1163,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: url(../images/screen9/bg.png) top left no-repeat;
+    background-size: cover;
+    @include to(768px) {
+        background-size: 261vh auto;
+    }
     &__content {
         @include wrapper();
         width: 100%;
@@ -1563,7 +1633,8 @@ body {
             margin-bottom: 6px;
         }
         &__map-block {
-            width: 100%;
+            width: calc(100% + 40px);
+            margin: 0 -20px;
             height: 50vh;
         }
     }

@@ -42,6 +42,8 @@ block content
 						span.all 05
 		.section.screen1.screen-js(data-menu_theme="yellow_green" data-section-name="main" data-active="true" data-menu_title="main")
 			.screen1__content 
+				.screen1__developer-logo
+					include ../../assets/images/common/comfort-life-logo.svg
 				.logo-block 
 					include ../../assets/images/logo.svg
 				.screen1__subtitle  ЖК «Найкращий-2»
@@ -162,7 +164,7 @@ block content
 				+img('screen4/gallery.png')
 		.section.screen5.screen-js( data-menu_theme="white_yellow" data-section-name="infra" data-active="false" data-menu_title="infra") 
 			+img('screen5/main.png').screen5__image
-			.screen5__title.title.title_white Продумана інфраструктура
+			.screen5__title.title.title_white.wow.fadeInRight(data-wow-delay="0.5s") Продумана інфраструктура
 		.section.screen6.screen-js(data-menu_theme="white_yellow" data-section-name="infra" data-active="false" data-menu_title="infra") 
 			.screen6__content
 				.mobile-section-title.yellow#infra Інфраструктура
@@ -317,9 +319,9 @@ block content
 							.document-item
 								.documents-wrapper__icon
 									include ../../assets/images/common/document-file-icon.svg
-									.documents-wrapper__date 14.05.2019
+									.documents-wrapper_date 14.05.2019
 								.documents-wrapper__name.text_gray Разрешение на строительство
-								a(target='_blank').documents-wrapper__download 
+								a(href="static/blank.pdf" target='_blank').documents-wrapper__download 
 									span pdf
 									include ../../assets/images/common/download-icon.svg
 							.document-item
@@ -327,7 +329,7 @@ block content
 									include ../../assets/images/common/document-file-icon.svg
 									.documents-wrapper__date 14.05.2019
 								.documents-wrapper__name.text_gray Разрешение на строительство
-								a(target='_blank').documents-wrapper__download 
+								a(href="static/blank.pdf" target='_blank').documents-wrapper__download 
 									span pdf
 									include ../../assets/images/common/download-icon.svg
 							.document-item
@@ -335,7 +337,7 @@ block content
 									include ../../assets/images/common/document-file-icon.svg
 									.documents-wrapper__date 14.05.2019
 								.documents-wrapper__name.text_gray Разрешение на строительство
-								a(target='_blank').documents-wrapper__download 
+								a(href="static/blank.pdf" target='_blank').documents-wrapper__download 
 									span pdf
 									include ../../assets/images/common/download-icon.svg
 							.document-item
@@ -343,7 +345,7 @@ block content
 									include ../../assets/images/common/document-file-icon.svg
 									.documents-wrapper__date 14.05.2019
 								.documents-wrapper__name.text_gray Разрешение на строительство
-								a(target='_blank').documents-wrapper__download 
+								a(href="static/blank.pdf" target='_blank').documents-wrapper__download 
 									span pdf
 									include ../../assets/images/common/download-icon.svg
 							.document-item
@@ -351,7 +353,7 @@ block content
 									include ../../assets/images/common/document-file-icon.svg
 									.documents-wrapper__date 14.05.2019
 								.documents-wrapper__name.text_gray Разрешение на строительство
-								a(target='_blank').documents-wrapper__download 
+								a(href="static/blank.pdf" target='_blank').documents-wrapper__download 
 									span pdf
 									include ../../assets/images/common/download-icon.svg
 						.arrow-block-std 
@@ -378,7 +380,7 @@ block content
 									.text.text_gray.contact-padding.scheldule-title  Графік роботи відділу продажів
 									.text.contact-padding  Пн-пт: 09.00 - 19.00 
 									.text.contact-padding  Сб-вс: 10.00 - 18.00
-								a.screen11__google-map-link.text.text_green.contact-padding  ВІДКРИТИ ГУГЛ КАРТИ
+								a(target='_blank' href="https://www.google.com/maps/search/%D0%9A%D0%B8%D1%97%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB.+%D1%81%D0%BC%D1%82.+%D0%93%D0%BE%D1%81%D1%82%D0%BE%D0%BC%D0%B5%D0%BB%D1%8C,+%D0%B2%D1%83%D0%BB.+%D0%92%D0%B0%D1%80%D1%88%D0%B0%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+%D1%96+%D0%BF%D1%80%D0%BE%D0%B2%D1%83%D0%BB%D0%BE%D0%BA+%D0%92%D0%B0%D1%80%D1%88%D0%B0%D0%B2%D1%81%D1%8C%D0%BA%D0%B8%D0%B9/@50.5583243,30.2748281,15.25z").screen11__google-map-link.text.text_green.contact-padding  ВІДКРИТИ ГУГЛ КАРТИ
 									.arrow-block-std 
 										.arrow-next-std.arrow
 											include ../../assets/images/common/arrow-next-std.svg

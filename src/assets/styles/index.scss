@@ -478,7 +478,7 @@ body {
     &__content {
         @include wrapper();
         @include size(12);
-        @include shift-padding-right(7);
+        @include shift-padding-right(4);
         @include size-sm(12);
         position: relative;
         padding-top: 25px;

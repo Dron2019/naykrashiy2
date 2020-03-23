@@ -20,6 +20,8 @@ if (window.screen.width > 480) {
     $('.screen3__slider').on('init', function(event, slick) {
         $('.screen3-arrow-container .all').html('0' + $('.screen3__slide').length);
         $('.screen3-arrow-container .current').html('01');
+        $('.big-count-block .all').html('0' + $('.screen3__slide').length);
+        $('.big-count-block .current').html('01');
     });
     let screen3Slider = $('.screen3__slider').slick({
         slide: '.screen3__slide',
@@ -31,6 +33,8 @@ if (window.screen.width > 480) {
     });
     screen3Slider.on('beforeChange', (event, slick, currentSlide, nextSlide) => {
         $('.screen3-arrow-container .current').html('0' + (nextSlide + 1));
+        $('.big-count-block .current').html('0' + (nextSlide + 1));
+
     });
 
 
@@ -569,6 +573,15 @@ if (window.screen.width < 481) {
     document.querySelector('.screen4 line').setAttributeNS(null, 'stroke', '#F8B400');
     document.querySelector('.screen9__plans-slider-wrapper')
         .insertAdjacentElement('beforeEnd', document.querySelector('.screen9 .order-call'));
+
+    let infraLegend = document.querySelectorAll('.screen7__legend-title')[0];
+    /*Откртие окно маркеров в мобильной версии*/
+    infraLegend.addEventListener('click', (evt) => {
+        if (evt.target.classList.contains('screen7__legend-title')) {
+            infraLegend.classList.toggle('mob-opened');
+        }
+    })
+
 }
 
 
@@ -579,6 +592,7 @@ function preloader(preloaderSelector) {
     element.addEventListener('animationend', () => {
         element.style.display = `none`;
     });
+
 };
 setTimeout(() => {
     preloader('.preloader-js');

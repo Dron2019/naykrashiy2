@@ -671,6 +671,7 @@ body {
     transition: var(--standart-transition);
     background: url(../images/screen3/bg.png) top left no-repeat;
     background-size: cover;
+    position: relative;
     @include to(768px) {
         background: url(../images/screen3/bg.png) top left no-repeat;
         background-size: 160vh auto;
@@ -713,6 +714,31 @@ body {
     .all {
         color: $mc-green;
     }
+    .all {
+        color: $mc-white;
+    }
+    .count-block {
+        position: absolute;
+        left: calc(100% / 12 * 5);
+        top: 67px;
+        z-index: 10;
+        display: flex;
+        align-items: flex-end;
+        pointer-events: none;
+    }
+    .separator {
+        display: none;
+    }
+    .current {
+        font-weight: bold;
+        font-size: 50px;
+        line-height: 56px;
+        color: $mc-yellow;
+    }
+    .current:after {
+        content: '/';
+        // margin-left: -9px;
+    }
     @include to(768px) {
         padding-left: $fields-sm;
         &__slide {
@@ -728,11 +754,15 @@ body {
             width: calc(100% / 12 * 11);
             margin-left: calc(100% / 12);
         }
+        .count-block {
+            top: calc(50vh + 75px);
+            left: calc(100% / 12);
+        }
     }
     @include to(480px) {
         padding-left: 0;
         padding-bottom: 0;
-        background-color: $mc-yellow;
+        background: $mc-yellow;
         &__content,
         &__slide,
         &__image,
@@ -761,6 +791,9 @@ body {
             display: flex;
             justify-content: space-between;
             margin-bottom: 27px;
+        }
+        .count-block {
+            display: none;
         }
     }
 }
@@ -871,6 +904,9 @@ body {
             top: 30px;
             left: 15px;
             z-index: 10;
+        }
+        .slick-track {
+            height: calc(100vh - 135px);
         }
     }
 }
@@ -1092,9 +1128,11 @@ body {
     &__legend-title:hover:after {
         transform: rotate(180deg);
     }
-    &__legend-title:hover {
-        animation: max-height1 1s 1 ease-in;
-        max-height: none;
+    @include from(481px) {
+        &__legend-title:hover {
+            animation: max-height1 1s 1 ease-in;
+            max-height: none;
+        }
     }
     &__legend {
         margin-top: 15px;
@@ -1144,6 +1182,14 @@ body {
     &__legend>li.selected &__legend-eye svg {
         fill: $mc-gray;
     }
+    .previous,
+    .next:hover,
+    .current,
+    .all {
+        fill: none;
+        stroke: none;
+        color: none;
+    }
     @include to(768px) {
         &__legend-title {
             width: calc(100% / 12 * 5 + #{$fields*2});
@@ -1158,10 +1204,19 @@ body {
             line-height: 34px;
             padding-left: 15px;
             padding-right: 15px;
+            z-index: 10;
+            position: relative;
+        }
+        &__legend-title.mob-opened {
+            animation: max-height1 1s 1 ease-in;
+            max-height: none;
         }
         &__legend-title:after {
             top: calc(2em - 17px);
             right: 15px;
+        }
+        &__legend-title.mob-opened:after {
+            transform: rotate(180deg);
         }
         .mobile-section-title {
             position: absolute;
@@ -1183,10 +1238,13 @@ body {
 
 .screen8 {
     width: 100vw;
-    height: 100vh !important;
+    height: 100vh;
     transform: scale(1) translateY(0);
     background: url(../images/screen8/bg-blur.png) top left no-repeat;
     background-size: cover;
+    & svg {
+        height: 100vh;
+    }
     @include to(768px) {
         background-size: 261vh auto;
     }
@@ -1199,7 +1257,8 @@ body {
             display: none;
         }
         &>svg {
-            transform: scale(1.25) translateY(-5%);
+            height: auto;
+            transform: scale(1.05) translateY(0%);
             transform-origin: top center;
         }
         .compass {
@@ -1219,6 +1278,7 @@ body {
             color: $mc-yellow;
             display: flex;
             align-items: center;
+            text-decoration: underline;
         }
         .mobile-link::before {
             width: 14px;
@@ -1228,6 +1288,7 @@ body {
         }
     }
     @include from(480px) {
+        height: auto;
         .mobile-link {
             display: none;
         }
@@ -1326,6 +1387,7 @@ body {
             color: $mc-green;
             font-size: 12px;
             font-weight: normal;
+            text-transform: uppercase;
         }
         &__nav-block,
         &__slider {
@@ -1544,6 +1606,7 @@ body {
         align-items: center;
         justify-content: space-between;
         margin-top: 25px;
+        text-decoration: none;
     }
     &__download svg {
         height: 21px;
@@ -1865,6 +1928,8 @@ body {
         font-size: 12px;
         height: 212px;
         position: relative;
+        -webkit-clip-path: polygon(85% 16%, 100% 18%, 100% 100%, 0 100%, 0 29%);
+        clip-path: polygon(85% 16%, 100% 18%, 100% 100%, 0 100%, 0 29%);
         &__non-static {
             flex-wrap: wrap;
             margin-bottom: 20px;
@@ -1919,6 +1984,10 @@ body {
 .footer-block.visible {
     -webkit-clip-path: polygon(19% 0, 100% 37%, 100% 100%, 0 100%, 0 41%);
     clip-path: polygon(19% 0, 100% 37%, 100% 100%, 0 100%, 0 41%);
+    @include to(480px) {
+        -webkit-clip-path: polygon(19% 16%, 100% 37%, 100% 100%, 0 100%, 0 41%);
+        clip-path: polygon(19% 16%, 100% 37%, 100% 100%, 0 100%, 0 41%);
+    }
 }
 
 
@@ -2188,6 +2257,7 @@ g.arrow {
         transition: var(--standart-transition);
         opacity: 0;
         margin-left: 15%;
+        border-color: $mc-yellow;
     }
     input[type='checkbox']:checked~.common-select {
         opacity: 1;
@@ -2268,6 +2338,7 @@ g.arrow {
         clip-path: unset;
         -webkit-clip-path: unset;
         padding: 40px 25px;
+        max-width: 320px;
         &.clip-effect {
             clip-path: unset;
             -webkit-clip-path: unset;

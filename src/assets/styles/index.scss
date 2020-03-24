@@ -1224,6 +1224,7 @@ body {
             left: 15px;
             z-index: 10;
         }
+       
     }
 }
 
@@ -1286,12 +1287,22 @@ body {
             margin-right: 5px;
             content: url(../images/common/key.svg);
         }
+        g.section-title-group {
+            pointer-events:none;
+        }
+        & svg .section-subtitle,
+        & svg .section-subtitle-text {
+            display:none;
+            visibility:hidden;
+        }
     }
     @include from(480px) {
         height: auto;
         .mobile-link {
             display: none;
         }
+        
+         
     }
 }
 
@@ -2030,6 +2041,7 @@ body {
     transform: translate(8%, 9%);
     opacity: 0;
     display: none;
+    
 }
 
 .section-group:hover .section-subtitle-text {

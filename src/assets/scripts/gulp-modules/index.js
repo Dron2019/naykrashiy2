@@ -87,8 +87,6 @@ $legendItems.forEach((item, index) => {
                 item.classList.toggle('selected');
             }
             // console.log(item.dataset);
-
-
     })
     /*настройка фильтра карты END*/
 
@@ -144,7 +142,6 @@ $('.document-slider-js').slick({
 
 
 function increaseAnimation(element, digit) {
-
     if (digit == undefined) {
         this.digitLastNumber = +element.innerHTML;
         this.digit = 0;
@@ -160,7 +157,6 @@ function increaseAnimation(element, digit) {
         this.digit = undefined;
         return;
     }
-
 }
 
 /**POPUP FORM */

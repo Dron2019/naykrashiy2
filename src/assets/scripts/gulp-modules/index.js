@@ -266,7 +266,18 @@ let colorObject = {
         active_color: "#7fff00",
         innactive_color: '#7fff00'
     },
+};
 
+let dropDownAnim = {
+    keyframes: [
+        { transform: 'translateY(-300px)' },
+        { transform: 'translateY(0)' }
+    ],
+    timeFunc: {
+        // timing options
+        duration: 500,
+        iterations: 1
+    }
 }
 let menuArrow = document.querySelectorAll('.menu-arrow-js'),
     menuItem = document.querySelectorAll('.menu-item-js');
@@ -304,6 +315,38 @@ function changeMenuColor(theme) {
     }
 
 };
+
+function headerShowDuringUpScroll(curScreen) {
+    if ((curScreen - window.currentScreen) < 0) {
+        if (getComputedStyle(document.querySelector('.header-block')).position == 'absolute') {
+            document.querySelector('.header-block').style.position = `fixed`;
+            document.querySelector('.header-block').animate(dropDownAnim.keyframes, dropDownAnim.timeFunc);
+        }
+        if (getComputedStyle(document.querySelector('.logo-block')).position == 'static') {
+            document.querySelector('.logo-block').style.position = `fixed`;
+            document.querySelector('.logo-block').animate(dropDownAnim.keyframes, dropDownAnim.timeFunc);
+        }
+
+    } else {
+        document.querySelector('.header-block').style.opacity = `1`;
+        document.querySelector('.header-block').style.position = `absolute`;
+        document.querySelector('.logo-block').style.position = `static`;
+    }
+};
+
+function headerShowDuringTouch(el, direction) {
+    switch (direction) {
+        case 'up':
+            el.style.opacity = `1`;
+            break;
+        case 'down':
+            el.style.opacity = `0`;
+            break;
+
+        default:
+            break;
+    }
+}
 changeMenuColor('white_yellow');
 menuItem[0].classList.add('current');
 let $menuItemList = document.querySelectorAll('.aside-menu__item');
@@ -333,11 +376,7 @@ $.scrollify({
         // console.log(getElHeight(r[e][0]));
         changeMenuColor(r[e][0].dataset.menu_theme);
         moveEffects(e);
-        if ((e - window.currentScreen) < 0) {
-            document.querySelector('.header-block').style.position = `fixed`;
-        } else {
-            document.querySelector('.header-block').style.position = `absolute`;
-        }
+        headerShowDuringUpScroll(e);
         window.currentScreen = e;
     },
     after: function(e, r) {},
@@ -367,6 +406,26 @@ if (window.screen.width < 481) {
 }
 
 
+/** отображение хедера на сенсорных єкранах в зависимости от скролла */
+let touchStartCord,
+    touchEndCord;
+document.body.addEventListener('touchstart', (evt) => {
+    touchStartCord = evt.changedTouches[0].screenY;
+    console.log(evt.changedTouches[0].screenY);
+
+})
+document.body.addEventListener('touchend', (evt) => {
+    touchEndCord = evt.changedTouches[0].screenY;
+    console.log(evt.changedTouches[0].screenY);
+    if (touchStartCord < touchEndCord) {
+        headerShowDuringTouch(document.querySelector('header'), 'up')
+    } else {
+        headerShowDuringTouch(document.querySelector('header'), 'down')
+    }
+});
+
+
+/** отображение хедера на сенсорных єкранах в зависимости от скролла  END*/
 
 
 

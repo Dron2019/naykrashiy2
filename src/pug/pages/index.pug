@@ -45,11 +45,11 @@ block content
 						span.separator 
 							include ../../assets/images/common/white-line.svg
 						span.all 05
-		.section.screen1.screen-js(data-menu_theme="white_yellow" data-section-name="main" data-active="true" data-menu_title="main")
+		.section.screen1.screen-js#main(data-menu_theme="white_yellow" data-section-name="main" data-active="true" data-menu_title="main")
 			.screen1__content 
 				.screen1__developer-logo
 					include ../../assets/images/common/comfort-life-logo.svg
-				.logo-block 
+				.logo-block.logo-block-js
 					include ../../assets/images/logo.svg
 				.screen1__subtitle  ЖК «Найкращий-2»
 				.screen1__title Затишний квартал для щасливого життя
@@ -73,10 +73,25 @@ block content
 				.screen3__slider
 					.screen3__slide
 						.screen3__text-block
-							.mobile-section-title.green#advantages 
+							.mobile-section-title.green 
 								span Переваги
 								.count-block.text
 									span.current 01 
+									span.separator 
+										include ../../assets/images/common/white-line.svg
+									span.all 05
+							.screen3__title.title.title_white Турбота про дітей
+							.screen3__text.text.text_white 
+								p Вашим дітям буде добре зростати в ЖК «Найкращий-2». Ми прибрали з дворів машини, і спланували простір для безпечної активності. По всій території кварталу будуть розташовані спортивні зони, дитячі майданчики, просторі доріжки для прогулянок з колясками та тінисті зони відпочинку. 
+								p Дружнє та яскраве дитинство — чудовий фундамент для успішного майбутнього!
+						.screen3__image 
+							+img('screen3/slider/3.png')
+					.screen3__slide
+						.screen3__text-block
+							.mobile-section-title.green#advantages 
+								span Переваги
+								.count-block.text
+									span.current 02 
 									span.separator 
 										include ../../assets/images/common/white-line.svg
 									span.all 05
@@ -91,7 +106,7 @@ block content
 							.mobile-section-title.green 
 								span Переваги
 								.count-block.text
-									span.current 02 
+									span.current 03 
 									span.separator 
 										include ../../assets/images/common/white-line.svg
 									span.all 05
@@ -101,21 +116,6 @@ block content
 								p Поруч з ЖК розташований супермаркет АТБ, а на під'їзді до комплексу - ТРЦ "Лавіна" та "Епіцентр". 
 						.screen3__image 
 							+img('screen3/slider/2.png')
-					.screen3__slide
-						.screen3__text-block
-							.mobile-section-title.green 
-								span Переваги
-								.count-block.text
-									span.current 03 
-									span.separator 
-										include ../../assets/images/common/white-line.svg
-									span.all 05
-							.screen3__title.title.title_white Турбота про дітей
-							.screen3__text.text.text_white 
-								p Вашим дітям буде добре зростати в ЖК «Найкращий-2». Ми прибрали з дворів машини, і спланували простір для безпечної активності. По всій території кварталу будуть розташовані спортивні зони, дитячі майданчики, просторі доріжки для прогулянок з колясками та тінисті зони відпочинку. 
-								p Дружнє та яскраве дитинство — чудовий фундамент для успішного майбутнього!
-						.screen3__image 
-							+img('screen3/slider/3.png')
 					.screen3__slide
 						.screen3__text-block
 							.mobile-section-title.green 
@@ -162,6 +162,8 @@ block content
 					.arrow-next-std.arrow
 						include ../../assets/images/common/arrow-next-std.svg
 			.screen4__slide
+				+img('screen4/8.jpg')
+			.screen4__slide
 				+img('screen4/1.jpg')
 			.screen4__slide
 				+img('screen4/2.jpg')
@@ -173,8 +175,6 @@ block content
 				+img('screen4/5.jpg')
 			.screen4__slide
 				+img('screen4/7.jpg')
-			.screen4__slide
-				+img('screen4/8.jpg')
 			.screen4__slide
 				+img('screen4/9.jpg')
 			.screen4__slide
@@ -196,7 +196,7 @@ block content
 		.section.screen7.screen-js(data-menu_theme="white_green" data-section-name="infra" data-active="false" data-menu_title="infra")
 			.mobile-section-title.green Інфраструктура
 			#map
-			.screen7__legend-title  Об'єкти інфраструктури
+			.screen7__legend-title.legend-block-js  Об'єкти інфраструктури
 				ul.screen7__legend.legend-items-js
 					li(data-name="main")
 						.screen7__legend-icon 
@@ -412,8 +412,8 @@ block content
 								a(target='_blank' href="https://facebook.com").social-link.mob-padding-link facebook
 								a(target='_blank' href="https://instagram.com").social-link instagram
 								.footer-block__lang-block.text.text_white
-									a Укр
-									a.active-lang Рус
+									a.active-lang Укр
+									a Рус
 							.footer-block__static
 								p © 2020 Найкращий квартал 2. Всі права захищені. 
 								a(href='https://smarto.agency/' rel="nofollow" target="_blank").footer__link.develop-link    
@@ -480,8 +480,8 @@ block content
 				a(href="#docs").mobile-menu__body-item ДОКУМЕНТИ
 				a(href="#contacts").mobile-menu__body-item КОНТАКТИ
 				.mobile-menu__lang-block.text.text_white
-					a Укр
-					a.active-lang Рус
+					a.active-lang Укр
+					a Рус
 				.mobile-menu__logo-block
 					include ../../assets/images/common/comfort-life-logo.svg
 

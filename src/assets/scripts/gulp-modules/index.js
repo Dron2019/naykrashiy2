@@ -41,15 +41,7 @@ if (window.screen.width > 480) {
 }
 /* slider screen 3 END*/
 
-// $.mask.definitions['#'] = '[0-9]';
-// $.mask.definitions['9'] = '';
-// $('input[name="phone"]').mask("+(38) ### ###-##-##", {
-//     placeholder: "_"
-// });
 
-// $('input[name="phone"]').mask('(000) 000-0000', {
-//     placeholder: "_"
-// });
 
 /* slider screen 4*/
 $('.screen4-slider').on('init', function(event, slick) {
@@ -89,6 +81,22 @@ $legendItems.forEach((item, index) => {
             // console.log(item.dataset);
     })
     /*настройка фильтра карты END*/
+let $legendBlock = document.querySelector('.legend-block-js');
+$legendBlock.onmouseleave = () => {
+    $legendBlock.animate([
+        // keyframes
+        { maxHeight: '1000px' },
+        { maxHeight: 'calc(34px + 1.66em)' }
+    ], {
+        // timing options
+        duration: 1000,
+        iterations: 1
+    })
+}
+
+
+
+
 
 /**Слайдер с планировками */
 $('.screen9__slider-js').on('init', function(event, slick) {
@@ -193,7 +201,7 @@ let commonForm = new FormCreater('.form-js', {
         label: false,
         type: 'hidden',
         hidden: true,
-        value: 'Замовити дзвінок - Boston Creative House'
+        value: 'Замовити дзвінок - Найкращий 2'
     }, {
         name: 'inn',
         label: false,
@@ -211,7 +219,15 @@ let commonForm = new FormCreater('.form-js', {
     subLegend: langObject.formSubLegend[lang],
 });
 commonForm.init();
+$.mask.definitions['#'] = '[0-9]';
+$.mask.definitions['9'] = '';
+$('input[name="telephone"]').mask("+(38) ### ###-##-##", {
+    placeholder: "_"
+});
 
+$('input[name="phone"]').mask('(000) 000-0000', {
+    placeholder: "_"
+});
 document.querySelectorAll('[type="checkbox"]').forEach(checkBox => {
     let customCheckBox = document.createElement('label');
     customCheckBox.classList.add('custom-check-box');
@@ -224,6 +240,8 @@ document.querySelectorAll('.input-group input[type="text"],.input-group input[ty
         decorLine.classList.add('decor-line');
         el.insertAdjacentElement('afterEnd', decorLine);
     })
+
+/**Настройка попапа */
 let closeIcon = `<svg width="42" class="close-form" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M31.3619 11.1173L10.8826 31.5966" stroke="#004445"/>
                 <path d="M10.8827 11.1173L31.362 31.5966" stroke="#004445"/>                </svg>`;
@@ -364,8 +382,8 @@ $.scrollify({
     before: function(e, r) {
         // e == 8 ? $.scrollify.disable() : null;
         menuItemSwitch(e, r);
-        console.log(e, r);
-        console.log(window.currentScreen);
+        // console.log(e, r);
+        // console.log(window.currentScreen);
 
         $layout.dataset.screen = e + 1;
         $staticBottomBlock.dataset.screen = e + 1;
@@ -382,6 +400,8 @@ $.scrollify({
     after: function(e, r) {},
     overflowScroll: false
 });
+
+//Переходы по меню
 menuItem.forEach((element, index) => {
     element.addEventListener('click', () => {
         let dataName = element.dataset.name
@@ -399,10 +419,9 @@ menuArrow.forEach(element => {
         }
     })
 });
-
+// отключение скролла посекциям на мобилке
 if (window.screen.width < 481) {
     $.scrollify.destroy();
-
 }
 
 
@@ -443,7 +462,7 @@ function menuItemSwitch(index, sectionArray) {
     document.querySelector(`[data-name='${curDataset}']`).classList.add('current');
     // console.log(sectionArray[index][0].dataset.menuTitle);
 }
-
+/*Различные анимации в зависимости от экрана на который перешли */
 function moveEffects(screenNumber) {
     switch (screenNumber) {
         case 9:
@@ -489,6 +508,10 @@ document.querySelector('.bottom-screen-scroll-layout').addEventListener('wheel',
         // let builderCords = $('.screen10__logo').offset().top - $(window).scrollTop() - window.screen.availHeight;
         let builderCords = document.querySelectorAll('.screen10__logo')[0].getBoundingClientRect();
         let builderBlockTitle = document.querySelector('.screen10__title');
+        /* */
+        if (e.deltaY < 0) headerShowDuringUpScroll(window.currentScreen - 1);
+        if (e.deltaY > 0) headerShowDuringUpScroll(window.currentScreen + 1);
+        /*  */
         // console.log(builderCords);
         if (e.deltaY < 0 && builderBlockTitle.getBoundingClientRect().top > 0) {
             $.scrollify.previous();
@@ -509,17 +532,12 @@ document.querySelector('.bottom-screen-scroll-layout').addEventListener('wheel',
             footer.classList.remove('visible');
             document.querySelector('[data-name="contacts"]').classList.remove('current');
         }
-
-
-
-
         // console.dir(document.querySelectorAll('.footer-block')[0]);
         // console.log(document.querySelectorAll('.footer-block')[0].clientY);
-
-
     })
     //     /**MENU and SECTION SCROLL END */
 
+/* Подсветка текущего пункта бокового меню при тач скролле */
 document.querySelector('.bottom-screen-scroll-layout').addEventListener('touchend', e => {
     let footer = document.querySelectorAll('.footer-block')[0];
     let footerCord = $('.footer-block').offset().top - $(window).scrollTop() - window.screen.availHeight;
@@ -577,15 +595,20 @@ function linksWithoutScroliffy(dataName) {
 
 /**internal links setup */
 
-let linksList = document.querySelectorAll('.link-js');
+let linksList = document.querySelectorAll('.link-js'),
+    logoBlock = document.querySelector('.logo-block-js');
 
 linksList.forEach(link => {
-        link.onclick = e => {
-            e.preventDefault();
-            $.scrollify.move('#' + e.target.closest('.link-js').dataset.href);
-            // console.log(e.target.closest('.link-js').dataset.href);
-        }
-    })
+    link.onclick = e => {
+        e.preventDefault();
+        $.scrollify.move('#' + e.target.closest('.link-js').dataset.href);
+        // console.log(e.target.closest('.link-js').dataset.href);
+    }
+})
+
+logoBlock.onclick = () => {
+        $.scrollify.move('#main');
+    }
     /**internal links setup END */
 
 

@@ -96,8 +96,13 @@ body {
 
 .logo-block {
     width: 40%;
+    z-index: 15;
+    cursor: pointer;
     @include to(480px) {
         width: 50%;
+        svg {
+            width: 100%;
+        }
     }
 }
 
@@ -169,7 +174,7 @@ body {
     }
     @include to(480px) {
         width: 70%;
-        padding: 15px 15px 0 75px;
+        padding: 10px 15px 0 75px;
         height: 70px;
         display: block;
         clip-path: polygon(0 0, 100% 0, 100% 78%, 57% 100%);
@@ -593,6 +598,7 @@ body {
         background-size: cover;
         &__content {
             padding-top: 80px;
+            @include shift-padding-right(0);
             width: 100%;
         }
         &__title {
@@ -1142,8 +1148,10 @@ body {
         top: calc(2em - 30px);
         transition: var(--standart-transition);
     }
-    &__legend-title:hover:after {
-        transform: rotate(180deg);
+    @include from(769px) {
+        &__legend-title:hover:after {
+            transform: rotate(180deg);
+        }
     }
     @include from(481px) {
         &__legend-title:hover {
@@ -1264,7 +1272,7 @@ body {
     }
     .gen-plan-link {
         fill: #f8b400;
-        font-size: 0.4rem;
+        font-size: 0.65vh;
         text-decoration: underline
     }
     @include to(768px) {
@@ -1456,7 +1464,7 @@ body {
     background: linear-gradient(180deg, #F8B400 0%, rgba(248, 180, 0, 0.5) 100%), url(../images/screen10/bg.jpg) top no-repeat;
     background-size: cover;
     overflow-y: scroll;
-    background-position-y: bottom;
+    background-position-y: 50%;
     &::-webkit-scrollbar {
         display: none;
     }
@@ -1559,6 +1567,8 @@ body {
         }
     }
     @include to(480px) {
+        background: linear-gradient(180deg, #F8B400 0%, rgba(248, 180, 0, 0.5) 100%), url(../images/screen10/bg-mob.jpg) bottom no-repeat;
+        background-size: contain;
         overflow-y: initial;
         &__content {
             padding-top: 40px;
@@ -2155,6 +2165,9 @@ body {
 .arrow-prev-std {
     height: 60px;
     width: 60px;
+    @include to(480px) {
+        height: 55px;
+    }
 }
 
 g.arrow-border {
@@ -2303,6 +2316,7 @@ g.arrow {
     .tel-input {
         border: none;
         background: transparent;
+        color: $text-color;
     }
     .input-group.tel,
     .input-group.text {

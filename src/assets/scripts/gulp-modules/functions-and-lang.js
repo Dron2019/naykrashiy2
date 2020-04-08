@@ -481,3 +481,24 @@ class FormCreater {
 
     }
 };
+
+function increaseAnimation(element, digit, recursion) {
+    if (digit == undefined) {
+        this.digitLastNumber = +element.innerHTML;
+        this.digit = 0;
+    } else if(recursion == undefined) {
+        this.digitLastNumber = digit;
+        this.digit = 0;
+    }
+    element.innerHTML = this.digit;
+    this.digit++;
+
+    if (this.digit <= this.digitLastNumber) {
+        setTimeout(() => {
+            increaseAnimation.call(element, element, this.digit,true);
+        }, 2000/150);
+    } else {
+        this.digit = undefined;
+        return;
+    }
+}

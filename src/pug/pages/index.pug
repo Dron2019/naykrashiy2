@@ -3,9 +3,8 @@ block meta
 	title= 'ЖК «Найкращий-2'
 	meta(name='description', content='')
 block head
-		link(rel='stylesheet', href="./assets/styles/main.min.css")
+	link(rel='stylesheet', href="./assets/styles/main.min.css")
 block scripts
-
 	script(src='./assets/scripts/functions-and-lang.js')
 	script(src='./assets/scripts/index.js')
 	script(src='./assets/scripts/map.js')
@@ -26,7 +25,7 @@ block content
 	//- 			div
 	//- 			div
 	.preloader-js.preloader
-		+img('logo.svg')
+		include ../pages/preloader
 	<noscript> 
 		<style>.preloader{display:none}</style>
 	</noscript>

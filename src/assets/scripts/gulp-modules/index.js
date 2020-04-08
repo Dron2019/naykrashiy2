@@ -149,23 +149,7 @@ $('.document-slider-js').slick({
 
 
 
-function increaseAnimation(element, digit) {
-    if (digit == undefined) {
-        this.digitLastNumber = +element.innerHTML;
-        this.digit = 0;
-    }
-    element.innerHTML = this.digit;
-    this.digit++;
 
-    if (this.digit <= this.digitLastNumber) {
-        setTimeout(() => {
-            increaseAnimation.call(element, element, this.digit);
-        }, 50);
-    } else {
-        this.digit = undefined;
-        return;
-    }
-}
 
 /**POPUP FORM */
 let commonForm = new FormCreater('.form-js', {
@@ -661,6 +645,23 @@ if (window.screen.width < 481) {
     })
 
 }
+
+
+function preloader(preloaderSelector) {
+    element = document.querySelectorAll(preloaderSelector)[0];
+    element.style.cssText = `animation:fadeIn 1s 1 linear`;
+    element.style.animationDirection = `reverse`;
+    element.addEventListener('animationend', () => {
+        element.style.display = `none`;
+    });
+
+};
+setTimeout(() => {
+    preloader('.preloader-js');
+}, 2000);
+let preloaderLogo = document.querySelector('.preloader-logo-js'),
+    preloaderCounterValue = document.querySelector('.preloader-counter-value-js');
+increaseAnimation.call(preloaderCounterValue,preloaderCounterValue, 100);
 
 
 function preloader(preloaderSelector) {

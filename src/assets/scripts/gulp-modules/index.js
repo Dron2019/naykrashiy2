@@ -603,24 +603,24 @@ let menuOpen = document.querySelector('.mobile-menu-button-js'),
     menuClose = document.querySelector('.mobile-menu-close-js'),
     mobMenu = document.querySelector('.mobile-menu-js');
 menuOpen.onclick = () => {
+    // putHideClass(mobMenu, 'opening', 1000);
     mobMenu.classList.add('visible');
-    putHideClass(mobMenu, 'opening', 1000);
 
 
 
 }
 menuClose.onclick = () => {
-    putHideClass(mobMenu, 'closing', 1000);
-    setTimeout(() => {
+    // putHideClass(mobMenu, 'closing', 1000);
+    // setTimeout(() => {
         mobMenu.classList.remove('visible');
-    }, 1000);
+    // }, 1000);
 }
 mobMenu.querySelectorAll('a.mobile-menu__body-item').forEach(link => {
         link.onclick = () => {
-            putHideClass(mobMenu, 'closing', 1000);
-            setTimeout(() => {
+            // putHideClass(mobMenu, 'closing', 1000);
+            // setTimeout(() => {
                 mobMenu.classList.remove('visible');
-            }, 1000);
+            // }, 1000);
 
         }
     })

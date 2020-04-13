@@ -1,7 +1,7 @@
 /**глобальная переменная для переключение экранов */
 let screenNumber = 1,
     screensCount = document.querySelectorAll('.screen-js').length;
-$layout = document.querySelector('.first-screen-layout'),
+let $layout = document.querySelector('.first-screen-layout'),
     $staticBottomBlock = document.querySelector('.bottom-static-block'),
     screenList = document.querySelectorAll('.screen-js');
 
@@ -422,7 +422,7 @@ document.body.addEventListener('touchend', (evt) => {
     console.log(evt.changedTouches[0].screenY);
     if (touchStartCord < touchEndCord) {
         headerShowDuringTouch(document.querySelector('header'), 'up')
-    } else {
+    } else if (touchStartCord > touchEndCord) {
         headerShowDuringTouch(document.querySelector('header'), 'down')
     }
 });
@@ -612,14 +612,14 @@ menuOpen.onclick = () => {
 menuClose.onclick = () => {
     // putHideClass(mobMenu, 'closing', 1000);
     // setTimeout(() => {
-        mobMenu.classList.remove('visible');
+    mobMenu.classList.remove('visible');
     // }, 1000);
 }
 mobMenu.querySelectorAll('a.mobile-menu__body-item').forEach(link => {
         link.onclick = () => {
             // putHideClass(mobMenu, 'closing', 1000);
             // setTimeout(() => {
-                mobMenu.classList.remove('visible');
+            mobMenu.classList.remove('visible');
             // }, 1000);
 
         }
@@ -661,7 +661,7 @@ setTimeout(() => {
 }, 2000);
 let preloaderLogo = document.querySelector('.preloader-logo-js'),
     preloaderCounterValue = document.querySelector('.preloader-counter-value-js');
-increaseAnimation.call(preloaderCounterValue,preloaderCounterValue, 100);
+increaseAnimation.call(preloaderCounterValue, preloaderCounterValue, 100);
 
 
 function preloader(preloaderSelector) {

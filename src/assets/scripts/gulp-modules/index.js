@@ -100,7 +100,7 @@ $legendBlock.onmouseleave = () => {
 
 /**Слайдер с планировками */
 $('.screen9__slider-js').on('init', function(event, slick) {
-    $('.screen9 .all').html('0' + $('.screen9__slide').length);
+    $('.screen9 .all').html($('.screen9__slide').length);
     $('.screen9 .current').html('01');
 });
 $('.screen9__slider-js').slick({

@@ -8,6 +8,7 @@ block scripts
 	script(src='./assets/scripts/functions-and-lang.js')
 	script(src='./assets/scripts/index.js')
 	script(src='./assets/scripts/map.js')
+	script(src='./assets/scripts/plans.js')
 block content
 	//- .degub-grid
 	//- 	div
@@ -24,8 +25,8 @@ block content
 	//- 			div
 	//- 			div
 	//- 			div
-	.preloader-js.preloader
-		include ../pages/preloader
+	//- .preloader-js.preloader
+	//- 	include ../pages/preloader
 	<noscript> 
 		<style>.preloader{display:none}</style>
 	</noscript>
@@ -273,24 +274,105 @@ block content
 			.mobile-section-title.yellow#genplan ГЕНПЛАН
 			a(href="#plans").mobile-link.text.text_yellow Приклади планувань 
 			include ../../assets/images/build-plan/build-plan.svg
+		//- .section.screen9.screen-js(data-menu_theme="white_yellow" data-section-name="plans" data-active="false" data-menu_title="plans") 
+		//- 	.screen9__content
+		//- 		.screen9__plans-slider-wrapper
+		//- 			.screen9__static-text
+		//- 				.screen9__title.title#plans Планування
+		//- 				.screen9__text.text Більше 7 варіантів планувань форматів хайфлет і терасні квартири. Детальніше про планування можна узать у відділі продажів.
+		//- 				a().order-call.popup-form-js Замовити дзвінок
+		//- 				.screen9__nav-block
+		//- 					.arrow-block-std 
+		//- 						.arrow-prev-std.arrow
+		//- 							include ../../assets/images/common/arrow-std.svg
+		//- 						.arrow-next-std.arrow
+		//- 							include ../../assets/images/common/arrow-next-std.svg
+		//- 					.count-block.text
+		//- 						span.current 03 
+		//- 						span.separator 
+		//- 							include ../../assets/images/common/yellow-line.svg
+		//- 						span.all 05
+		//- 			.screen9__slider.screen9__slider-js
+		//- 				//- .screen9__slide
+		//- 				//- 	span.flat-title.text Квартира 2А
+		//- 				//- 	+img('screen9/flat-plan.png')
+		//- 				.screen9__slide
+		//- 					span.flat-title.text Квартира 1А
+		//- 					+img('flat-plans/1.jpg')
+		//- 				.screen9__slide
+		//- 					span.flat-title.text Квартира 1В
+		//- 					+img('flat-plans/2.jpg')
+		//- 				.screen9__slide
+		//- 					span.flat-title.text Квартира 1В
+		//- 					+img('flat-plans/3.jpg')
+		//- 				.screen9__slide
+		//- 					span.flat-title.text Квартира 1А
+		//- 					+img('flat-plans/4.jpg')
+		//- 				.screen9__slide
+		//- 					span.flat-title.text Квартира 1В
+		//- 					+img('flat-plans/5.jpg')
+		//- 				.screen9__slide
+		//- 					span.flat-title.text Квартира 2А
+		//- 					+img('flat-plans/6.jpg')
+		//- 				.screen9__slide
+		//- 					span.flat-title.text Квартира 2Д
+		//- 					+img('flat-plans/7.jpg')
+		//- 				.screen9__slide
+		//- 					span.flat-title.text Квартира 2Б
+		//- 					+img('flat-plans/8.jpg')
+		//- 				.screen9__slide
+		//- 					span.flat-title.text Квартира 2А
+		//- 					+img('flat-plans/9.jpg')
+		//- 				.screen9__slide
+		//- 					span.flat-title.text Квартира 3А
+		//- 					+img('flat-plans/10.jpg')
+		//- 				.screen9__slide
+		//- 					span.flat-title.text Квартира 5А
+		//- 					+img('flat-plans/11.jpg')
+		//- 				.screen9__slide
+		//- 					span.flat-title.text Квартира 3Б
+		//- 					+img('flat-plans/12.jpg')
+		//- 				.screen9__slide
+		//- 					span.flat-title.text Квартира 2А
+		//- 					+img('flat-plans/13.jpg')
+						
 		.section.screen9.screen-js(data-menu_theme="white_yellow" data-section-name="plans" data-active="false" data-menu_title="plans") 
 			.screen9__content
+				.screen9__title.title#plans Планування
+				.tabs
+					.tab.active
+						.tab-title 1 кімнатні
+						ul.tab-links
+							li.active 36.05м2
+							li 37.84м2
+							li 41.99м2
+							li 43.18м2
+							li 44.91м2
+					.tab
+						.tab-title 2 кімнатні
+						ul.tab-links
+							li 36.05м2
+							li 37.84м2
+							li 41.99м2
+							li 43.18м2
+							li 44.91м2
+					.tab
+						.tab-title 3 кімнатні
+						ul.tab-links
+							li 36.05м2
+							li 37.84м2
+							li 41.99м2
+							li 43.18м2
+							li 44.91м2
+					.tab
+						.tab-title з терасами
+						ul.tab-links
+							li 36.05м2
+							li 37.84м2
+							li 41.99м2
+							li 43.18м2
+							li 44.91м2
 				.screen9__plans-slider-wrapper
-					.screen9__static-text
-						.screen9__title.title#plans Планування
-						.screen9__text.text Більше 7 варіантів планувань форматів хайфлет і терасні квартири. Детальніше про планування можна узать у відділі продажів.
-						a().order-call.popup-form-js Замовити дзвінок
-						.screen9__nav-block
-							.arrow-block-std 
-								.arrow-prev-std.arrow
-									include ../../assets/images/common/arrow-std.svg
-								.arrow-next-std.arrow
-									include ../../assets/images/common/arrow-next-std.svg
-							.count-block.text
-								span.current 03 
-								span.separator 
-									include ../../assets/images/common/yellow-line.svg
-								span.all 05
 					.screen9__slider.screen9__slider-js
 						//- .screen9__slide
 						//- 	span.flat-title.text Квартира 2А
@@ -334,7 +416,20 @@ block content
 						.screen9__slide
 							span.flat-title.text Квартира 2А
 							+img('flat-plans/13.jpg')
-						
+					.screen9__static-text
+						.screen9__text.text Більше 7 варіантів планувань форматів хайфлет і терасні квартири. Детальніше про планування можна узать у відділі продажів.
+						a().order-call.popup-form-js Замовити дзвінок
+						.screen9__nav-block
+							.arrow-block-std 
+								.arrow-prev-std.arrow
+									include ../../assets/images/common/arrow-std.svg
+								.arrow-next-std.arrow
+									include ../../assets/images/common/arrow-next-std.svg
+							.count-block.text
+								span.current 03 
+								span.separator 
+									include ../../assets/images/common/yellow-line.svg
+								span.all 05
 		.section.screen10.screen-js( data-menu_theme="white_green" data-section-name="builder" data-active="false" data-menu_title="builder")
 			.bottom-screen-scroll-layout.scroll-layout
 				.screen10__content

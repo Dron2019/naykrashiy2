@@ -1333,121 +1333,126 @@ body {
     }
 }
 
-.screen9 {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: url(../images/screen9/bg.png) top left no-repeat;
-    background-size: cover;
-    @include to(768px) {
-        background-size: 261vh auto;
-    }
-    &__content {
-        @include wrapper();
-        width: 100%;
-    }
-    &__plans-slider-wrapper {
-        @include size(9.1);
-        @include shift-left(1);
-        @include shift-padding-left(1);
-        padding-right: 50px;
-        padding-top: 60px;
-        padding-bottom: 60px;
-        background: $mc-white;
-        display: flex;
-        flex-wrap: wrap;
-    }
-    &__title {
-        color: $mc-gray;
-    }
-    &__text {
-        margin-top: 10px;
-    }
-    &__static-text,
-    &__slider {
-        width: 50%;
-        max-width: 400px;
-    }
-    &__slide img {
-        margin-top: 10px;
-    }
-    .count-block.text {
-        color: $mc-gray;
-    }
-    g.arrow-border {
-        stroke: $mc-green;
-    }
-    .flat-title {
-        color: #DED9D9;
-        display: block;
-        margin-left: auto;
-        text-align: right;
-    }
-    &__static-text {
-        display: flex;
-        flex-direction: column;
-        padding-right: 40px;
-    }
-    &__nav-block {
-        display: flex;
-        margin-top: auto;
-        justify-content: space-between;
-    }
-    .order-call {
-        margin-top: 40px;
-    }
-    @include to(768px) {
-        &__plans-slider-wrapper {
-            margin-left: 0;
-        }
-        &__static-text {
-            width: 100%;
-            padding-right: 0;
-        }
-        &__slider,
-        &__nav-block {
-            width: 80%;
-        }
-    }
-    @include to(480px) {
-        background: url(../images/screen9/bg-tablet.png) bottom no-repeat;
-        background-size: cover;
-        padding-top: 40px;
-        padding-bottom: 40px;
-        &__plans-slider-wrapper {
-            margin: 0;
-            padding: 20px 15px 25px 15px;
-            width: 100%;
-        }
-        &__title {
-            color: $mc-green;
-            font-size: 12px;
-            font-weight: normal;
-            text-transform: uppercase;
-        }
-        &__nav-block,
-        &__slider {
-            width: 100%;
-        }
-        &__nav-block {
-            flex-direction: row-reverse;
-        }
-        &__slider {
-            padding: 0 15px;
-        }
-        &__text {
-            display: none;
-        }
-        .flat-title {
-            font-size: 12px;
-        }
-        g.arrow-border {
-            stroke: $mc-yellow;
-        }
-    }
-}
+
+/*Старая страница планировок*/
+
+// .screen9 {
+//     width: 100vw;
+//     height: 100vh;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     background: url(../images/screen9/bg.png) top left no-repeat;
+//     background-size: cover;
+//     @include to(768px) {
+//         background-size: 261vh auto;
+//     }
+//     &__content {
+//         @include wrapper();
+//         width: 100%;
+//     }
+//     &__plans-slider-wrapper {
+//         @include size(9.1);
+//         @include shift-left(1);
+//         @include shift-padding-left(1);
+//         padding-right: 50px;
+//         padding-top: 60px;
+//         padding-bottom: 60px;
+//         background: $mc-white;
+//         display: flex;
+//         flex-wrap: wrap;
+//     }
+//     &__title {
+//         color: $mc-gray;
+//     }
+//     &__text {
+//         margin-top: 10px;
+//     }
+//     &__static-text,
+//     &__slider {
+//         width: 50%;
+//         max-width: 400px;
+//     }
+//     &__slide img {
+//         margin-top: 10px;
+//     }
+//     .count-block.text {
+//         color: $mc-gray;
+//     }
+//     g.arrow-border {
+//         stroke: $mc-green;
+//     }
+//     .flat-title {
+//         color: #DED9D9;
+//         display: block;
+//         margin-left: auto;
+//         text-align: right;
+//     }
+//     &__static-text {
+//         display: flex;
+//         flex-direction: column;
+//         padding-right: 40px;
+//     }
+//     &__nav-block {
+//         display: flex;
+//         margin-top: auto;
+//         justify-content: space-between;
+//     }
+//     .order-call {
+//         margin-top: 40px;
+//     }
+//     @include to(768px) {
+//         &__plans-slider-wrapper {
+//             margin-left: 0;
+//         }
+//         &__static-text {
+//             width: 100%;
+//             padding-right: 0;
+//         }
+//         &__slider,
+//         &__nav-block {
+//             width: 80%;
+//         }
+//     }
+//     @include to(480px) {
+//         background: url(../images/screen9/bg-tablet.png) bottom no-repeat;
+//         background-size: cover;
+//         padding-top: 40px;
+//         padding-bottom: 40px;
+//         &__plans-slider-wrapper {
+//             margin: 0;
+//             padding: 20px 15px 25px 15px;
+//             width: 100%;
+//         }
+//         &__title {
+//             color: $mc-green;
+//             font-size: 12px;
+//             font-weight: normal;
+//             text-transform: uppercase;
+//         }
+//         &__nav-block,
+//         &__slider {
+//             width: 100%;
+//         }
+//         &__nav-block {
+//             flex-direction: row-reverse;
+//         }
+//         &__slider {
+//             padding: 0 15px;
+//         }
+//         &__text {
+//             display: none;
+//         }
+//         .flat-title {
+//             font-size: 12px;
+//         }
+//         g.arrow-border {
+//             stroke: $mc-yellow;
+//         }
+//     }
+// }
+
+/*Старая страница планировок END*/
 
 .order-call {
     color: $mc-yellow;

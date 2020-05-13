@@ -1,0 +1,160 @@
+.screen9 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(../images/screen9/bg.png) top left no-repeat;
+    background-size: cover;
+    @include to(768px) {
+        background-size: 261vh auto;
+    }
+    &__content {
+        @include wrapper();
+        width: 100%;
+        @include size(10);
+        background: $mc-white;
+        padding-top: 30px;
+        padding-bottom: 35px;
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+    &__plans-slider-wrapper {
+        background: $mc-white;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__title {
+        color: $mc-gray;
+    }
+    &__text {
+        margin-top: 10px;
+    }
+    &__static-text,
+    &__slider {
+        width: 50%;
+        max-width: 400px;
+    }
+    &__slide img {
+        margin-top: 10px;
+    }
+    .count-block.text {
+        color: $mc-gray;
+    }
+    g.arrow-border {
+        stroke: $mc-green;
+    }
+    .flat-title {
+        color: #DED9D9;
+        display: block;
+        margin-left: auto;
+        text-align: right;
+    }
+    &__static-text {
+        display: flex;
+        flex-direction: column;
+        padding-right: 40px;
+    }
+    &__nav-block {
+        display: flex;
+        margin-top: auto;
+        justify-content: space-between;
+    }
+    .order-call {
+        margin-top: 40px;
+    }
+    @include to(768px) {
+        &__plans-slider-wrapper {
+            margin-left: 0;
+        }
+        &__static-text {
+            width: 100%;
+            padding-right: 0;
+        }
+        &__slider,
+        &__nav-block {
+            width: 80%;
+        }
+    }
+    @include to(480px) {
+        background: url(../images/screen9/bg-tablet.png) bottom no-repeat;
+        background-size: cover;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        &__plans-slider-wrapper {
+            margin: 0;
+            padding: 20px 15px 25px 15px;
+            width: 100%;
+        }
+        &__title {
+            color: $mc-green;
+            font-size: 12px;
+            font-weight: normal;
+            text-transform: uppercase;
+        }
+        &__nav-block,
+        &__slider {
+            width: 100%;
+        }
+        &__nav-block {
+            flex-direction: row-reverse;
+        }
+        &__slider {
+            padding: 0 15px;
+        }
+        &__text {
+            display: none;
+        }
+        .flat-title {
+            font-size: 12px;
+        }
+        g.arrow-border {
+            stroke: $mc-yellow;
+        }
+    }
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    height: 1.6em;
+    overflow: hidden;
+    .tab {
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 28px;
+        cursor: pointer;
+        margin-right: 25px;
+        display: flex;
+    }
+    .tab.active .tab-title {
+        color: $mc-orange;
+    }
+    .tab-title {
+        color: $mc-gray;
+        text-transform: uppercase;
+    }
+    .tab .tab-links {
+        transform-origin: left;
+        transform: scaleX(0);
+        width: 0;
+        visibility: hidden;
+    }
+    .tab.active .tab-links {
+        transition: .5s;
+        width: auto;
+        visibility: visible;
+        transform: scaleX(1);
+    }
+    .tab-links li {
+        display: inline-block;
+        margin-left: 25px;
+        opacity: 0.7;
+        color: $mc-gray-light;
+        font-weight: normal;
+    }
+    .tab-links li.active {
+        opacity: 1;
+    }
+}

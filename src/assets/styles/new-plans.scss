@@ -18,6 +18,7 @@
         padding-bottom: 35px;
         padding-right: 50px;
         padding-left: 50px;
+        position: relative;
     }
     &__plans-slider-wrapper {
         background: $mc-white;
@@ -27,14 +28,17 @@
     }
     &__title {
         color: $mc-gray;
+        margin-bottom: 20px;
+    }
+    .tabs {
+        margin-bottom: 40px;
     }
     &__text {
         margin-top: 10px;
     }
-    &__static-text,
     &__slider {
-        width: 50%;
-        max-width: 400px;
+        width: 35%;
+        // max-width: 400px;
     }
     &__slide img {
         margin-top: 10px;
@@ -51,18 +55,42 @@
         margin-left: auto;
         text-align: right;
     }
+    &__slider {
+        width: 50%;
+        padding-right: 10%;
+    }
     &__static-text {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
         padding-right: 40px;
+        position: absolute;
+        padding-bottom: 35px;
+        bottom: 0;
+        right: 0;
+        width: 55%;
+    }
+    &__static-text-inner {
+        column-count: 2;
+        max-height: calc(4.8em + 10px);
+        column-gap: 15px;
+        color: $mc-gray;
     }
     &__nav-block {
         display: flex;
         margin-top: auto;
         justify-content: space-between;
+        margin-top: 40px;
     }
     .order-call {
-        margin-top: 40px;
+        margin-top: 10px;
+        display: inline-block;
+    }
+    .screen9__static-text-inner-link {
+        text-decoration: none;
+        color: $mc-gray;
+    }
+    .screen9__static-text-inner-link>div:first-child {
+        color: $mc-gray-light;
     }
     @include to(768px) {
         &__plans-slider-wrapper {
@@ -116,10 +144,14 @@
 }
 
 .tabs {
+    --tabs-height: 50px;
     display: flex;
     flex-wrap: wrap;
-    height: 1.6em;
+    height: var(--tabs-height);
     overflow: hidden;
+    box-shadow: 0px 8px 20px rgba(76, 76, 78, 0.05);
+    padding-left: 20px;
+    align-items: center;
     .tab {
         font-weight: bold;
         font-size: 12px;
@@ -127,6 +159,8 @@
         cursor: pointer;
         margin-right: 25px;
         display: flex;
+        height: var(--tabs-height);
+        align-items: center;
     }
     .tab.active .tab-title {
         color: $mc-orange;

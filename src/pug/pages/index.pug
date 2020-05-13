@@ -340,7 +340,7 @@ block content
 			.screen9__content
 				.screen9__title.title#plans Планування
 				.tabs
-					.tab.active
+					.tab.active(data-room="1")
 						.tab-title 1 кімнатні
 						ul.tab-links
 							li.active 36.05м2
@@ -348,7 +348,7 @@ block content
 							li 41.99м2
 							li 43.18м2
 							li 44.91м2
-					.tab
+					.tab(data-room="2")
 						.tab-title 2 кімнатні
 						ul.tab-links
 							li 36.05м2
@@ -356,7 +356,7 @@ block content
 							li 41.99м2
 							li 43.18м2
 							li 44.91м2
-					.tab
+					.tab(data-room="3")
 						.tab-title 3 кімнатні
 						ul.tab-links
 							li 36.05м2
@@ -364,7 +364,7 @@ block content
 							li 41.99м2
 							li 43.18м2
 							li 44.91м2
-					.tab
+					.tab(data-room="3")
 						.tab-title з терасами
 						ul.tab-links
 							li 36.05м2
@@ -377,59 +377,65 @@ block content
 						//- .screen9__slide
 						//- 	span.flat-title.text Квартира 2А
 						//- 	+img('screen9/flat-plan.png')
-						.screen9__slide
-							span.flat-title.text Квартира 1А
+						.screen9__slide(data-room="1")
+							//- span.flat-title.text Квартира 1А
 							+img('flat-plans/1.jpg')
-						.screen9__slide
-							span.flat-title.text Квартира 1В
+						.screen9__slide(data-room="2")
+							//- span.flat-title.text Квартира 1В
 							+img('flat-plans/2.jpg')
-						.screen9__slide
-							span.flat-title.text Квартира 1В
+						.screen9__slide(data-room="1")
+							//- span.flat-title.text Квартира 1В
 							+img('flat-plans/3.jpg')
-						.screen9__slide
-							span.flat-title.text Квартира 1А
+						.screen9__slide(data-room="2")
+							//- span.flat-title.text Квартира 1А
 							+img('flat-plans/4.jpg')
-						.screen9__slide
-							span.flat-title.text Квартира 1В
+						.screen9__slide(data-room="3")
+							//- span.flat-title.text Квартира 1В
 							+img('flat-plans/5.jpg')
-						.screen9__slide
-							span.flat-title.text Квартира 2А
+						.screen9__slide(data-room="2")
+							//- span.flat-title.text Квартира 2А
 							+img('flat-plans/6.jpg')
-						.screen9__slide
-							span.flat-title.text Квартира 2Д
+						.screen9__slide(data-room="3")
+							//- span.flat-title.text Квартира 2Д
 							+img('flat-plans/7.jpg')
-						.screen9__slide
-							span.flat-title.text Квартира 2Б
+						.screen9__slide(data-room="2")
+							//- span.flat-title.text Квартира 2Б
 							+img('flat-plans/8.jpg')
-						.screen9__slide
-							span.flat-title.text Квартира 2А
+						.screen9__slide(data-room="2")
+							//- span.flat-title.text Квартира 2А
 							+img('flat-plans/9.jpg')
-						.screen9__slide
-							span.flat-title.text Квартира 3А
+						.screen9__slide(data-room="3")
+							//- span.flat-title.text Квартира 3А
 							+img('flat-plans/10.jpg')
-						.screen9__slide
-							span.flat-title.text Квартира 5А
+						.screen9__slide(data-room="2")
+							//- span.flat-title.text Квартира 5А
 							+img('flat-plans/11.jpg')
-						.screen9__slide
-							span.flat-title.text Квартира 3Б
+						.screen9__slide(data-room="2")
+							//- span.flat-title.text Квартира 3Б
 							+img('flat-plans/12.jpg')
-						.screen9__slide
-							span.flat-title.text Квартира 2А
+						.screen9__slide(data-room="1")
+							//- span.flat-title.text Квартира 2А
 							+img('flat-plans/13.jpg')
 					.screen9__static-text
-						.screen9__text.text Більше 7 варіантів планувань форматів хайфлет і терасні квартири. Детальніше про планування можна узать у відділі продажів.
-						a().order-call.popup-form-js Замовити дзвінок
-						.screen9__nav-block
-							.arrow-block-std 
-								.arrow-prev-std.arrow
-									include ../../assets/images/common/arrow-std.svg
-								.arrow-next-std.arrow
-									include ../../assets/images/common/arrow-next-std.svg
-							.count-block.text
-								span.current 03 
-								span.separator 
-									include ../../assets/images/common/yellow-line.svg
-								span.all 05
+						.screen9__text.text 
+							.screen9__static-text-inner 
+								div.screen9__static-text-inner-title 
+									div Зв'яжіться з нами, щоб дізнатись більше!
+									a().order-call.popup-form-js Замовити дзвінок
+								a(href="tel:(044) 555 56 25").screen9__static-text-inner-link
+									div Відділ продажів: 
+									div (044) 555 56 25
+							.screen9__nav-block
+								.count-block.text
+									span.current 03 
+									span.separator 
+										include ../../assets/images/common/yellow-line.svg
+									span.all 05
+								.arrow-block-std 
+									.arrow-prev-std.arrow
+										include ../../assets/images/common/arrow-std.svg
+									.arrow-next-std.arrow
+										include ../../assets/images/common/arrow-next-std.svg
 		.section.screen10.screen-js( data-menu_theme="white_green" data-section-name="builder" data-active="false" data-menu_title="builder")
 			.bottom-screen-scroll-layout.scroll-layout
 				.screen10__content

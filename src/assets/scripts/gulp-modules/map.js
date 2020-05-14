@@ -121,6 +121,7 @@ function initMap() {
         }],
 
     });
+
     var map2 = new google.maps.Map(document.getElementById('map2'), {
         zoom: 15,
         center: center,
@@ -163,7 +164,38 @@ function initMap() {
 
     });
 
+    var polygonCoords = [
+        new google.maps.LatLng(50.55601, 30.27695),
+        new google.maps.LatLng(50.55743, 30.27686),
+        new google.maps.LatLng(50.55764, 30.27883),
+        new google.maps.LatLng(50.5567, 30.27858),
+        new google.maps.LatLng(50.55633, 30.27846),
+        new google.maps.LatLng(50.55527, 30.27739),
+        new google.maps.LatLng(50.55601, 30.27695),
 
+    ];
+
+    // Настройки для полигона
+    var polygon = new google.maps.Polygon({
+        path: polygonCoords, // Координаты
+        strokeColor: '#F8B400',
+        strokeOpacity: 1,
+        strokeWeight: 1.5,
+        fillColor: 'transparent',
+        fillOpacity: 1
+    });
+    var polygon1 = new google.maps.Polygon({
+        path: polygonCoords, // Координаты
+        strokeColor: '#F8B400',
+        strokeOpacity: 1,
+        strokeWeight: 1.5,
+        fillColor: 'transparent',
+        fillOpacity: 1
+    });
+    //Добавляем на карту
+    polygon.setMap(map);
+    polygon1.setMap(map2);
+    // polygon.setMap(map2);
 
     var markers_spritesheet;
 
@@ -197,7 +229,7 @@ function initMap() {
     var markersData = [
         {
             content: `<img style="background:white" src="${markersAdresses.main}">`,
-            position: { lat: 50.556431,  lng: 30.277789 },
+            position: { lat: 50.55743,  lng: 30.27686 },
             type: 'main',
             icon: { url: markersAdresses.main,scaledSize: buildLogoSize,}
         },

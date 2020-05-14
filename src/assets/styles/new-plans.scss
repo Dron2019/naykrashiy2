@@ -254,6 +254,9 @@
             width: 205px;
             margin: 15px auto 0 auto;
         }
+        .slider-2-slide__title {
+            font-size: 18px;
+        }
     }
     @include from(481px) {
         &__mobile-detail-button {
@@ -339,4 +342,57 @@
             margin-right: 15px;
         }
     }
+}
+
+.screen9-mobile-popup {
+    display: flex;
+    flex-direction: column;
+    padding: 35px 25px;
+    .slider-2-slide__room-description>li:nth-child(n+4) {
+        display: flex;
+    }
+    .slider-2-slide__room-description>li {
+        width: 50%;
+        font-size: 10px;
+        line-height: 2em;
+        padding-right: 10px;
+    }
+    .order-call {
+        display: inline-block;
+        margin-right: auto;
+    }
+    hr {
+        border: 0.5px solid #E5E5E5;
+        width: calc(100%);
+    }
+    .screen9__static-text-inner-link {
+        font-size: 16px;
+        line-height: 26px;
+    }
+    .screen9__static-text-inner-link {
+        margin-right: auto;
+        /* width: 100%; */
+        display: flex;
+        width: 100%;
+        justify-content: start;
+    }
+    .screen9__static-text-inner-link>div:first-child {
+        color: $mc-gray;
+    }
+    .screen9__static-text-inner-link>div {
+        margin-right: 10px;
+        color: $mc-gray;
+    }
+    .mfp-close {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 50px;
+        font-weight: lighter;
+    }
+}
+
+.mfp-container {
+    overflow-y: scroll;
+    overflow-x: hidden;
 }

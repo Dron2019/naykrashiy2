@@ -32,14 +32,23 @@ function goToSlide(id) {
 let getPopupContent = (id) => {
     let activeSlide = document.querySelector('.screen9__slide[data-id="' + id + '"]'),
         activeSlideWithText = document.querySelector('.slider-2-slide[data-id="' + id + '"]');
-    console.log(activeSlide);
-    let contentToShow = activeSlideWithText.cloneNode(true);
-
-
-
-    // return `<div>${$planBlock.querySelector('li[data-id="'+id+'"]').dataset.id}</div>`;
-    return contentToShow.outerHTML;
+    return `<div class="screen9 screen9-mobile-popup">
+                <img src="${activeSlide.querySelector('img').src}">
+                ${activeSlideWithText.querySelector('.slider-2-slide__title').outerHTML}
+                <ul class="slider-2-slide__room-description">
+                    ${activeSlideWithText.querySelector('.slider-2-slide__room-description').innerHTML}
+                </ul>
+                <hr>
+                ${document.querySelector('.screen9 .screen9__static-text-inner-link').outerHTML}
+                <a onclick="openFormPopup()" class="order-call popup-form-js">Замовити дзвінок</a>
+            </div>`;
 }
+
+function openFormPopup() {
+    document.querySelector('.popup-container').classList.add('visible');
+    document.querySelector('.popup-container .form-js').classList.add('clip-effect');
+}
+
 tabsList.forEach(tab => {
     let title = tab.querySelector('.tab-title');
     title.addEventListener('click', function(evt) {
@@ -77,24 +86,20 @@ $('.screen9__slider-js').slick({
     fade: true,
     asNavFor: '.screen9__slider-2-js',
     responsive: [{
-            breakpoint: 769,
-            settings: {
+        breakpoint: 769,
+        settings: {
 
-                slidesToScroll: 1,
-            },
-        }, {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                fade: false,
-                centerPadding: '10px'
-            }
+            slidesToScroll: 1,
         },
-        // You can unslick at a given breakpoint now by adding:
-        // settings: "unslick"
-        // instead of a settings object
-    ],
+    }, {
+        breakpoint: 480,
+        settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            fade: false,
+            centerPadding: '10px'
+        }
+    }, ],
 });
 $('.screen9__slider-js').on('beforeChange', (event, slick, currentSlide, nextSlide) => {
     $('.screen9 .current').html((nextSlide + 1));
@@ -111,33 +116,28 @@ $('.screen9__slider-2-js').slick({
     swipe: false,
     adaptiveHeight: true,
     responsive: [{
-            breakpoint: 769,
-            settings: {
+        breakpoint: 769,
+        settings: {
 
-                slidesToScroll: 1,
-            },
-        }, {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                fade: false,
-                centerPadding: '10px'
-            }
+            slidesToScroll: 1,
         },
-        // You can unslick at a given breakpoint now by adding:
-        // settings: "unslick"
-        // instead of a settings object
-    ],
+    }, {
+        breakpoint: 480,
+        settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            fade: false,
+            centerPadding: '10px'
+        }
+    }, ],
 
 });
 /**Слайдер с планировками END */
 
 /*Popup INIT */
 $('.screen9__slider').magnificPopup({
-    delegate: 'a', // child items selector, by clicking on it popup will open
+    delegate: 'a',
     type: 'image'
-        // other options
 });
 document.querySelector('.screen9__mobile-detail-button').addEventListener('click', function(evt) {
     $.magnificPopup.open({

@@ -12,7 +12,7 @@
     &__content {
         @include wrapper();
         width: 100%;
-        @include size(10);
+        @include size(12);
         background: $mc-white;
         padding-top: 30px;
         padding-bottom: 35px;
@@ -25,6 +25,8 @@
         width: 100%;
         display: flex;
         flex-wrap: wrap;
+        flex-direction: column;
+        max-height: 600px;
     }
     &__title {
         color: $mc-gray;
@@ -41,7 +43,7 @@
         // max-width: 400px;
     }
     &__slide img {
-        margin-top: 10px;
+        // margin-top: 10px;
     }
     .count-block.text {
         color: $mc-gray;
@@ -57,17 +59,18 @@
     }
     &__slider {
         width: 50%;
-        padding-right: 10%;
+        padding-right: 30px;
     }
     &__static-text {
         display: flex;
         flex-wrap: wrap;
-        padding-right: 40px;
-        position: absolute;
+        // padding-right: 40px;
+        // position: absolute;
         padding-bottom: 35px;
         bottom: 0;
         right: 0;
-        width: 55%;
+        width: 50%;
+        padding-left: 40px;
     }
     &__static-text-inner {
         column-count: 2;
@@ -79,7 +82,7 @@
         display: flex;
         margin-top: auto;
         justify-content: space-between;
-        margin-top: 40px;
+        margin-top: 10px;
     }
     .order-call {
         margin-top: 10px;
@@ -92,28 +95,108 @@
     .screen9__static-text-inner-link>div:first-child {
         color: $mc-gray-light;
     }
+    .slider-2-slide {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 11px 32px 24px 40px;
+    }
+    .slider-2-slide__title {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 40px;
+        color: $mc-gray;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .slider-2-slide__room-description {
+        width: 100%;
+        column-count: 2;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .slider-2-slide__room-description>li {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        font-size: 14px;
+        line-height: 2.2em;
+        height: 2.2em;
+        width: 50%;
+    }
+    .room-description-title {
+        color: $mc-gray-light;
+    }
+    .room-description-value {
+        color: $mc-gray;
+        min-width: 25%;
+    }
+    &__slider-2 {
+        width: 50%;
+        box-shadow: 0px 8px 20px rgba(76, 76, 78, 0.05);
+        // margin-bottom: 20%;
+    }
+    @include to(960px) {
+        &__plans-slider-wrapper {
+            max-height: 500px;
+        }
+    }
     @include to(768px) {
+        &__content {
+            margin-right: auto;
+            margin-left: 20px;
+            width: calc(100% - 220px);
+        }
         &__plans-slider-wrapper {
             margin-left: 0;
+            flex-direction: row;
+            max-height: none;
         }
         &__static-text {
             width: 100%;
             padding-right: 0;
+            order: 2;
         }
-        &__slider,
         &__nav-block {
-            width: 80%;
+            order: 1;
+            width: 60%;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        &__slider-2 {
+            box-shadow: none;
+        }
+        .slider-2-slide {
+            padding: 10px 0;
+        }
+        // &__slider,
+        // &__nav-block {
+        //     width: 80%;
+        // }
+        .slider-2-slide__room-description>li {
+            width: 100%;
         }
     }
     @include to(480px) {
-        background: url(../images/screen9/bg-tablet.png) bottom no-repeat;
+        // background: url(../images/screen9/bg-tablet.png) bottom no-repeat;
+        background: $mc-white;
         background-size: cover;
         padding-top: 40px;
         padding-bottom: 40px;
+        &__content {
+            margin-left: 10px;
+            width: calc(100% - 20px);
+            margin-right: 10px;
+            padding-right: 0;
+            padding-left: 0;
+            box-shadow: 0px 8px 20px rgba(76, 76, 78, 0.05);
+            padding-bottom: 0;
+            padding-top: 0;
+        }
         &__plans-slider-wrapper {
             margin: 0;
             padding: 20px 15px 25px 15px;
             width: 100%;
+            padding: 0;
         }
         &__title {
             color: $mc-green;
@@ -127,18 +210,54 @@
         }
         &__nav-block {
             flex-direction: row-reverse;
+            display: none;
         }
         &__slider {
-            padding: 0 15px;
+            padding: 0 10px;
         }
         &__text {
             display: none;
+        }
+        #plans {
+            padding-left: 10px;
         }
         .flat-title {
             font-size: 12px;
         }
         g.arrow-border {
             stroke: $mc-yellow;
+        }
+        .tabs {
+            margin-bottom: 20px;
+        }
+        &__slider-2 {
+            width: 100%;
+        }
+        .slider-2-slide__room-description>li:nth-child(n+4) {
+            display: none;
+        }
+        .popup-form-js {
+            display: none;
+        }
+        .slider-2-slide {
+            padding: 10px;
+        }
+        &__mobile-detail-button {
+            color: $mc-white;
+            background-color: $mc-gray-light;
+            border: none;
+            font-size: 12px;
+            line-height: 28px;
+            padding: 5px 0;
+            font-family: $default-font;
+            text-transform: uppercase;
+            width: 205px;
+            margin: 15px auto 0 auto;
+        }
+    }
+    @include from(481px) {
+        &__mobile-detail-button {
+            display: none;
         }
     }
 }
@@ -161,6 +280,7 @@
         display: flex;
         height: var(--tabs-height);
         align-items: center;
+        position: relative;
     }
     .tab.active .tab-title {
         color: $mc-orange;
@@ -174,6 +294,7 @@
         transform: scaleX(0);
         width: 0;
         visibility: hidden;
+        z-index: 1000;
     }
     .tab.active .tab-links {
         transition: .5s;
@@ -190,5 +311,32 @@
     }
     .tab-links li.active {
         opacity: 1;
+        color: $mc-gray;
+    }
+    @include to(768px) {
+        overflow: visible;
+        justify-content: space-around;
+        .tab-links {
+            position: absolute;
+            top: 98%;
+            display: flex;
+            flex-direction: column;
+        }
+        .tab-links li {
+            margin-left: 0;
+            padding: 5px 10px;
+            background: #fff;
+            opacity: 1;
+        }
+        .tab.active:not(.tablet-active) .tab-links {
+            display: none;
+        }
+    }
+    @include to(480px) {
+        padding-left: 10px;
+        .tab {
+            font-size: 9px;
+            margin-right: 15px;
+        }
     }
 }

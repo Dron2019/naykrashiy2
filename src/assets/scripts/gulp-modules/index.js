@@ -99,25 +99,25 @@ $legendBlock.onmouseleave = () => {
 
 
 /**Слайдер с планировками */
-$('.screen9__slider-js').on('init', function(event, slick) {
-    $('.screen9 .all').html($('.screen9__slide').length);
-    $('.screen9 .current').html('01');
-});
-$('.screen9__slider-js').slick({
-    slide: '.screen9__slide',
-    nextArrow: $('.screen9 .arrow-next-std'),
-    prevArrow: $('.screen9 .arrow-prev-std'),
-    fade: true,
-});
-$('.screen9__slider-js').on('beforeChange', (event, slick, currentSlide, nextSlide) => {
-    $('.screen9 .current').html('0' + (nextSlide + 1));
-});
-//Перенос стрелок под слайдер в планшетной версии
-if (window.screen.width < 769) {
-    let navBlock = document.querySelectorAll('.screen9__nav-block')[0],
-        plansContainer = document.querySelectorAll('.screen9__plans-slider-wrapper')[0];
-    plansContainer.append(navBlock);
-}
+// $('.screen9__slider-js').on('init', function(event, slick) {
+//     $('.screen9 .all').html($('.screen9__slide').length);
+//     $('.screen9 .current').html('01');
+// });
+// $('.screen9__slider-js').slick({
+//     slide: '.screen9__slide',
+//     nextArrow: $('.screen9 .arrow-next-std'),
+//     prevArrow: $('.screen9 .arrow-prev-std'),
+//     fade: true,
+// });
+// $('.screen9__slider-js').on('beforeChange', (event, slick, currentSlide, nextSlide) => {
+//     $('.screen9 .current').html('0' + (nextSlide + 1));
+// });
+// //Перенос стрелок под слайдер в планшетной версии
+// if (window.screen.width < 769) {
+//     let navBlock = document.querySelectorAll('.screen9__nav-block')[0],
+//         plansContainer = document.querySelectorAll('.screen9__plans-slider-wrapper')[0];
+//     plansContainer.append(navBlock);
+// }
 /**Слайдер с планировками END */
 
 
@@ -675,4 +675,4 @@ function preloader(preloaderSelector) {
 };
 setTimeout(() => {
     preloader('.preloader-js');
-}, 2000);
+}, 100);

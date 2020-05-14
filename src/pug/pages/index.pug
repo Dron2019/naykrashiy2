@@ -6,9 +6,9 @@ block head
 	link(rel='stylesheet', href="./assets/styles/main.min.css")
 block scripts
 	script(src='./assets/scripts/functions-and-lang.js')
+	script(src='./assets/scripts/plans.js')
 	script(src='./assets/scripts/index.js')
 	script(src='./assets/scripts/map.js')
-	script(src='./assets/scripts/plans.js')
 block content
 	//- .degub-grid
 	//- 	div
@@ -25,8 +25,8 @@ block content
 	//- 			div
 	//- 			div
 	//- 			div
-	//- .preloader-js.preloader
-	//- 	include ../pages/preloader
+	.preloader-js.preloader
+		include ../pages/preloader
 	<noscript> 
 		<style>.preloader{display:none}</style>
 	</noscript>
@@ -343,79 +343,691 @@ block content
 					.tab.active(data-room="1")
 						.tab-title 1 кімнатні
 						ul.tab-links
-							li.active 36.05м2
-							li 37.84м2
-							li 41.99м2
-							li 43.18м2
-							li 44.91м2
+							li.active(data-id="001") 36.05м2
+							li(data-id="002") 37.84м2
+							li(data-id="003") 41.99м2
+							li(data-id="004") 43.18м2
+							li(data-id="005") 44.91м2
 					.tab(data-room="2")
 						.tab-title 2 кімнатні
 						ul.tab-links
-							li 36.05м2
-							li 37.84м2
-							li 41.99м2
-							li 43.18м2
-							li 44.91м2
+							li(data-id="006") 36.05м2
+							li(data-id="007") 37.84м2
+							li(data-id="008") 41.99м2
+							li(data-id="009") 43.18м2
+							li(data-id="010") 44.91м2
 					.tab(data-room="3")
 						.tab-title 3 кімнатні
 						ul.tab-links
-							li 36.05м2
-							li 37.84м2
-							li 41.99м2
-							li 43.18м2
-							li 44.91м2
+							li(data-id="011") 36.05м2
+							li(data-id="012") 37.84м2
+							li(data-id="013") 41.99м2
+							li(data-id="014") 43.18м2
+							li(data-id="015") 44.91м2
 					.tab(data-room="3")
 						.tab-title з терасами
 						ul.tab-links
-							li 36.05м2
-							li 37.84м2
-							li 41.99м2
-							li 43.18м2
-							li 44.91м2
+							li(data-id="016") 36.05м2
+							li(data-id="017") 37.84м2
+							li(data-id="018") 41.99м2
+							li(data-id="019") 43.18м2
+							li(data-id="020") 44.91м2
 				.screen9__plans-slider-wrapper
 					.screen9__slider.screen9__slider-js
 						//- .screen9__slide
 						//- 	span.flat-title.text Квартира 2А
 						//- 	+img('screen9/flat-plan.png')
-						.screen9__slide(data-room="1")
+						.screen9__slide(data-id="001" data-room="1")
 							//- span.flat-title.text Квартира 1А
-							+img('flat-plans/1.jpg')
-						.screen9__slide(data-room="2")
-							//- span.flat-title.text Квартира 1В
-							+img('flat-plans/2.jpg')
-						.screen9__slide(data-room="1")
-							//- span.flat-title.text Квартира 1В
-							+img('flat-plans/3.jpg')
-						.screen9__slide(data-room="2")
+							a(href="./assets/images/flat-plans/1.jpg")
+								+img('flat-plans/1.jpg')
+						.screen9__slide(data-id="002" data-room="1")
 							//- span.flat-title.text Квартира 1А
-							+img('flat-plans/4.jpg')
-						.screen9__slide(data-room="3")
+							a(href="./assets/images/flat-plans/1.jpg")
+								+img('flat-plans/1.jpg')
+						.screen9__slide(data-id="003" data-room="1")
+							//- span.flat-title.text Квартира 1А
+							a(href="./assets/images/flat-plans/1.jpg")
+								+img('flat-plans/1.jpg')
+						.screen9__slide(data-id="004" data-room="1")
+							//- span.flat-title.text Квартира 1А
+							a(href="./assets/images/flat-plans/1.jpg")
+								+img('flat-plans/1.jpg')
+						.screen9__slide(data-id="005" data-room="1")
+							//- span.flat-title.text Квартира 1А
+							a(href="./assets/images/flat-plans/1.jpg")
+								+img('flat-plans/1.jpg')
+						.screen9__slide(data-id="006" data-room="1")
+							//- span.flat-title.text Квартира 1А
+							a(href="./assets/images/flat-plans/1.jpg")
+								+img('flat-plans/1.jpg')
+						.screen9__slide(data-id="007" data-room="1")
+							//- span.flat-title.text Квартира 1А
+							a(href="./assets/images/flat-plans/1.jpg")
+								+img('flat-plans/1.jpg')
+						.screen9__slide(data-id="008" data-room="1")
+							//- span.flat-title.text Квартира 1А
+							a(href="./assets/images/flat-plans/1.jpg")
+								+img('flat-plans/1.jpg')
+						.screen9__slide(data-id="009" data-room="2")
 							//- span.flat-title.text Квартира 1В
-							+img('flat-plans/5.jpg')
-						.screen9__slide(data-room="2")
+							a(href="./assets/images/flat-plans/2.jpg")
+								+img('flat-plans/2.jpg')
+						.screen9__slide(data-id="010" data-room="1")
+							//- span.flat-title.text Квартира 1В
+							a(href="./assets/images/flat-plans/3.jpg")
+								+img('flat-plans/3.jpg')
+						.screen9__slide(data-id="011" data-room="2")
+							//- span.flat-title.text Квартира 1А
+							a(href="./assets/images/flat-plans/4.jpg")
+								+img('flat-plans/4.jpg')
+						.screen9__slide(data-id="012" data-room="3")
+							//- span.flat-title.text Квартира 1В
+							a(href="./assets/images/flat-plans/5.jpg")
+								+img('flat-plans/5.jpg')
+						.screen9__slide(data-id="013" data-room="2")
 							//- span.flat-title.text Квартира 2А
-							+img('flat-plans/6.jpg')
-						.screen9__slide(data-room="3")
+							a(href="./assets/images/flat-plans/6.jpg")
+								+img('flat-plans/6.jpg')
+						.screen9__slide(data-id="014" data-room="3")
 							//- span.flat-title.text Квартира 2Д
-							+img('flat-plans/7.jpg')
-						.screen9__slide(data-room="2")
+							a(href="./assets/images/flat-plans/7.jpg")
+								+img('flat-plans/7.jpg')
+						.screen9__slide(data-id="015" data-room="2")
 							//- span.flat-title.text Квартира 2Б
-							+img('flat-plans/8.jpg')
-						.screen9__slide(data-room="2")
+							a(href="./assets/images/flat-plans/8.jpg")
+								+img('flat-plans/8.jpg')
+						.screen9__slide(data-id="016" data-room="2")
 							//- span.flat-title.text Квартира 2А
-							+img('flat-plans/9.jpg')
-						.screen9__slide(data-room="3")
+							a(href="./assets/images/flat-plans/9.jpg")
+								+img('flat-plans/9.jpg')
+						.screen9__slide(data-id="017" data-room="3")
 							//- span.flat-title.text Квартира 3А
-							+img('flat-plans/10.jpg')
-						.screen9__slide(data-room="2")
+							a(href="./assets/images/flat-plans/10.jpg")
+								+img('flat-plans/10.jpg')
+						.screen9__slide(data-id="018" data-room="2")
 							//- span.flat-title.text Квартира 5А
-							+img('flat-plans/11.jpg')
-						.screen9__slide(data-room="2")
+							a(href="./assets/images/flat-plans/11.jpg")
+								+img('flat-plans/11.jpg')
+						.screen9__slide(data-id="019" data-room="2")
 							//- span.flat-title.text Квартира 3Б
-							+img('flat-plans/12.jpg')
-						.screen9__slide(data-room="1")
+							a(href="./assets/images/flat-plans/12.jpg")
+								+img('flat-plans/12.jpg')
+						.screen9__slide(data-id="020" data-room="1")
 							//- span.flat-title.text Квартира 2А
-							+img('flat-plans/13.jpg')
+							a(href="./assets/images/flat-plans/13.jpg")
+								+img('flat-plans/13.jpg')
+					.screen9__slider-2.screen9__slider-2-js
+						.slider-2-slide(data-id="001")
+							.slider-2-slide__title Квартира 36,05 м<sub>2</sub>
+							ul.slider-2-slide__room-description
+								li 
+									span.room-description-title Будинок 
+									span.room-description-value 15
+								li 
+									span.room-description-title Поверх
+									span.room-description-value 5
+								li 
+									span.room-description-title Загальна площа
+									span.room-description-value 55,6 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+						.slider-2-slide(data-id="002")
+							.slider-2-slide__title Квартира 36,05 м<sub>2</sub>
+							ul.slider-2-slide__room-description
+								li 
+									span.room-description-title Будинок 
+									span.room-description-value 15
+								li 
+									span.room-description-title Поверх
+									span.room-description-value 5
+								li 
+									span.room-description-title Загальна площа
+									span.room-description-value 55,6 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+						.slider-2-slide(data-id="003")
+							.slider-2-slide__title Квартира 36,05 м<sub>2</sub>
+							ul.slider-2-slide__room-description
+								li 
+									span.room-description-title Будинок 
+									span.room-description-value 15
+								li 
+									span.room-description-title Поверх
+									span.room-description-value 5
+								li 
+									span.room-description-title Загальна площа
+									span.room-description-value 55,6 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+						.slider-2-slide(data-id="004")
+							.slider-2-slide__title Квартира 36,05 м<sub>2</sub>
+							ul.slider-2-slide__room-description
+								li 
+									span.room-description-title Будинок 
+									span.room-description-value 15
+								li 
+									span.room-description-title Поверх
+									span.room-description-value 5
+								li 
+									span.room-description-title Загальна площа
+									span.room-description-value 55,6 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+						.slider-2-slide(data-id="005")
+							.slider-2-slide__title Квартира 36,05 м<sub>2</sub>
+							ul.slider-2-slide__room-description
+								li 
+									span.room-description-title Будинок 
+									span.room-description-value 15
+								li 
+									span.room-description-title Поверх
+									span.room-description-value 5
+								li 
+									span.room-description-title Загальна площа
+									span.room-description-value 55,6 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+						.slider-2-slide(data-id="006")
+							.slider-2-slide__title Квартира 36,05 м<sub>2</sub>
+							ul.slider-2-slide__room-description
+								li 
+									span.room-description-title Будинок 
+									span.room-description-value 15
+								li 
+									span.room-description-title Поверх
+									span.room-description-value 5
+								li 
+									span.room-description-title Загальна площа
+									span.room-description-value 55,6 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+						.slider-2-slide(data-id="007")
+							.slider-2-slide__title Квартира 36,05 м<sub>2</sub>
+							ul.slider-2-slide__room-description
+								li 
+									span.room-description-title Будинок 
+									span.room-description-value 15
+								li 
+									span.room-description-title Поверх
+									span.room-description-value 5
+								li 
+									span.room-description-title Загальна площа
+									span.room-description-value 55,6 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+						.slider-2-slide(data-id="008")
+							.slider-2-slide__title Квартира 36,05 м<sub>2</sub>
+							ul.slider-2-slide__room-description
+								li 
+									span.room-description-title Будинок 
+									span.room-description-value 15
+								li 
+									span.room-description-title Поверх
+									span.room-description-value 5
+								li 
+									span.room-description-title Загальна площа
+									span.room-description-value 55,6 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+						.slider-2-slide(data-id="009")
+							.slider-2-slide__title Квартира 36,05 м<sub>2</sub>
+							ul.slider-2-slide__room-description
+								li 
+									span.room-description-title Будинок 
+									span.room-description-value 15
+								li 
+									span.room-description-title Поверх
+									span.room-description-value 5
+								li 
+									span.room-description-title Загальна площа
+									span.room-description-value 55,6 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+						.slider-2-slide(data-id="010")
+							.slider-2-slide__title Квартира 36,05 м<sub>2</sub>
+							ul.slider-2-slide__room-description
+								li 
+									span.room-description-title Будинок 
+									span.room-description-value 15
+								li 
+									span.room-description-title Поверх
+									span.room-description-value 5
+								li 
+									span.room-description-title Загальна площа
+									span.room-description-value 55,6 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+						.slider-2-slide(data-id="011")
+							.slider-2-slide__title Квартира 36,05 м<sub>2</sub>
+							ul.slider-2-slide__room-description
+								li 
+									span.room-description-title Будинок 
+									span.room-description-value 15
+								li 
+									span.room-description-title Поверх
+									span.room-description-value 5
+								li 
+									span.room-description-title Загальна площа
+									span.room-description-value 55,6 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+						.slider-2-slide(data-id="012")
+							.slider-2-slide__title Квартира 36,05 м<sub>2</sub>
+							ul.slider-2-slide__room-description
+								li 
+									span.room-description-title Будинок 
+									span.room-description-value 15
+								li 
+									span.room-description-title Поверх
+									span.room-description-value 5
+								li 
+									span.room-description-title Загальна площа
+									span.room-description-value 55,6 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+						.slider-2-slide(data-id="013")
+							.slider-2-slide__title Квартира 36,05 м<sub>2</sub>
+							ul.slider-2-slide__room-description
+								li 
+									span.room-description-title Будинок 
+									span.room-description-value 15
+								li 
+									span.room-description-title Поверх
+									span.room-description-value 5
+								li 
+									span.room-description-title Загальна площа
+									span.room-description-value 55,6 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+						.slider-2-slide(data-id="014")
+							.slider-2-slide__title Квартира 36,05 м<sub>2</sub>
+							ul.slider-2-slide__room-description
+								li 
+									span.room-description-title Будинок 
+									span.room-description-value 15
+								li 
+									span.room-description-title Поверх
+									span.room-description-value 5
+								li 
+									span.room-description-title Загальна площа
+									span.room-description-value 55,6 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+						.slider-2-slide(data-id="015")
+							.slider-2-slide__title Квартира 36,05 м<sub>2</sub>
+							ul.slider-2-slide__room-description
+								li 
+									span.room-description-title Будинок 
+									span.room-description-value 15
+								li 
+									span.room-description-title Поверх
+									span.room-description-value 5
+								li 
+									span.room-description-title Загальна площа
+									span.room-description-value 55,6 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+						.slider-2-slide(data-id="016")
+							.slider-2-slide__title Квартира 36,05 м<sub>2</sub>
+							ul.slider-2-slide__room-description
+								li 
+									span.room-description-title Будинок 
+									span.room-description-value 15
+								li 
+									span.room-description-title Поверх
+									span.room-description-value 5
+								li 
+									span.room-description-title Загальна площа
+									span.room-description-value 55,6 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+						.slider-2-slide(data-id="017")
+							.slider-2-slide__title Квартира 36,05 м<sub>2</sub>
+							ul.slider-2-slide__room-description
+								li 
+									span.room-description-title Будинок 
+									span.room-description-value 15
+								li 
+									span.room-description-title Поверх
+									span.room-description-value 5
+								li 
+									span.room-description-title Загальна площа
+									span.room-description-value 55,6 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+						.slider-2-slide(data-id="018")
+							.slider-2-slide__title Квартира 36,05 м<sub>2</sub>
+							ul.slider-2-slide__room-description
+								li 
+									span.room-description-title Будинок 
+									span.room-description-value 15
+								li 
+									span.room-description-title Поверх
+									span.room-description-value 5
+								li 
+									span.room-description-title Загальна площа
+									span.room-description-value 55,6 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+						.slider-2-slide(data-id="019")
+							.slider-2-slide__title Квартира 36,05 м<sub>2</sub>
+							ul.slider-2-slide__room-description
+								li 
+									span.room-description-title Будинок 
+									span.room-description-value 15
+								li 
+									span.room-description-title Поверх
+									span.room-description-value 5
+								li 
+									span.room-description-title Загальна площа
+									span.room-description-value 55,6 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+						.slider-2-slide(data-id="020")
+							.slider-2-slide__title Квартира 36,05 м<sub>2</sub>
+							ul.slider-2-slide__room-description
+								li 
+									span.room-description-title Будинок 
+									span.room-description-value 15
+								li 
+									span.room-description-title Поверх
+									span.room-description-value 5
+								li 
+									span.room-description-title Загальна площа
+									span.room-description-value 55,6 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
+								li 
+									span.room-description-title Житлова площа 
+									span.room-description-value 31.2 м<sub>2</sub>
 					.screen9__static-text
 						.screen9__text.text 
 							.screen9__static-text-inner 
@@ -436,6 +1048,7 @@ block content
 										include ../../assets/images/common/arrow-std.svg
 									.arrow-next-std.arrow
 										include ../../assets/images/common/arrow-next-std.svg
+					button(type="button").screen9__mobile-detail-button Переглянути
 		.section.screen10.screen-js( data-menu_theme="white_green" data-section-name="builder" data-active="false" data-menu_title="builder")
 			.bottom-screen-scroll-layout.scroll-layout
 				.screen10__content

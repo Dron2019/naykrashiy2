@@ -2,7 +2,7 @@ const $planBlock = document.querySelector('.screen9 .tabs');
 tabsList = $planBlock.querySelectorAll('.tab');
 linksList = $planBlock.querySelectorAll('ul.tab-links li')
 arrows = document.querySelector('.screen9 .arrow-block-std');
-
+const SCREEN_WIDTH = window.screen.width;
 
 
 
@@ -69,15 +69,20 @@ linksList.forEach(link => {
     });
 });
 
-// arrows.forEach(arrow=>{
-//     arrow.addEventListener('click',function(evt){
-
-//     });
-// })
 /**Слайдер с планировками */
+let slideCorrectionIndex = 0.2;
 $('.screen9__slider-js').on('init', function(event, slick) {
     $('.screen9 .all').html($('.screen9__slide').length);
     $('.screen9 .current').html('01');
+    $('.screen9__slider-js .slick-track')[0].style.position = `relative`;
+    if (SCREEN_WIDTH < 481) {
+        console.log(slick);
+        console.log($('.screen9__slider-js .slick-slide')[0].style.width);
+
+        // $('.screen9__slider-js .slick-track')[0].style.left = - +$('.screen9__slider-js .slick-slide')[0].style.width.replace(/px/, '') * slideCorrectionIndex * 2 - 100 + 'px';
+        console.log($('.screen9__slider-js .slick-track')[0].style.left);
+
+    }
 });
 $('.screen9__slider-js').slick({
     slide: '.screen9__slide',
@@ -94,10 +99,12 @@ $('.screen9__slider-js').slick({
     }, {
         breakpoint: 480,
         settings: {
-            slidesToShow: 1,
+            slidesToShow: 1 + slideCorrectionIndex,
             slidesToScroll: 1,
             fade: false,
-            centerPadding: '10px'
+            centerMode: true,
+            infinite: false,
+            centerPadding: '0px'
         }
     }, ],
 });
@@ -106,7 +113,13 @@ $('.screen9__slider-js').on('beforeChange', (event, slick, currentSlide, nextSli
     // goToSlide(document.querySelector('.screen9__slide[data-slick-index="' + nextSlide + '"]').dataset.id);
     switchTabLink(document.querySelector('.screen9__slide[data-slick-index="' + nextSlide + '"]').dataset.id);
 });
+$('.screen9__slider-2-js').on('init', function(event, slick) {
 
+    if (SCREEN_WIDTH < 481) {
+        /**Выравнивание первого слайда при указывании неровного количества слайдов в слике */
+        // $('.screen9__slider-2-js .slick-track')[0].style.left = - +$('.screen9__slider-2-js .slick-slide')[0].style.width.replace(/px/, '') * slideCorrectionIndex * 2 - 100 + 'px';
+    }
+});
 $('.screen9__slider-2-js').slick({
     slide: '.slider-2-slide',
     // nextArrow: $('.screen9 .arrow-next-std'),
@@ -124,10 +137,12 @@ $('.screen9__slider-2-js').slick({
     }, {
         breakpoint: 480,
         settings: {
-            slidesToShow: 1,
+            slidesToShow: 1 + slideCorrectionIndex,
             slidesToScroll: 1,
             fade: false,
-            centerPadding: '10px'
+            centerMode: true,
+            infinite: false,
+            centerPadding: '0px'
         }
     }, ],
 
